@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>LifeGuard AI Watch · Senaryolar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-gray: #2F2F2F;
+            --light-gray: #D9D9D9;
+            --white: #FFFFFF;
+            --accent-orange: #FF6B1A;
+            --bg-deep: #050505;
+            --risk-low: #16A34A;
+            --risk-mid: #FACC15;
+            --risk-high: #DC2626;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 60%),
+                radial-gradient(circle at bottom right, rgba(255,107,26,0.12), transparent 55%),
+                #050505;
+            color: var(--white);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER / NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(8,8,8,0.96);
+            border-bottom: 1px solid rgba(217,217,217,0.18);
+            backdrop-filter: blur(18px);
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-badge {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            background: radial-gradient(circle at top, #42FF8F, #0F7A37);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 24px;
+            color: #022c22;
+            box-shadow: 0 0 0 4px rgba(66,255,143,0.16);
+        }
+
+        .logo-text-main {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .logo-text-main span:first-child { color: #FFA76B; }
+        .logo-text-main span:last-child { color: var(--white); }
+
+        .logo-text-sub {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #a3a3a3;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 13px;
+        }
+
+        .nav-link {
+            padding: 7px 12px;
+            border-radius: 999px;
+            color: #e5e5e5;
+            cursor: pointer;
+            transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,107,26,0.15);
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            background: var(--accent-orange);
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            border-radius: 999px;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,255,255,0.35);
+            background: #181818;
+            font-size: 12px;
+        }
+
+        .nav-cta:hover { border-color: var(--accent-orange); }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 22px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f5f5f5;
+        }
+
+        .nav-mobile { display: none; }
+
+        @media (max-width: 880px) {
+            nav ul { display: none; }
+            .nav-toggle { display: flex; }
+            .nav-mobile {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #101010;
+                border-bottom: 1px solid #2b2b2b;
+                display: none;
+                flex-direction: column;
+                padding: 10px 20px 14px;
+                gap: 6px;
+                z-index: 999;
+            }
+            .nav-mobile.open { display: flex; }
+            .nav-mobile a {
+                padding: 8px;
+                border-radius: 10px;
+                font-size: 14px;
+                color: #e5e5e5;
+            }
+            .nav-mobile a.active {
+                background: var(--accent-orange);
+                color: #111827;
+            }
+        }
+
+        main { padding-top: 70px; }
+        section { padding: 80px 0; }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+        }
+
+        .section-eyebrow {
+            font-size: 12px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--light-gray);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: clamp(26px, 4vw, 34px);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-title span { color: var(--accent-orange); }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: #d3d3d3;
+            max-width: 640px;
+        }
+
+        /* HERO */
+
+        #scenarios-hero {
+            background: linear-gradient(135deg, #181818, #050505);
+            border-bottom: 1px solid #202020;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: minmax(0, 1fr); }
+        }
+
+        .hero-tags {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 11px;
+        }
+
+        .hero-tag {
+            border-radius: 999px;
+            padding: 5px 10px;
+            background: #151515;
+            border: 1px solid #333;
+        }
+
+        .scenario-highlight {
+            margin-top: 20px;
+            background: #181818;
+            border-radius: 18px;
+            padding: 14px 16px;
+            border: 1px solid #262626;
+            font-size: 13px;
+        }
+
+        .scenario-highlight strong { color: var(--accent-orange); }
+
+        /* SCENARIO SELECTOR */
+
+        .scenario-selector {
+            background: #101010;
+        }
+
+        .scenario-tabs {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .scenario-tab {
+            padding: 7px 12px;
+            border-radius: 999px;
+            border: 1px solid #3b3b3b;
+            background: #151515;
+            cursor: pointer;
+            color: #e5e5e5;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .scenario-tab span {
+            font-size: 10px;
+            opacity: 0.8;
+        }
+
+        .scenario-tab.active {
+            background: var(--accent-orange);
+            border-color: var(--accent-orange);
+            color: #111827;
+        }
+
+        .scenario-panel {
+            margin-top: 20px;
+            background: #181818;
+            border-radius: 22px;
+            padding: 18px 18px 16px;
+            border: 1px solid #262626;
+            min-height: 150px;
+        }
+
+        .scenario-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .scenario-tagline {
+            font-size: 12px;
+            color: #d4d4d4;
+            margin-bottom: 8px;
+        }
+
+        .scenario-steps {
+            margin-top: 6px;
+            font-size: 12px;
+            color: #d0d0d0;
+        }
+
+        .scenario-steps li { margin-bottom: 4px; }
+
+        /* CARD GRID */
+
+        .scenario-grid {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 960px) {
+            .scenario-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 640px) {
+            .scenario-grid { grid-template-columns: minmax(0, 1fr); }
+        }
+
+        .scenario-card {
+            background: #171717;
+            border-radius: 18px;
+            padding: 14px 14px 12px;
+            border: 1px solid #262626;
+        }
+
+        .scenario-card h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .scenario-card small {
+            font-size: 11px;
+            color: #a3a3a3;
+        }
+
+        .scenario-card p {
+            margin-top: 6px;
+            color: #d2d2d2;
+        }
+
+        /* RISK LEVELS */
+
+        #risk-levels {
+            background: #0b0b0b;
+            border-top: 1px solid #202020;
+        }
+
+        .risk-grid {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        @media (max-width: 820px) {
+            .risk-grid { grid-template-columns: minmax(0, 1fr); }
+        }
+
+        .risk-card {
+            border-radius: 18px;
+            padding: 14px 16px 12px;
+            border: 1px solid #262626;
+            background: #151515;
+            font-size: 12px;
+        }
+
+        .risk-pill {
+            display: inline-block;
+            font-size: 11px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            margin-bottom: 6px;
+            color: #020617;
+            font-weight: 600;
+        }
+
+        .risk-low-pill { background: rgba(22,163,74,0.9); }
+        .risk-mid-pill { background: rgba(250,204,21,0.95); }
+        .risk-high-pill { background: rgba(220,38,38,0.95); color: #fee2e2; }
+
+        .risk-card h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .risk-card ul { margin-top: 6px; padding-left: 18px; }
+        .risk-card li { margin-bottom: 3px; color: #d4d4d4; }
+
+        footer {
+            padding: 14px 20px 18px;
+            background: #080808;
+            border-top: 1px solid #1f1f1f;
+            font-size: 11px;
+            color: #a6a6a6;
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav-inner">
+        <div class="logo">
+            <div class="logo-badge">EA</div>
+            <div>
+                <div class="logo-text-main">
+                    <span>LIFEGUARD</span> <span>AI</span>
+                </div>
+                <div class="logo-text-sub">SmartHealth Watch · Sağlık &amp; Güvenlik</div>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a class="nav-link" href="index.html">Saat</a></li>
+                <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
+                <li><a class="nav-link active" href="senaryolar.html">Senaryolar</a></li>
+                <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
+                <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
+            </ul>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+        <a href="index.html">Saat</a>
+        <a href="ne-yapiyor.html">Ne Yapıyor?</a>
+        <a class="active" href="senaryolar.html">Senaryolar</a>
+        <a href="iletisim.html">Ulaş</a>
+    </div>
+</header>
+
+<main>
+    <!-- HERO / GENEL SENARYO -->
+    <section id="scenarios-hero">
+        <div class="container hero-grid">
+            <div>
+                <p class="section-eyebrow">Kullanım Senaryoları</p>
+                <h1 class="section-title">
+                    LifeGuard AI saat, sahada <span>hangi anlarda</span> fark yaratıyor?
+                </h1>
+                <p class="section-subtitle">
+                    Aşağıdaki senaryolar; havuz, su parkı ve tatil köyü gibi ortamlarda
+                    LifeGuard AI SmartHealth Watch kullanıldığında hedeflenen tipik
+                    kullanım örneklerini özetler. Amaç, sensör konuşmak değil,
+                    <strong>risk anında kimin için ne fayda sağlandığını</strong>
+                    netleştirmek.
+                </p>
+
+                <div class="hero-tags">
+                    <span class="hero-tag">Boğulma riski</span>
+                    <span class="hero-tag">Düşme &amp; bayılma</span>
+                    <span class="hero-tag">Güneş çarpması</span>
+                    <span class="hero-tag">Kaybolma &amp; GPS SOS</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="scenario-highlight">
+                    <strong>Örnek:</strong> Çocuk havuzda oynarken bileğindeki saat
+                    hem kalp ritmini hem de hareketini izler. Uzun süre su altında
+                    kalma, ani düşme veya alan dışına çıkma gibi durumlarda saatin
+                    verisi; kameralarla birlikte Lifeguard AI paneline “riskli
+                    durum” olarak işlenir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERAKTİF SENARYO SEÇİCİ -->
+    <section class="scenario-selector">
+        <div class="container">
+            <p class="section-eyebrow">Öne Çıkan 4 Senaryo</p>
+            <h2 class="section-title">
+                Sık görülen durumlar için <span>hazırlanmış akışlar</span>.
+            </h2>
+            <p class="section-subtitle">
+                Aşağıdaki başlıklara tıklayarak, saat + Lifeguard AI ekosisteminin
+                o senaryoda nasıl davrandığını görebilirsin.
+            </p>
+
+            <div class="scenario-tabs" id="scenarioTabs">
+                <button class="scenario-tab active" data-scenario="fall">
+                    💧 Düşme / boğulma şüphesi
+                    <span>Havuz içi</span>
+                </button>
+                <button class="scenario-tab" data-scenario="fever">
+                    🌞 Güneş çarpması / ateş
+                    <span>Açık alan</span>
+                </button>
+                <button class="scenario-tab" data-scenario="gps">
+                    📍 GPS SOS / alan dışı
+                    <span>Kaybolma</span>
+                </button>
+                <button class="scenario-tab" data-scenario="vitals">
+                    ❤ Nabız &amp; oksijen stresi
+                    <span>Yoğun aktivite</span>
+                </button>
+            </div>
+
+            <div class="scenario-panel" id="scenarioPanel">
+                <!-- JS ile içerik değişecek; başlangıçta fall senaryosu -->
+                <h3 class="scenario-title">Havuzda düşme / boğulma şüphesi</h3>
+                <p class="scenario-tagline">
+                    Ani düşüş hareketi + suya girişten sonra uzun süre anormal
+                    hareketsizlik kombinasyonu.
+                </p>
+                <ul class="scenario-steps">
+                    <li>1) Saat, bilekte güçlü bir düşüş hareketi ve sonrasında suya
+                        girişe benzer hareket kalıbını algılar.</li>
+                    <li>2) Kullanıcı birkaç saniye içinde normale dönmez,
+                        üstüne kalp ritmi / oksijen seyri de bozulursa risk skoru
+                        hızla yükselir.</li>
+                    <li>3) Lifeguard AI, havuz kamerasındaki görüntüyle bu bilgiyi
+                        birleştirir ve görevli paneline “şu konumda yüksek öncelikli
+                        kontrol” uyarısı gönderir.</li>
+                </ul>
+            </div>
+
+            <div class="scenario-grid">
+                <article class="scenario-card">
+                    <h3>Çocuk havuzunda kaybolma</h3>
+                    <small>Alan dışı çıkış + GPS SOS</small>
+                    <p>
+                        Çocuk, belirlenmiş güvenli alanın dışına çıktığında saat
+                        bunu tespit eder. Eğer aile veya görevli onayıyla aktifse,
+                        konum bilgisi Lifeguard paneline gönderilir ve “Hangi
+                        kapıdan çıktı?” sorusu hızlıca yanıt bulur.
+                    </p>
+                </article>
+
+                <article class="scenario-card">
+                    <h3>Yaşlı misafir için düşme koruması</h3>
+                    <small>Düşme + uzun hareketsizlik</small>
+                    <p>
+                        Yaşlı kullanıcı yürürken sert bir düşme algılanır ve ardından
+                        dakikalarca hareket yoksa, saat hem kullanıcının bileğinde
+                        uyarı verir hem de tesisteki görevliye bildirim üretir.
+                    </p>
+                </article>
+
+                <article class="scenario-card">
+                    <h3>Yoğun aktivitede kalp stresi</h3>
+                    <small>Nabız + tempo takibi</small>
+                    <p>
+                        Kullanıcı su oyunlarında aşırı efor sarf ederken kalp ritmi
+                        sağlıksız seviyelere çıktığında, saat tempoyu düşürmesi için
+                        kullanıcıyı uyarır. Uzayan stres durumunda görevli bilgilendirilebilir.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- RİSK SEVİYELERİ -->
+    <section id="risk-levels">
+        <div class="container">
+            <p class="section-eyebrow">Risk Seviyesi Mantığı</p>
+            <h2 class="section-title">
+                Tek sensör değil, <span>birden fazla sinyal</span> birleşince alarm.
+            </h2>
+            <p class="section-subtitle">
+                LifeGuard AI, hatalı alarmı azaltmak için tek bir veriye bakmak
+                yerine, birden fazla sinyali aynı anda değerlendirir. Aşağıdaki
+                tabloda örnek bir risk katmanı görülüyor.
+            </p>
+
+            <div class="risk-grid">
+                <article class="risk-card">
+                    <span class="risk-pill risk-low-pill">Düşük risk</span>
+                    <h3>Bilgi amaçlı uyarı</h3>
+                    <ul>
+                        <li>Kalp ritmi kısa süreli normalin biraz üzerinde.</li>
+                        <li>Isı veya hareket verisi sorun göstermiyor.</li>
+                        <li>Kullanıcıya bilekten “temponu azalt” türü hafif uyarılar.</li>
+                    </ul>
+                </article>
+
+                <article class="risk-card">
+                    <span class="risk-pill risk-mid-pill">Orta risk</span>
+                    <h3>Yakından takip önerisi</h3>
+                    <ul>
+                        <li>Nabız + oksijen + ısı trendlerinde sapma var.</li>
+                        <li>Düşme olmayan ama şüpheli hareket paternleri görülüyor.</li>
+                        <li>Panelde görevliye “bu kullanıcıyı gözle” tavsiyesi.</li>
+                    </ul>
+                </article>
+
+                <article class="risk-card">
+                    <span class="risk-pill risk-high-pill">Yüksek risk</span>
+                    <h3>Hızlı aksiyon gereken durum</h3>
+                    <ul>
+                        <li>Düşme + uzun hareketsizlik veya çok anormal hayati
+                            değerler.</li>
+                        <li>Kameradan görülen görüntü ile saat verisi aynı yönü
+                            işaret ediyor.</li>
+                        <li>Cankurtaran ekibine yüksek öncelikli bildirim; konum ve
+                            kullanıcı bilgisiyle birlikte.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div>© 2025 LifeGuard AI · SmartHealth Watch</div>
+        <div>Senaryolar · sahadaki gerçek kullanım örnekleri</div>
+    </div>
+</footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const navMobile = document.getElementById("navMobile");
+
+    navToggle.addEventListener("click", () => {
+        navMobile.classList.toggle("open");
+    });
+
+    // Senaryo tabs
+    const scenarioTabs = document.querySelectorAll(".scenario-tab");
+    const scenarioPanel = document.getElementById("scenarioPanel");
+
+    const scenarios = {
+        fall: {
+            title: "Havuzda düşme / boğulma şüphesi",
+            tagline: "Ani düşüş hareketi + suya girişten sonra uzun süre anormal hareketsizlik kombinasyonu.",
+            steps: [
+                "1) Saat, bilekte güçlü bir düşüş hareketi ve sonrasında suya girişe benzer hareket kalıbını algılar.",
+                "2) Kullanıcı birkaç saniye içinde normale dönmez, üstüne kalp ritmi / oksijen seyri de bozulursa risk skoru hızla yükselir.",
+                "3) Lifeguard AI, havuz kamerasındaki görüntüyle bu bilgiyi birleştirir ve görevli paneline “şu konumda yüksek öncelikli kontrol” uyarısı gönderir."
+            ]
+        },
+        fever: {
+            title: "Güneş çarpması / ateş şüphesi",
+            tagline: "Yükselen vücut ısısı + uzun süre güneş altında kalma + tempo düşüşü.",
+            steps: [
+                "1) Saat, kullanıcının vücut sıcaklığının normalinin üzerine çıktığını ve uzun süredir güneş altında olduğunu tespit eder.",
+                "2) Kalp ritmi de beklenenden yüksek seyrediyorsa, ısı kaynaklı stres olasılığı artar.",
+                "3) Saat kullanıcıya gölgeye geçmesi ve su içmesi için uyarı verir; gerekirse görevli için panelde bilgi kartı açılır."
+            ]
+        },
+        gps: {
+            title: "GPS SOS / güvenli alan dışına çıkış",
+            tagline: "Çocuk veya hassas gruptaki bir misafirin, tanımlanan güvenli çevrenin dışına çıkması.",
+            steps: [
+                "1) Kullanıcının saati, tesis içi güvenli alan poligonunun dışına çıkıldığını algılar.",
+                "2) Eğer aile/görevli izni varsa, konum bilgisi Lifeguard paneline “alan dışı” olarak düşer.",
+                "3) Görevli ekip, harita üzerinden hangi kapı veya koridordan çıktığını görerek hızlıca aksiyon alır."
+            ]
+        },
+        vitals: {
+            title: "Yoğun aktivitede nabız & oksijen stresi",
+            tagline: "Su oyunları veya aktiviteler sırasında uzayan, sağlıksız nabız/oksijen kombinasyonu.",
+            steps: [
+                "1) Saat, kullanıcının aktivite sırasında nabzının uzun süre yüksek kaldığını ve toparlanma süresinin uzadığını izler.",
+                "2) Oksijen doygunluğunda da düşüşler varsa, efor kaynaklı risk artar.",
+                "3) Saat kullanıcıya tempoyu azaltması için uyarı verir; trend düzelmezse görevliye bilgi mesajı üretilebilir."
+            ]
+        }
+    };
+
+    function renderScenario(key) {
+        const data = scenarios[key];
+        if (!data) return;
+
+        scenarioPanel.innerHTML = `
+            <h3 class="scenario-title">${data.title}</h3>
+            <p class="scenario-tagline">${data.tagline}</p>
+            <ul class="scenario-steps">
+                ${data.steps.map(t => `<li>${t}</li>`).join("")}
+            </ul>
+        `;
+    }
+
+    scenarioTabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            scenarioTabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+            const key = tab.getAttribute("data-scenario");
+            renderScenario(key);
+        });
+    });
+
+    // Başlangıç senaryosu
+    renderScenario("fall");
+</script>
+</body>
+</html>
