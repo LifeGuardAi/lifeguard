@@ -1,581 +1,269 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LifeGuard AI SmartHealth Watch</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
-        :root {
-            --primary-gray: #2F2F2F;
-            --light-gray: #D9D9D9;
-            --white: #FFFFFF;
-            --accent-orange: #FF6B1A;
-            --bg-deep: #050505;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background:
-                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 60%),
-                radial-gradient(circle at bottom right, rgba(255,107,26,0.12), transparent 55%),
-                #050505;
-            color: var(--white);
-            line-height: 1.5;
-            overflow-x: hidden;
+            margin: 0;
+            background: #1B1B1B;
+            font-family: Montserrat, sans-serif;
+            color: white;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
+        /* HEADER */
+        header {
+            background: #111;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .container {
-            width: 100%;
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* HEADER / NAVBAR */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 70px;
-            background: rgba(8,8,8,0.96);
-            border-bottom: 1px solid rgba(217,217,217,0.18);
-            backdrop-filter: blur(18px);
-            z-index: 1000;
-        }
-
-        .nav-inner {
-            height: 70px;
+            width: 92%;
+            max-width: 1250px;
+            margin: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
+        /* LOGO ALANI */
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .logo-badge {
-            width: 52px;
-            height: 52px;
-            border-radius: 999px;
-            background: radial-gradient(circle at top, #42FF8F, #0F7A37);
+            width: 58px;
+            height: 58px;
+            background: #0C4B1E;
+            border-radius: 50%;
+            font-size: 26px;
+            font-weight: 700;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-size: 24px;
-            color: #022c22;
-            box-shadow: 0 0 0 4px rgba(66,255,143,0.16);
+            align-items: center;
+        }
+
+        .brand-logo {
+            width: 58px;
+            border-radius: 10px;
         }
 
         .logo-text-main {
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .logo-text-main span:first-child {
-            color: #FFA76B;
+            font-size: 20px;
+            font-weight: 700;
         }
 
         .logo-text-main span:last-child {
-            color: var(--white);
+            color: #FF8A00;
         }
 
         .logo-text-sub {
-            font-size: 10px;
-            text-transform: uppercase;
-            color: #a3a3a3;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            font-size: 13px;
-        }
-
-        .nav-link {
-            padding: 7px 12px;
-            border-radius: 999px;
-            color: #e5e5e5;
-            cursor: pointer;
-            transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
-        }
-
-        .nav-link:hover {
-            background: rgba(255,107,26,0.15);
-            transform: translateY(-1px);
-        }
-
-        .nav-link.active {
-            background: var(--accent-orange);
-            color: #111827;
-            font-weight: 600;
-        }
-
-        .nav-cta {
-            border-radius: 999px;
-            padding: 7px 16px;
-            border: 1px solid rgba(255,255,255,0.35);
-            background: #181818;
             font-size: 12px;
+            opacity: .7;
         }
 
-        .nav-cta:hover {
-            border-color: var(--accent-orange);
+        /* NAVBAR */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
         }
 
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
+        nav a {
+            text-decoration: none;
+            color: #ddd;
+            font-size: 15px;
+            transition: .3s;
         }
 
-        .nav-toggle span {
-            width: 22px;
-            height: 2px;
-            border-radius: 999px;
-            background: #f5f5f5;
-        }
-
-        .nav-mobile {
-            display: none;
-        }
-
-        @media (max-width: 880px) {
-            nav ul {
-                display: none;
-            }
-            .nav-toggle {
-                display: flex;
-            }
-            .nav-mobile {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: #101010;
-                border-bottom: 1px solid #2b2b2b;
-                display: none;
-                flex-direction: column;
-                padding: 10px 20px 14px;
-                gap: 6px;
-                z-index: 999;
-            }
-            .nav-mobile.open {
-                display: flex;
-            }
-            .nav-mobile a {
-                padding: 8px;
-                border-radius: 10px;
-                font-size: 14px;
-                color: #e5e5e5;
-            }
-            .nav-mobile a.active {
-                background: var(--accent-orange);
-                color: #111827;
-            }
+        nav a:hover, nav .active {
+            color: #FF8A00;
         }
 
         /* HERO */
-
-        main {
-            padding-top: 70px;
-        }
-
-        #hero {
-            padding: 90px 0 100px;
-            background:
-                linear-gradient(135deg, #151515, #050505);
-        }
-
-        .hero-inner {
-            display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: center;
-        }
-
-        @media (max-width: 900px) {
-            #hero {
-                padding-top: 80px;
-            }
-            .hero-inner {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        .hero-kicker {
-            font-size: 12px;
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
-            color: var(--light-gray);
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .hero-title {
-            font-size: clamp(30px, 4.4vw, 42px);
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .hero-title span {
-            color: var(--accent-orange);
-        }
-
-        .hero-subtitle {
-            font-size: 16px;
-            color: #e1e1e1;
-            max-width: 560px;
-            margin-bottom: 22px;
-        }
-
-        .hero-pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .hero-pill {
-            font-size: 11px;
-            padding: 5px 10px;
-            border-radius: 999px;
-            background: #1f1f1f;
-            color: #f5f5f5;
-            border: 1px solid #333;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .btn {
-            border-radius: 999px;
-            padding: 10px 18px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid transparent;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.18s ease, border-color 0.18s ease;
-        }
-
-        .btn-primary {
-            background: var(--accent-orange);
-            color: #111827;
-            box-shadow: 0 16px 30px rgba(0,0,0,0.45);
-        }
-
-        .btn-primary:hover {
-            background: #ff7e37;
-            transform: translateY(-1px);
-            box-shadow: 0 20px 36px rgba(0,0,0,0.6);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: #f8f8f8;
-            border-color: #444;
-        }
-
-        .btn-ghost:hover {
-            background: #1c1c1c;
-        }
-
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 22px;
-            font-size: 12px;
-            color: #d9d9d9;
-        }
-
-        .hero-meta-item {
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: #151515;
-            border: 1px solid #2b2b2b;
-        }
-
-        /* WATCH CARD */
-
-        .hero-right {
-            display: flex;
-            justify-content: center;
-        }
-
-        .watch-card {
-            width: 100%;
-            max-width: 340px;
-            border-radius: 28px;
-            padding: 18px 18px 16px;
-            background:
-                radial-gradient(circle at top, #2a2a2a, #050505);
-            border: 1px solid rgba(217,217,217,0.25);
-            box-shadow: 0 34px 60px rgba(0,0,0,0.9);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .watch-card::before {
-            content: "";
-            position: absolute;
-            inset: -40%;
-            background:
-                radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 60%),
-                radial-gradient(circle at bottom, rgba(255,107,26,0.2), transparent 60%);
-            opacity: 0.9;
-            pointer-events: none;
-        }
-
-        .watch-inner {
-            position: relative;
-            z-index: 1;
-        }
-
-        .watch-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 14px;
-            font-size: 11px;
-            color: #d1d5db;
-        }
-
-        .watch-tag {
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: #151515;
-            border: 1px solid #3b3b3b;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-        }
-
-        .watch-img-wrap {
-            border-radius: 999px;
-            padding: 16px;
-            background: radial-gradient(circle at top, #151515, #050505);
-            border: 1px solid rgba(209,213,219,0.6);
-            margin-bottom: 12px;
-        }
-
-        .watch-img-wrap img {
-            border-radius: 18px;
-            border: 1px dashed rgba(217,217,217,0.5);
-        }
-
-        .watch-placeholder-label {
+        .hero {
+            padding: 80px 0;
             text-align: center;
-            font-size: 11px;
-            color: #b3b3b3;
-            margin-top: 6px;
         }
 
-        .watch-spec-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-top: 12px;
-            font-size: 11px;
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        .watch-spec-label {
-            color: #b3b3b3;
+        .hero img {
+            width: 260px;
+            margin-top: 20px;
+            border-radius: 20px;
+            border: 1px dashed #777;
         }
 
-        .watch-spec-value {
+        /* SECTIONS */
+        .section {
+            margin: 70px auto;
+            width: 92%;
+            max-width: 1100px;
+            background: #222;
+            padding: 35px;
+            border-radius: 16px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            margin-bottom: 18px;
+            color: #FF8A00;
+        }
+
+        /* GRİD */
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .item {
+            padding: 18px;
+            background: #2E2E2E;
+            border-radius: 12px;
+        }
+
+        /* İLETİŞİM FORMU */
+        .contact-box {
+            background: #2E2E2E;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: #1b1b1b;
+            border: 1px solid #555;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 28px;
+            border: none;
+            background: #FF8A00;
+            color: black;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
             font-weight: 600;
         }
 
-        /* FOOTER */
+        button:hover {
+            background: #ff9f32;
+        }
 
         footer {
-            padding: 14px 20px 18px;
-            background: #080808;
-            border-top: 1px solid #1f1f1f;
-            font-size: 11px;
-            color: #a6a6a6;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            opacity: 0.5;
         }
 
-        .footer-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            nav ul { gap: 15px; }
         }
     </style>
 </head>
+
 <body>
+
 <header>
-    <div class="container nav-inner">
+    <div class="container">
         <div class="logo">
             <div class="logo-badge">EA</div>
+
+            <img src="logo-lifeguard-ai.png.jpg" class="brand-logo" alt="LifeGuard AI logo">
+
             <div>
-                <div class="logo-text-main">
-                    <span>LIFEGUARD</span> <span>AI</span>
-                </div>
-                <div class="logo-text-sub">SmartHealth Watch · Sağlık &amp; Güvenlik</div>
+                <div class="logo-text-main"><span>LIFEGUARD</span> <span>AI</span></div>
+                <div class="logo-text-sub">SmartHealth Watch ─ Sağlık & Güvenlik</div>
             </div>
         </div>
 
         <nav>
             <ul>
-                <li><a class="nav-link active" href="index.html">Saat</a></li>
-                <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
-                <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
-                <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
-                <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
+                <li><a class="active" href="#">Saat</a></li>
+                <li><a href="#ozellik">Ne Yapıyor?</a></li>
+                <li><a href="#iletisim">Ulaş</a></li>
             </ul>
         </nav>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-
-    <div class="nav-mobile" id="navMobile">
-        <a class="active" href="index.html">Saat</a>
-        <a href="ne-yapiyor.html">Ne Yapıyor?</a>
-        <a href="senaryolar.html">Senaryolar</a>
-        <a href="iletisim.html">Ulaş</a>
     </div>
 </header>
 
-<main>
-    <section id="hero">
-        <div class="container hero-inner">
-            <div>
-                <p class="hero-kicker">LIFEGUARD AI · AKILLI SAĞLIK SAATİ</p>
-                <h1 class="hero-title">
-                    LifeGuard AI <span>SmartHealth Watch</span><br />
-                    sahada gerçek zamanlı sağlık &amp; güvenlik asistanı.
-                </h1>
-                <p class="hero-subtitle">
-                    Boğulma, düşme, ani rahatsızlık ve kaybolma risklerini; bilekte
-                    taşınan akıllı saat üzerinden takip eden, Lifeguard AI sistemiyle
-                    entegre çalışan giyilebilir platform. Odak: erken uyarı ve
-                    cankurtaran ekibini güçlendirmek.
-                </p>
+<!-- HERO -->
+<div class="hero">
+    <h1>LifeGuard AI SmartHealth Watch</h1>
+    <p>Modern sağlık & güvenlik için akıllı bileklik konsepti.</p>
 
-                <div class="hero-pill-row">
-                    <span class="hero-pill">Gerçek zamanlı sağlık sinyali takibi</span>
-                    <span class="hero-pill">Düşme &amp; hareketsizlik algılama</span>
-                    <span class="hero-pill">Konum destekli SOS modu</span>
-                </div>
+    <img src="watch.png" alt="Prototype Watch Placeholder">
+</div>
 
-                <div class="hero-actions">
-                    <button class="btn btn-primary" type="button">
-                        Prototip sürecini incele
-                    </button>
-                    <button class="btn btn-ghost" type="button">
-                        Diğer sayfalar yakında
-                    </button>
-                </div>
+<!-- NE YAPIYOR -->
+<div class="section" id="ozellik">
+    <h2>🟧 NE YAPIYOR?</h2>
 
-                <div class="hero-meta">
-                    <div class="hero-meta-item">40 mm kasada kompakt tasarım</div>
-                    <div class="hero-meta-item">Kablosuz güncelleme (OTA) hedefi</div>
-                    <div class="hero-meta-item">IP67 suya dayanıklılık hedefi</div>
-                </div>
-            </div>
+    <div class="grid grid-2">
+        <div class="item">• Ani düşmeleri tespit eder</div>
+        <div class="item">• Ateş yükselişini erken uyarır</div>
+        <div class="item">• GPS konum SOS sinyali verir</div>
+        <div class="item">• Nabız & durum analizleri sunar</div>
+    </div>
+</div>
 
-            <div class="hero-right">
-                <div class="watch-card">
-                    <div class="watch-inner">
-                        <div class="watch-header">
-                            <span class="watch-tag">Akıllı Sağlık Saati</span>
-                            <span>Proto · konsept</span>
-                        </div>
+<!-- SENARYOLAR -->
+<div class="section">
+    <h2>🟧 Gerçek Senaryolar</h2>
+    <div class="grid grid-2">
+        <div class="item">🏥 Yaşlı bakımında düşme algılama</div>
+        <div class="item">🌡 Ateş yükselişini aileye bildirme</div>
+        <div class="item">🚨 GPS üzerinden SOS yollama</div>
+        <div class="item">❤️ Spor aktivitelerinde nabız takibi</div>
+    </div>
+</div>
 
-                        <div class="watch-img-wrap">
-                            <!-- Saat görseli: repoya watch.png yüklersen bu placeholder otomatik değişir -->
-                            <img src="watch.png" alt="LifeGuard AI SmartHealth Watch placeholder" />
-                            <p class="watch-placeholder-label">
-                                Saat görselinizi <strong>watch.png</strong> olarak yüklediğinizde burada görünecek.
-                            </p>
-                        </div>
+<!-- İLETİŞİM -->
+<div class="section" id="iletisim">
+    <h2>🟧 ULAŞ / İLETİŞİM</h2>
 
-                        <div class="watch-spec-row">
-                            <div>
-                                <div class="watch-spec-label">Ekran</div>
-                                <div class="watch-spec-value">Renkli, yüksek çözünürlüklü arayüz</div>
-                            </div>
-                            <div>
-                                <div class="watch-spec-label">Gövde</div>
-                                <div class="watch-spec-value">40 mm, günlük kullanıma uygun kasa</div>
-                            </div>
-                        </div>
+    <div class="contact-box">
+        <form action="mailto:lifeguardyigitcanacar018@gmail.com" method="POST">
+            <label>Ad Soyad</label>
+            <input type="text" required>
 
-                        <div class="watch-spec-row">
-                            <div>
-                                <div class="watch-spec-label">Pil</div>
-                                <div class="watch-spec-value">Gün boyu kullanım için optimize</div>
-                            </div>
-                            <div>
-                                <div class="watch-spec-label">Şarj</div>
-                                <div class="watch-spec-value">Manyetik, kolay tak-çıkar yapı</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
+            <label>E-posta</label>
+            <input type="email" required>
+
+            <label>Mesajınız</label>
+            <textarea rows="5" required></textarea>
+
+            <button type="submit">Gönder</button>
+        </form>
+    </div>
+</div>
 
 <footer>
-    <div class="footer-inner">
-        <div>© 2025 LifeGuard AI · SmartHealth Watch</div>
-        <div>Gri · Beyaz · Turuncu tema · EA tasarım</div>
-    </div>
+    © 2025 LifeGuard AI Project — Tüm hakları saklıdır.
 </footer>
 
-<script>
-    // Sadece mobil menü için basit toggle
-    const navToggle = document.getElementById("navToggle");
-    const navMobile = document.getElementById("navMobile");
-
-    navToggle.addEventListener("click", () => {
-        navMobile.classList.toggle("open");
-    });
-</script>
 </body>
 </html>
