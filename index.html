@@ -10,13 +10,12 @@
 
     <style>
         :root {
-            --hero-green: #0C4B1E;
-            --primary-gray: #2F2F2F;
-            --light-gray: #D9D9D9;
-            --white: #FFFFFF;
+            --primary-gray: #2F2F2F;   /* Graphite Gray */
+            --light-gray: #D9D9D9;     /* Silver Mist */
+            --white: #FFFFFF;          /* Pure White */
             --accent-orange: #FF6B1A;
             --accent-orange-soft: #FFA76B;
-            --bg-body: #050608;
+            --bg-deep: #101010;
         }
 
         * {
@@ -27,15 +26,18 @@
 
         body {
             font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #111827 0, #050608 40%, #050608 100%);
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 60%),
+                radial-gradient(circle at bottom right, rgba(255, 107, 26, 0.12), transparent 55%),
+                #050505;
             color: var(--white);
             line-height: 1.5;
             overflow-x: hidden;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         img {
@@ -43,12 +45,11 @@
             display: block;
         }
 
-        /* Layout Helpers */
         .container {
             width: 100%;
             max-width: 1180px;
-            padding: 0 20px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         section {
@@ -79,8 +80,8 @@
 
         .section-subtitle {
             font-size: 15px;
-            color: #C5C5C5;
-            max-width: 620px;
+            color: #c4c4c4;
+            max-width: 640px;
         }
 
         .highlight {
@@ -90,19 +91,18 @@
         /* NAVBAR */
         header {
             position: fixed;
+            z-index: 1000;
             top: 0;
             left: 0;
             right: 0;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(4, 7, 9, 0.96);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(156, 163, 175, 0.25);
+            height: 70px;
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(217, 217, 217, 0.18);
         }
 
         .nav-inner {
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -111,25 +111,25 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-badge {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: radial-gradient(circle at top, #4ADE80, #16A34A);
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            background: radial-gradient(circle at top, #42FF8F, #0F7A37);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 16px;
-            color: #022C22;
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+            font-weight: 900;
+            font-size: 22px;
+            color: #022c22;
+            box-shadow: 0 0 0 4px rgba(66, 255, 143, 0.16);
         }
 
         .logo-text-main {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 800;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -138,6 +138,7 @@
         .logo-text-main span:first-child {
             color: var(--accent-orange-soft);
         }
+
         .logo-text-main span:last-child {
             color: var(--white);
         }
@@ -145,27 +146,27 @@
         .logo-text-sub {
             font-size: 10px;
             text-transform: uppercase;
-            color: #9CA3AF;
+            color: #a3a3a3;
         }
 
         nav ul {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 20px;
             list-style: none;
             font-size: 13px;
         }
 
         .nav-link {
-            padding: 6px 10px;
+            padding: 7px 12px;
             border-radius: 999px;
             cursor: pointer;
-            color: #E5E7EB;
+            color: #e5e5e5;
             transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
         }
 
         .nav-link:hover {
-            background: rgba(249, 115, 22, 0.1);
+            background: rgba(255, 107, 26, 0.12);
             transform: translateY(-1px);
         }
 
@@ -178,13 +179,13 @@
         .nav-cta {
             border-radius: 999px;
             padding: 7px 16px;
-            border: 1px solid rgba(249, 115, 22, 0.7);
-            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: #181818;
             font-size: 12px;
         }
 
         .nav-cta:hover {
-            background: rgba(249, 115, 22, 0.1);
+            border-color: var(--accent-orange);
         }
 
         .nav-toggle {
@@ -195,13 +196,13 @@
         }
 
         .nav-toggle span {
-            width: 20px;
+            width: 22px;
             height: 2px;
             border-radius: 999px;
-            background: #E5E7EB;
+            background: #f5f5f5;
         }
 
-        @media (max-width: 860px) {
+        @media (max-width: 880px) {
             nav ul {
                 display: none;
             }
@@ -212,15 +213,15 @@
 
         .nav-mobile {
             position: fixed;
-            top: 64px;
+            top: 70px;
             left: 0;
             right: 0;
-            background: #020617;
-            border-bottom: 1px solid #111827;
+            background: #111;
+            border-bottom: 1px solid #2b2b2b;
             display: none;
             flex-direction: column;
-            gap: 4px;
             padding: 10px 20px 14px;
+            gap: 6px;
             z-index: 999;
         }
 
@@ -229,10 +230,10 @@
         }
 
         .nav-mobile a {
-            padding: 9px 6px;
+            padding: 8px;
             border-radius: 10px;
             font-size: 14px;
-            color: #E5E7EB;
+            color: #e5e5e5;
         }
 
         .nav-mobile a.active {
@@ -242,18 +243,17 @@
 
         /* HERO */
         #hero {
-            padding-top: calc(80px + 64px);
-            padding-bottom: 80px;
-            background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.25), transparent 45%),
-                        radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.25), transparent 50%),
-                        var(--hero-green);
+            padding-top: calc(80px + 70px);
+            padding-bottom: 90px;
+            background:
+                linear-gradient(135deg, #1b1b1b, #101010);
         }
 
         .hero-inner {
             display: grid;
-            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-            align-items: center;
+            grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
             gap: 40px;
+            align-items: center;
         }
 
         @media (max-width: 900px) {
@@ -264,17 +264,16 @@
 
         .hero-kicker {
             font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.24em;
             text-transform: uppercase;
             color: var(--light-gray);
             margin-bottom: 16px;
+            font-weight: 600;
         }
 
         .hero-title {
-            font-size: clamp(30px, 4.6vw, 42px);
+            font-size: clamp(30px, 4.5vw, 42px);
             font-weight: 800;
-            color: var(--white);
             margin-bottom: 12px;
         }
 
@@ -284,32 +283,32 @@
 
         .hero-subtitle {
             font-size: 16px;
-            color: rgba(249, 250, 251, 0.9);
-            max-width: 520px;
-            margin-bottom: 20px;
+            color: #e1e1e1;
+            max-width: 560px;
+            margin-bottom: 22px;
         }
 
         .hero-pill-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .hero-pill {
             font-size: 11px;
             padding: 5px 10px;
             border-radius: 999px;
-            background: rgba(15, 23, 42, 0.8);
-            color: #E5E7EB;
-            border: 1px solid rgba(156, 163, 175, 0.5);
+            background: #1f1f1f;
+            color: #f1f1f1;
+            border: 1px solid #3b3b3b;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 12px;
+            gap: 14px;
+            margin-top: 10px;
         }
 
         .btn {
@@ -328,39 +327,39 @@
         .btn-primary {
             background: var(--accent-orange);
             color: #111827;
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
         }
 
         .btn-primary:hover {
-            background: #FF7C34;
+            background: #ff7e37;
             transform: translateY(-1px);
-            box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 20px 36px rgba(0, 0, 0, 0.6);
         }
 
         .btn-ghost {
             background: transparent;
-            color: #F9FAFB;
-            border-color: rgba(249, 250, 251, 0.35);
+            color: #f8f8f8;
+            border-color: #444;
         }
 
         .btn-ghost:hover {
-            background: rgba(15, 23, 42, 0.4);
+            background: #1c1c1c;
         }
 
         .hero-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 14px;
             margin-top: 22px;
             font-size: 12px;
-            color: rgba(17, 24, 39, 0.9);
+            color: #d9d9d9;
         }
 
         .hero-meta-item {
             padding: 6px 10px;
             border-radius: 999px;
-            background: rgba(243, 244, 246, 0.85);
-            font-weight: 500;
+            background: #151515;
+            border: 1px solid #2b2b2b;
         }
 
         .hero-right {
@@ -370,23 +369,25 @@
 
         .watch-card {
             width: 100%;
-            max-width: 320px;
-            padding: 18px 18px 16px;
+            max-width: 340px;
             border-radius: 28px;
-            background: radial-gradient(circle at top, #1F2937, #020617);
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            box-shadow: 0 32px 60px rgba(15, 23, 42, 0.85);
+            padding: 18px 18px 16px;
+            background:
+                radial-gradient(circle at top, #2a2a2a, #050505);
+            border: 1px solid rgba(217, 217, 217, 0.25);
+            box-shadow: 0 34px 60px rgba(0, 0, 0, 0.9);
             position: relative;
             overflow: hidden;
         }
 
-        .watch-glow {
+        .watch-card::before {
+            content: "";
             position: absolute;
             inset: -40%;
             background:
-                radial-gradient(circle at top, rgba(74, 222, 128, 0.26), transparent 60%),
-                radial-gradient(circle at bottom, rgba(249, 115, 22, 0.23), transparent 60%);
-            opacity: 0.9;
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 60%),
+                radial-gradient(circle at bottom, rgba(255, 107, 26, 0.2), transparent 60%);
+            opacity: 0.85;
             pointer-events: none;
         }
 
@@ -397,42 +398,40 @@
 
         .watch-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            justify-content: space-between;
+            margin-bottom: 14px;
             font-size: 11px;
-            color: #9CA3AF;
+            color: #d1d5db;
         }
 
         .watch-tag {
             padding: 4px 9px;
             border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: #151515;
+            border: 1px solid #3b3b3b;
             font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.13em;
+            letter-spacing: 0.14em;
         }
 
         .watch-img-wrap {
             border-radius: 999px;
             padding: 16px;
-            background: radial-gradient(circle at top, #111827, #020617);
-            border: 1px solid rgba(148, 163, 184, 0.8);
-            overflow: hidden;
+            background: radial-gradient(circle at top, #151515, #050505);
+            border: 1px solid rgba(209, 213, 219, 0.6);
             margin-bottom: 12px;
         }
 
         .watch-img-wrap img {
-            width: 100%;
             border-radius: 18px;
-            border: 1px dashed rgba(148, 163, 184, 0.6);
+            border: 1px dashed rgba(217, 217, 217, 0.5);
         }
 
         .watch-placeholder-label {
             text-align: center;
             font-size: 11px;
-            color: #9CA3AF;
+            color: #b3b3b3;
             margin-top: 6px;
         }
 
@@ -445,371 +444,383 @@
         }
 
         .watch-spec-label {
-            color: #9CA3AF;
+            color: #b3b3b3;
         }
 
         .watch-spec-value {
             font-weight: 600;
-            color: #F9FAFB;
         }
 
-        /* FEATURES */
+        /* FEATURES – WHAT THE WATCH DOES (NO CHIP NAMES) */
         #features {
-            background: radial-gradient(circle at top, rgba(249, 115, 22, 0.1), transparent 55%),
-                        #050608;
+            background: #101010;
+            border-top: 1px solid #202020;
+            border-bottom: 1px solid #202020;
         }
 
         .features-grid {
-            margin-top: 30px;
+            margin-top: 26px;
             display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
         }
 
         @media (max-width: 960px) {
             .features-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
         @media (max-width: 640px) {
             .features-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
         .feature-card {
-            background: rgba(17, 24, 39, 0.9);
-            border-radius: 18px;
-            padding: 14px 14px 12px;
-            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: #181818;
+            border-radius: 20px;
+            padding: 16px 16px 14px;
+            border: 1px solid #2c2c2c;
+            position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             gap: 8px;
-            align-items: flex-start;
-            min-height: 120px;
-            position: relative;
-            overflow: hidden;
+            min-height: 130px;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(255, 107, 26, 0.16), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-icon {
             width: 32px;
             height: 32px;
             border-radius: 999px;
+            background: rgba(255, 107, 26, 0.12);
+            border: 1px solid rgba(255, 107, 26, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(249, 115, 22, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.6);
             font-size: 18px;
         }
 
         .feature-title {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
         }
 
         .feature-desc {
-            font-size: 11px;
-            color: #9CA3AF;
-        }
-
-        .feature-glow {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.2), transparent 60%);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .feature-card:hover .feature-glow {
-            opacity: 1;
-        }
-
-        /* SPECS */
-        #specs {
-            background: #050608;
-        }
-
-        .specs-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 960px) {
-            .specs-layout {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        .specs-table-wrap {
-            overflow-x: auto;
-            border-radius: 18px;
-            border: 1px solid rgba(156, 163, 175, 0.5);
-            background: rgba(15, 23, 42, 0.9);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 420px;
-        }
-
-        th, td {
-            padding: 10px 14px;
-            font-size: 13px;
-            text-align: left;
-            border-bottom: 1px solid rgba(55, 65, 81, 0.8);
-        }
-
-        th {
-            background: rgba(15, 23, 42, 0.96);
-            font-weight: 600;
-            color: #E5E7EB;
-        }
-
-        tbody tr:nth-child(2n) td {
-            background: rgba(15, 23, 42, 0.75);
-        }
-
-        .spec-label {
-            width: 140px;
-            font-weight: 600;
-            color: #E5E7EB;
-        }
-
-        .specs-note {
             font-size: 12px;
-            color: #9CA3AF;
-            margin-top: 12px;
+            color: #d0d0d0;
         }
 
-        .specs-summary-card {
-            background: rgba(15, 23, 42, 0.95);
-            border-radius: 20px;
-            border: 1px solid rgba(156, 163, 175, 0.55);
-            padding: 18px 18px 16px;
-            font-size: 13px;
-        }
-
-        .specs-summary-card h4 {
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-
-        .specs-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .chip {
-            font-size: 11px;
-            padding: 5px 9px;
-            border-radius: 999px;
-            background: rgba(31, 41, 55, 0.9);
-            border: 1px solid rgba(148, 163, 184, 0.5);
-        }
-
-        /* USE CASES */
+        /* USE CASE SLIDER */
         #usecases {
-            background: radial-gradient(circle at top, rgba(34, 197, 94, 0.18), transparent 55%),
-                        #050608;
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.03), transparent 60%),
+                #0b0b0b;
         }
 
-        .usecases-grid {
-            margin-top: 26px;
+        .usecases-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .slider-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #c7c7c7;
+        }
+
+        .arrow-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            border: 1px solid #3b3b3b;
+            background: #151515;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 1;
+            transition: background 0.16s ease, transform 0.12s ease;
+        }
+
+        .arrow-btn:hover {
+            background: #222;
+            transform: translateY(-1px);
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #444;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            width: 20px;
+            background: var(--accent-orange);
+        }
+
+        .usecase-slider {
+            overflow: hidden;
+            border-radius: 22px;
+            border: 1px solid #2b2b2b;
+            background: #141414;
+        }
+
+        .usecase-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .usecase-slide {
+            min-width: 100%;
+            padding: 20px;
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 24px;
+            align-items: center;
         }
 
-        @media (max-width: 960px) {
-            .usecases-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-            .usecases-grid {
+        @media (max-width: 800px) {
+            .usecase-slide {
                 grid-template-columns: minmax(0, 1fr);
             }
-        }
-
-        .usecase-card {
-            border-radius: 20px;
-            padding: 16px 16px 14px;
-            background: rgba(17, 24, 39, 0.95);
-            border: 1px solid rgba(156, 163, 175, 0.4);
-            position: relative;
-            overflow: hidden;
-            min-height: 130px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
         }
 
         .usecase-label {
             font-size: 11px;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: #9CA3AF;
+            color: #b3b3b3;
+            margin-bottom: 6px;
         }
 
         .usecase-title {
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         .usecase-desc {
+            font-size: 13px;
+            color: #dddddd;
+            margin-bottom: 12px;
+        }
+
+        .usecase-list {
+            list-style: none;
             font-size: 12px;
-            color: #D1D5DB;
+            color: #c7c7c7;
+        }
+
+        .usecase-list li {
+            margin-bottom: 6px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .usecase-list li::before {
+            content: "•";
+            color: var(--accent-orange);
+            font-weight: 900;
+        }
+
+        .usecase-tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
         }
 
         .usecase-tag {
-            margin-top: 6px;
             font-size: 11px;
             padding: 4px 8px;
             border-radius: 999px;
-            background: rgba(249, 115, 22, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.6);
-            color: var(--accent-orange-soft);
-            align-self: flex-start;
+            background: #181818;
+            border: 1px solid #333;
         }
 
-        .usecase-glow {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top left, rgba(249, 115, 22, 0.18), transparent 55%),
-                radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.22), transparent 55%);
-            opacity: 0;
-            transition: opacity 0.25s ease;
-            pointer-events: none;
+        .usecase-side-card {
+            background: #181818;
+            border-radius: 18px;
+            padding: 14px;
+            border: 1px solid #2d2d2d;
+            font-size: 12px;
+            color: #d4d4d4;
         }
 
-        .usecase-card.active .usecase-glow {
-            opacity: 1;
+        .usecase-side-card h4 {
+            font-size: 13px;
+            margin-bottom: 6px;
         }
 
-        /* ROADMAP */
-        #roadmap {
-            background: #050608;
-            padding-bottom: 90px;
+        /* CONTACT */
+        #contact {
+            background: #101010;
+            border-top: 1px solid #202020;
         }
 
-        .roadmap-wrapper {
-            margin-top: 28px;
-            background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.18), transparent 60%),
-                        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.16), transparent 60%),
-                        #020617;
-            border-radius: 24px;
-            border: 1px solid rgba(148, 163, 184, 0.6);
-            padding: 22px 22px 18px;
-        }
-
-        .roadmap-timeline {
+        .contact-layout {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 24px;
-            position: relative;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 40px;
+            margin-top: 26px;
         }
 
-        @media (max-width: 768px) {
-            .roadmap-timeline {
+        @media (max-width: 900px) {
+            .contact-layout {
                 grid-template-columns: minmax(0, 1fr);
             }
         }
 
-        .roadmap-connector {
-            position: absolute;
-            top: 26px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(249, 115, 22, 0.2), rgba(34, 197, 94, 0.6), rgba(249, 115, 22, 0.2));
-            opacity: 0.6;
+        .contact-card {
+            background: #181818;
+            border-radius: 22px;
+            border: 1px solid #2b2b2b;
+            padding: 18px 18px 16px;
         }
 
-        @media (max-width: 768px) {
-            .roadmap-connector {
-                display: none;
+        .contact-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            font-size: 13px;
+            color: #d3d3d3;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px 16px;
+            margin-top: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .contact-form {
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
-        .roadmap-step {
-            position: relative;
-            padding-top: 10px;
-        }
-
-        .roadmap-badge {
-            width: 24px;
-            height: 24px;
-            border-radius: 999px;
-            background: #020617;
-            border: 2px solid rgba(249, 115, 22, 0.8);
+        .form-group {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent-orange-soft);
-            margin-bottom: 8px;
-            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.13);
+            flex-direction: column;
+            gap: 4px;
         }
 
-        .roadmap-title {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .roadmap-desc {
+        .form-group label {
             font-size: 12px;
-            color: #D1D5DB;
-            margin-bottom: 6px;
+            color: #f0f0f0;
         }
 
-        .roadmap-tag {
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.95);
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            display: inline-block;
-            margin-top: 2px;
+        .form-group input,
+        .form-group textarea {
+            font-family: inherit;
+            font-size: 13px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid #3a3a3a;
+            background: #101010;
+            color: var(--white);
+            outline: none;
         }
 
-        .roadmap-footer {
-            margin-top: 16px;
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .contact-note {
             font-size: 11px;
-            color: #9CA3AF;
+            color: #b3b3b3;
+            margin-top: 8px;
+        }
+
+        .contact-info-card {
+            background: #181818;
+            border-radius: 22px;
+            border: 1px solid #2b2b2b;
+            padding: 18px 18px 16px;
+            font-size: 13px;
+            color: #d3d3d3;
+        }
+
+        .contact-info-card h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info-card a {
+            color: #f5f5f5;
+        }
+
+        .contact-info-card a:hover {
+            color: var(--accent-orange-soft);
+        }
+
+        .contact-info-card ul {
+            list-style: none;
+            margin-top: 6px;
+        }
+
+        .contact-info-card li + li {
+            margin-top: 4px;
         }
 
         /* FOOTER */
         footer {
-            border-top: 1px solid #111827;
             padding: 14px 20px 18px;
-            background: #020617;
+            background: #080808;
+            border-top: 1px solid #1f1f1f;
             font-size: 11px;
-            color: #9CA3AF;
+            color: #a6a6a6;
         }
 
-        footer .footer-inner {
+        .footer-inner {
             max-width: 1180px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             gap: 12px;
             flex-wrap: wrap;
         }
 
         footer a {
-            color: #E5E7EB;
+            color: #f5f5f5;
         }
 
         footer a:hover {
@@ -838,18 +849,17 @@
                 <div class="logo-text-main">
                     <span>LIFEGUARD</span> <span>AI</span>
                 </div>
-                <div class="logo-text-sub">SmartHealth Watch · IP67 hedef</div>
+                <div class="logo-text-sub">SmartHealth Watch · Sağlık &amp; Güvenlik</div>
             </div>
         </div>
 
         <nav>
             <ul>
                 <li><a class="nav-link active" href="#hero">Saat</a></li>
-                <li><a class="nav-link" href="#features">Sensörler</a></li>
-                <li><a class="nav-link" href="#specs">Teknik Bilgiler</a></li>
-                <li><a class="nav-link" href="#usecases">Kullanım Senaryoları</a></li>
-                <li><a class="nav-link" href="#roadmap">Roadmap</a></li>
-                <li><span class="nav-cta">Akıllı Sağlık &amp; Güvenlik</span></li>
+                <li><a class="nav-link" href="#features">Ne Yapıyor?</a></li>
+                <li><a class="nav-link" href="#usecases">Senaryolar</a></li>
+                <li><a class="nav-link" href="#contact">Ulaş</a></li>
+                <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
             </ul>
         </nav>
 
@@ -860,10 +870,9 @@
 
     <div class="nav-mobile" id="navMobile">
         <a class="active" href="#hero">Saat</a>
-        <a href="#features">Sensörler</a>
-        <a href="#specs">Teknik Bilgiler</a>
-        <a href="#usecases">Kullanım Senaryoları</a>
-        <a href="#roadmap">Roadmap</a>
+        <a href="#features">Ne Yapıyor?</a>
+        <a href="#usecases">Senaryolar</a>
+        <a href="#contact">Ulaş</a>
     </div>
 </header>
 
@@ -871,73 +880,75 @@
     <!-- HERO -->
     <section id="hero">
         <div class="container hero-inner">
-            <div class="hero-left fade-up">
+            <div class="fade-up">
                 <p class="hero-kicker">LIFEGUARD AI · AKILLI SAĞLIK SAATİ</p>
                 <h1 class="hero-title">
                     LifeGuard AI <span>SmartHealth Watch</span><br />
-                    sahada gerçek zamanlı sağlık &amp; güvenlik.
+                    sahada gerçek zamanlı sağlık &amp; güvenlik asistanı.
                 </h1>
                 <p class="hero-subtitle">
-                    ESP32-S3 tabanlı, IP67 hedefli, sensör füzyonu ile düşme, ateş ve
-                    kritik vital bulguları aynı anda takip eden giyilebilir sağlık
-                    platformu. Lifeguard AI ekosistemi ile entegre çalışmak üzere tasarlandı.
+                    Boğulma, düşme, ani rahatsızlık ve kaybolma risklerini; bilekte
+                    taşınan akıllı saat üzerinden takip eden, Lifeguard AI projesiyle
+                    entegre çalışan giyilebilir platform. Odak: erken uyarı ve
+                    cankurtaran ekibini güçlendirmek.
                 </p>
 
                 <div class="hero-pill-row">
-                    <span class="hero-pill">ESP32-S3-MINI-1-N16R8 MCU</span>
-                    <span class="hero-pill">MAX30102 · MLX90614 · MPU6050 · ECG</span>
-                    <span class="hero-pill">GNSS L1 GPS/GLONASS/Galileo</span>
+                    <span class="hero-pill">Gerçek zamanlı sağlık sinyali takibi</span>
+                    <span class="hero-pill">Düşme &amp; hareketsizlik algılama</span>
+                    <span class="hero-pill">Konum destekli SOS modu</span>
                 </div>
 
                 <div class="hero-actions">
-                    <button class="btn btn-primary" data-scroll-target="#specs">
-                        Teknik Özellikleri Görüntüle
-                    </button>
-                    <button class="btn btn-ghost" data-scroll-target="#usecases">
+                    <button class="btn btn-primary" data-scroll-target="#usecases">
                         AI + Sensor Fusion Senaryoları
+                    </button>
+                    <button class="btn btn-ghost" data-scroll-target="#contact">
+                        Proje ekibiyle iletişime geç
                     </button>
                 </div>
 
                 <div class="hero-meta">
-                    <div class="hero-meta-item">40 mm kasada 2 PCB yapısı</div>
-                    <div class="hero-meta-item">BLE 5.0 + OTA güncelleme</div>
-                    <div class="hero-meta-item">Hedef çalışma süresi: 24+ saat</div>
+                    <div class="hero-meta-item">40 mm kasada kompakt tasarım</div>
+                    <div class="hero-meta-item">Kablosuz güncelleme (OTA) hedefi</div>
+                    <div class="hero-meta-item">IP67 suya dayanıklılık hedefi</div>
                 </div>
             </div>
 
             <div class="hero-right fade-up">
                 <div class="watch-card">
-                    <div class="watch-glow"></div>
                     <div class="watch-inner">
                         <div class="watch-header">
                             <span class="watch-tag">Akıllı Sağlık Saati</span>
-                            <span style="font-size:11px; color:#9CA3AF;">Proto · v1 konsept</span>
+                            <span>Proto · konsept</span>
                         </div>
                         <div class="watch-img-wrap">
-                            <!-- Placeholder image; proje içinde img/watch.png olarak eklenebilir -->
-                            <img src="img/watch.png" alt="LifeGuard AI SmartHealth Watch placeholder" />
-                            <p class="watch-placeholder-label">Placeholder görsel &mdash; img/watch.png</p>
+                            <!-- Saat görselini eklemek için: repoya watch.png yükle -->
+                            <img src="watch.png" alt="LifeGuard AI SmartHealth Watch placeholder" />
+                            <p class="watch-placeholder-label">
+                                Saat görselinizi <strong>watch.png</strong> olarak yüklediğinizde burada görünecek.
+                            </p>
                         </div>
 
                         <div class="watch-spec-row">
                             <div>
                                 <div class="watch-spec-label">Ekran</div>
-                                <div class="watch-spec-value">1.3&quot; IPS · 240×240 SPI</div>
+                                <div class="watch-spec-value">Renkli, yüksek çözünürlüklü arayüz</div>
                             </div>
                             <div>
-                                <div class="watch-spec-label">Boyut</div>
-                                <div class="watch-spec-value">40 mm kasa · IP67 hedef</div>
+                                <div class="watch-spec-label">Gövde</div>
+                                <div class="watch-spec-value">40 mm, günlük kullanıma uygun kasa</div>
                             </div>
                         </div>
 
                         <div class="watch-spec-row">
                             <div>
-                                <div class="watch-spec-label">Batarya</div>
-                                <div class="watch-spec-value">3.7V Li-ion · 300–350 mAh</div>
+                                <div class="watch-spec-label">Pil</div>
+                                <div class="watch-spec-value">Gün boyu kullanım için optimize</div>
                             </div>
                             <div>
                                 <div class="watch-spec-label">Şarj</div>
-                                <div class="watch-spec-value">Manyetik pogo pin</div>
+                                <div class="watch-spec-value">Manyetik, kolay tak-çıkar yapı</div>
                             </div>
                         </div>
                     </div>
@@ -946,310 +957,315 @@
         </div>
     </section>
 
-    <!-- FEATURES / SENSORS -->
+    <!-- WHAT THE WATCH DOES -->
     <section id="features">
         <div class="container fade-up">
-            <p class="section-eyebrow">Sensör Takımı</p>
-            <h2 class="section-title">Sensör füzyonu ile <span class="highlight">çok katmanlı sağlık verisi</span>.</h2>
+            <p class="section-eyebrow">Saat Ne Yapıyor?</p>
+            <h2 class="section-title">
+                Sensör isimleri değil, <span class="highlight">çözdüğü sorunlar</span> ön planda.
+            </h2>
             <p class="section-subtitle">
-                LifeGuard AI SmartHealth Watch, havuz, sahil, yaşlı bakım ve riskli
-                çalışma ortamlarında, giyilebilir akıllı sensör platformu olarak
-                görev yapar. Aşağıdaki çekirdek sensör seti, Lifeguard yapay zekâ
-                motoruna sürekli veri akışı sağlar.
+                SmartHealth Watch, tam olarak hangi çipleri kullandığını değil; sahada
+                cankurtaran ve sağlık personeline nasıl destek verdiğini anlatmak için
+                tasarlandı. Aşağıda, saat üzerinde çalışan ana fonksiyon katmanları yer alıyor.
             </p>
 
             <div class="features-grid">
                 <article class="feature-card">
-                    <div class="feature-glow"></div>
                     <div class="feature-icon">❤</div>
-                    <div class="feature-title">MAX30102 · Nabız &amp; SpO2</div>
+                    <h3 class="feature-title">Kalp ritmi &amp; oksijen takibi</h3>
                     <p class="feature-desc">
-                        Oksijen satürasyonu ve nabız verisi, boğulma ve kardiyovasküler
-                        risklerin erken tespiti için gerçek zamanlı izlenir.
+                        Bilekten alınan optik sinyallerle nabız ve oksijen doygunluğunu
+                        izler; normalden sapma olduğunda uyarı üretmek için Lifeguard
+                        motoruna veri gönderir.
                     </p>
                 </article>
 
                 <article class="feature-card">
-                    <div class="feature-glow"></div>
                     <div class="feature-icon">🌡️</div>
-                    <div class="feature-title">MLX90614 · Temassız Ateş</div>
+                    <h3 class="feature-title">Vücut ısısı &amp; ateş izleme</h3>
                     <p class="feature-desc">
-                        Kızılötesi temassız ateş ölçümü ile enfeksiyon ve ani ateş
-                        yükselişleri için erken uyarı üretilir.
+                        Kullanıcının vücut sıcaklığındaki ani yükselmeleri tespit ederek
+                        enfeksiyon veya güneş çarpması riskine karşı erken uyarı verir.
                     </p>
                 </article>
 
                 <article class="feature-card">
-                    <div class="feature-glow"></div>
-                    <div class="feature-icon">🧭</div>
-                    <div class="feature-title">MPU6050 · IMU</div>
+                    <div class="feature-icon">🧍</div>
+                    <h3 class="feature-title">Düşme &amp; hareketsizlik algılama</h3>
                     <p class="feature-desc">
-                        6 eksenli ivme &amp; jiroskop sensörü; düşme, ani yön
-                        değişimi ve hareketsizlik senaryolarını algılar.
+                        Hareket paternlerini analiz edip sert düşüşleri ve ardından
+                        gelen uzun hareketsizliği algılar; bu veriyi boğulma veya
+                        bilinç kaybı senaryoları için değerlendirir.
                     </p>
                 </article>
 
                 <article class="feature-card">
-                    <div class="feature-glow"></div>
-                    <div class="feature-icon">🫀</div>
-                    <div class="feature-title">ECG · ADS1292R girişleri</div>
-                    <p class="feature-desc">
-                        Opsiyonel ECG elektrot girişleri ile kalp ritmi analizi ve
-                        daha detaylı kardiyak değerlendirme mümkün olur.
-                    </p>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-glow"></div>
                     <div class="feature-icon">📍</div>
-                    <div class="feature-title">GNSS L1 GPS/GLONASS/Galileo</div>
+                    <h3 class="feature-title">Konum destekli güvenlik</h3>
                     <p class="feature-desc">
-                        Bezel üzerine yerleştirilmiş FPC anten, GPS + GLONASS +
-                        Galileo konum verisi ile SOS ve geofencing senaryolarını destekler.
+                        Saat, kullanıcının konumunu izleyerek kaybolma, havuz alanı
+                        dışına çıkma veya kritik bölgelerden uzaklaşma gibi durumlarda
+                        SOS senaryolarını besler.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Erken uyarı bildirimleri</h3>
+                    <p class="feature-desc">
+                        Saat, hem kullanıcıya titreşim/görsel uyarı verir hem de
+                        Lifeguard AI paneline uyarı düşürerek ekiplerin hızlı aksiyon
+                        almasını sağlar.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3 class="feature-title">Lifeguard AI ile entegrasyon</h3>
+                    <p class="feature-desc">
+                        Havuz/sahil kamera sistemleriyle birlikte çalışarak,
+                        giyilebilir veriyi görüntü analiziyle birleştirir ve
+                        daha güvenilir risk skorları üretir.
                     </p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- TECHNICAL SPECS -->
-    <section id="specs">
-        <div class="container fade-up">
-            <p class="section-eyebrow">Teknik Özellikler</p>
-            <h2 class="section-title">LifeGuard AI Akıllı Sağlık Saati Donanım Mimarisi.</h2>
-            <p class="section-subtitle">
-                Aşağıdaki tablo, SmartHealth Watch modülünün planlanan donanım ve
-                PCB yerleşimini özetler. Bu yapı, Lifeguard AI giyilebilir
-                ekosisteminin çekirdek platformu olarak kurgulanmıştır.
-            </p>
-
-            <div class="specs-layout">
-                <div class="specs-table-wrap">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Kategori</th>
-                            <th>Özellik</th>
-                            <th>Detay</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="spec-label">MCU</td>
-                            <td>ESP32-S3-MINI-1-N16R8</td>
-                            <td>Çift çekirdekli, entegre Wi-Fi + BLE 5.0, 16 MB flash / 8 MB PSRAM.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">GNSS</td>
-                            <td>L1 / GPS + GLONASS + Galileo</td>
-                            <td>FPC anten bezel üzerine; konum, izleme ve SOS senaryoları.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Sensör · Nabız &amp; SpO2</td>
-                            <td>MAX30102</td>
-                            <td>Nabız ve oksijen satürasyonu ölçümü, PPG tabanlı optik sensör.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Sensör · Ateş</td>
-                            <td>MLX90614</td>
-                            <td>Temassız kızılötesi sıcaklık sensörü; ateş erken uyarı.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Sensör · IMU</td>
-                            <td>MPU6050</td>
-                            <td>3 eksen ivme + 3 eksen jiroskop; düşme ve hareket analizi.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">ECG</td>
-                            <td>ECG elektrot girişleri</td>
-                            <td>ADS1292R tabanlı analog front-end ile kalp ritmi ölçümü (opsiyonel).</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Batarya</td>
-                            <td>3.7V Li-ion</td>
-                            <td>300–350 mAh kapasite; günlük kullanım için optimize.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Şarj</td>
-                            <td>Manyetik pogo pin</td>
-                            <td>2 pin JST-SH üzerinden docking; kullanıcı dostu şarj deneyimi.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Ekran</td>
-                            <td>1.3" IPS</td>
-                            <td>240×240 piksel, SPI arayüz; yüksek parlaklık ve okunabilirlik.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Bağlantı</td>
-                            <td>BLE 5.0 · OTA</td>
-                            <td>BLE ile telefon/istasyon bağlantısı ve kablosuz OTA güncelleme.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">PCB Yapısı</td>
-                            <td>2 PCB'li sistem</td>
-                            <td>Üst PCB: sensörler + GNSS + ekran · Alt PCB: ESP32-S3 + batarya + güç yönetimi.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">PCB Bağlantısı</td>
-                            <td>FFC 10-pin</td>
-                            <td>Üst ve alt kart arasında esnek kablo ile yüksek yoğunluklu bağlantı.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Su Geçirmezlik</td>
-                            <td>IP67 hedef</td>
-                            <td>40 mm saat kasasında suya ve tere dayanıklı tasarım hedeflenir.</td>
-                        </tr>
-                        <tr>
-                            <td class="spec-label">Kasa Boyutu</td>
-                            <td>40 mm</td>
-                            <td>Kompakt, bilekte konforlu kullanım için optimize edilmiş form faktör.</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <aside class="specs-summary-card">
-                    <h4>Donanım Özet Kartı</h4>
-                    <p>
-                        SmartHealth Watch, Lifeguard AI platformunun giyilebilir veri
-                        toplama ucu olarak kurgulanmıştır. ESP32-S3, GNSS ve sensör
-                        kombinasyonu sayesinde hem lokal analiz hem de bulut entegrasyonu
-                        desteklenir.
-                    </p>
-                    <div class="specs-chips">
-                        <span class="chip">Edge AI hazır mimari</span>
-                        <span class="chip">BLE üzerinden veri senkronizasyonu</span>
-                        <span class="chip">OTA ile uzaktan firmware güncelleme</span>
-                        <span class="chip">Modüler PCB tasarımı</span>
-                    </div>
-                    <p class="specs-note">
-                        Teknik özellikler, prototip ve Ar-Ge sürecinde revize edilebilir.
-                        GNSS anten yerleşimi, su geçirmezlik testleri ve batarya
-                        optimizasyonu roadmap kapsamında detaylandırılacaktır.
-                    </p>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <!-- USE CASES -->
+    <!-- USE CASE SLIDER -->
     <section id="usecases">
         <div class="container fade-up">
-            <p class="section-eyebrow">AI + Sensor Fusion</p>
-            <h2 class="section-title">Gerçek zamanlı veriden <span class="highlight">eylem alınabilir uyarılara</span>.</h2>
-            <p class="section-subtitle">
-                SmartHealth Watch, tek bir sensöre değil, sensör füzyonuna dayalı
-                karar mekanizması ile çalışır. Yapay zekâ modeli; hareket, nabız,
-                oksijen, sıcaklık ve konum verisini birlikte değerlendirir.
-            </p>
+            <div class="usecases-top">
+                <div>
+                    <p class="section-eyebrow">AI + Sensor Fusion Senaryoları</p>
+                    <h2 class="section-title">
+                        Saat verisi, Lifeguard AI motoruyla <span class="highlight">birleştiğinde</span> ne olur?
+                    </h2>
+                </div>
+                <div class="slider-controls">
+                    <button class="arrow-btn" id="prevSlide" type="button">‹</button>
+                    <button class="arrow-btn" id="nextSlide" type="button">›</button>
+                    <div class="dots" id="dots"></div>
+                </div>
+            </div>
 
-            <div class="usecases-grid">
-                <article class="usecase-card" data-usecase="fall">
-                    <div class="usecase-glow"></div>
-                    <p class="usecase-label">Kullanım Senaryosu · 01</p>
-                    <h3 class="usecase-title">Düşme algılama &amp; hareketsizlik uyarısı</h3>
-                    <p class="usecase-desc">
-                        MPU6050 verisiyle ani ivme ve açı değişimleri tespit edilir,
-                        ardından devam eden hareketsizlik durumunda nabız/SpO2
-                        verisiyle birlikte risk skoru hesaplanarak alarm üretilir.
-                    </p>
-                    <span class="usecase-tag">IMU + Nabız/SpO2 füzyonu</span>
-                </article>
+            <div class="usecase-slider">
+                <div class="usecase-track" id="usecaseTrack">
+                    <!-- SLIDE 1 – Düşme -->
+                    <article class="usecase-slide">
+                        <div>
+                            <p class="usecase-label">SENARYO 1</p>
+                            <h3 class="usecase-title">Düşme algılama + boğulma riski</h3>
+                            <p class="usecase-desc">
+                                Saat, ani ivme ve açı değişimlerini algılayarak şüpheli
+                                düşüşleri tespit eder; ardından kullanıcı uzun süre
+                                hareketsiz kalıyorsa, kalp ritmi ve oksijen verisini
+                                kontrol eder.
+                            </p>
+                            <ul class="usecase-list">
+                                <li>Hızlı, sert düşüş hareketlerinin yakalanması</li>
+                                <li>Ardından gelen hareketsizlik süresinin ölçülmesi</li>
+                                <li>Nabız &amp; oksijen verisiyle risk skorunun güncellenmesi</li>
+                                <li>Gerekirse havuz kamerası görüntüsüyle birleştirilmesi</li>
+                            </ul>
+                            <div class="usecase-tag-row">
+                                <span class="usecase-tag">Hareket analizi</span>
+                                <span class="usecase-tag">Vital işaret kontrolü</span>
+                                <span class="usecase-tag">Anlık alarm</span>
+                            </div>
+                        </div>
+                        <div class="usecase-side-card">
+                            <h4>Neden önemli?</h4>
+                            <p>
+                                Cankurtaran ekibi, her an her yeri göremeyebilir.
+                                Saat, hem kullanıcı tarafında bir sigorta hem de Lifeguard
+                                AI için ekstra bir veri kaynağı olarak çalışır.
+                            </p>
+                        </div>
+                    </article>
 
-                <article class="usecase-card" data-usecase="fever">
-                    <div class="usecase-glow"></div>
-                    <p class="usecase-label">Kullanım Senaryosu · 02</p>
-                    <h3 class="usecase-title">Ateş yükselişi için erken uyarı</h3>
-                    <p class="usecase-desc">
-                        MLX90614’ten gelen temassız sıcaklık verisi trend bazlı
-                        incelenir; eşik değer + artış hızı birlikte değerlendirilerek
-                        kullanıcı veya tesis paneline ateş uyarısı gönderilir.
-                    </p>
-                    <span class="usecase-tag">Sıcaklık trend analizi</span>
-                </article>
+                    <!-- SLIDE 2 – Ateş -->
+                    <article class="usecase-slide">
+                        <div>
+                            <p class="usecase-label">SENARYO 2</p>
+                            <h3 class="usecase-title">Ateş &amp; ısı stresi için erken uyarı</h3>
+                            <p class="usecase-desc">
+                                Özellikle çocuklar ve yaşlılar için; güneş altında uzun
+                                süre kalma veya enfeksiyon kaynaklı ateş yükselişi, risk
+                                oluşmadan fark edilir.
+                            </p>
+                            <ul class="usecase-list">
+                                <li>Vücut sıcaklığının trend bazlı izlenmesi</li>
+                                <li>Belirlenen eşik değerinin üzerinde artışta uyarı</li>
+                                <li>Aynı anda nabız verisi ile birlikte değerlendirme</li>
+                                <li>Gerekirse veli / tesis yönetimine bildirim gönderme</li>
+                            </ul>
+                            <div class="usecase-tag-row">
+                                <span class="usecase-tag">Isı stresi tespiti</span>
+                                <span class="usecase-tag">Çocuk &amp; yaşlı takibi</span>
+                            </div>
+                        </div>
+                        <div class="usecase-side-card">
+                            <h4>Örnek kullanım</h4>
+                            <p>
+                                Çocuk havuzu alanında, bir çocuğun sıcaklığı hızla
+                                yükselmeye başladığında; saat bunu fark eder ve hem
+                                aileye hem de görevlilere uyarı gönderebilir.
+                            </p>
+                        </div>
+                    </article>
 
-                <article class="usecase-card" data-usecase="gps">
-                    <div class="usecase-glow"></div>
-                    <p class="usecase-label">Kullanım Senaryosu · 03</p>
-                    <h3 class="usecase-title">GNSS tabanlı GPS SOS modu</h3>
-                    <p class="usecase-desc">
-                        Kullanıcı, saat üzerindeki jest/tuş kombinasyonu ile SOS
-                        tetiklediğinde; GNSS konumu, son vital veriler ve düşme
-                        durumu tek paket halinde merkeze iletilir.
-                    </p>
-                    <span class="usecase-tag">Konum + sağlık verisi paketi</span>
-                </article>
+                    <!-- SLIDE 3 – GPS SOS -->
+                    <article class="usecase-slide">
+                        <div>
+                            <p class="usecase-label">SENARYO 3</p>
+                            <h3 class="usecase-title">GPS destekli SOS &amp; kaybolma senaryosu</h3>
+                            <p class="usecase-desc">
+                                Kullanıcı, saat üzerindeki jest/tuş kombinasyonu ile
+                                SOS tetikler. Sistem, konumu ve son sağlık verilerini
+                                tek pakette merkeze iletir.
+                            </p>
+                            <ul class="usecase-list">
+                                <li>Tek dokunuş / jest ile SOS modu</li>
+                                <li>O anki konumun Lifeguard paneline düşmesi</li>
+                                <li>Son kalp ritmi ve oksijen verilerinin eklenmesi</li>
+                                <li>Gerekirse kamera sistemleriyle eşleştirme</li>
+                            </ul>
+                            <div class="usecase-tag-row">
+                                <span class="usecase-tag">Konum + sağlık verisi</span>
+                                <span class="usecase-tag">Hızlı koordinat paylaşımı</span>
+                            </div>
+                        </div>
+                        <div class="usecase-side-card">
+                            <h4>Nerede kullanılır?</h4>
+                            <p>
+                                Büyük otel alanları, sahiller, su parkları veya kamp
+                                alanlarında; kaybolma riskine karşı kullanıcıya ek bir
+                                “panik butonu” sağlar.
+                            </p>
+                        </div>
+                    </article>
 
-                <article class="usecase-card" data-usecase="vitals">
-                    <div class="usecase-glow"></div>
-                    <p class="usecase-label">Kullanım Senaryosu · 04</p>
-                    <h3 class="usecase-title">Nabız &amp; SpO2 trend takibi</h3>
-                    <p class="usecase-desc">
-                        MAX30102 verileri, kişiye özel bazal değerler üzerinden
-                        normal aralıkla kıyaslanır; anormal düşüş/yükseliş durumunda
-                        hem kullanıcıya hem de Lifeguard paneline bildirim gider.
-                    </p>
-                    <span class="usecase-tag">Kişiselleştirilmiş eşik değerleri</span>
-                </article>
+                    <!-- SLIDE 4 – Sürekli takip -->
+                    <article class="usecase-slide">
+                        <div>
+                            <p class="usecase-label">SENARYO 4</p>
+                            <h3 class="usecase-title">Sessiz izleme · trend bazlı sağlık takibi</h3>
+                            <p class="usecase-desc">
+                                Saat sadece alarm üretmez; gün boyu toplanan veriler,
+                                kullanıcının kendi normalini öğrenmek için kullanılır ve
+                                değişimler buna göre yorumlanır.
+                            </p>
+                            <ul class="usecase-list">
+                                <li>Nabız &amp; oksijen için kişiye özel referans aralığı</li>
+                                <li>Gün sonu özetleriyle sağlık trendlerinin gösterilmesi</li>
+                                <li>Uzun vadeli anomalilerin Lifeguard paneline taşınması</li>
+                                <li>Gizlilik odaklı, verinin kontrollü paylaşımı</li>
+                            </ul>
+                            <div class="usecase-tag-row">
+                                <span class="usecase-tag">Kişiselleştirilmiş analiz</span>
+                                <span class="usecase-tag">Uzun vadeli izleme</span>
+                            </div>
+                        </div>
+                        <div class="usecase-side-card">
+                            <h4>Proje vizyonu</h4>
+                            <p>
+                                Amaç, herkesi “hasta” gibi sürekli ölçmek değil; kritik
+                                anlarda hayat kurtarabilecek veriyi, saygılı ve kontrollü
+                                şekilde kullanmak.
+                            </p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ROADMAP -->
-    <section id="roadmap">
+    <!-- CONTACT -->
+    <section id="contact">
         <div class="container fade-up">
-            <p class="section-eyebrow">Geliştirme Yol Haritası</p>
-            <h2 class="section-title">PCB v1’den final prototipe uzanan <span class="highlight">yolculuk</span>.</h2>
+            <p class="section-eyebrow">Ulaş</p>
+            <h2 class="section-title">
+                LifeGuard AI SmartHealth Watch ile <span class="highlight">iş birliği yapmak</span> ister misiniz?
+            </h2>
             <p class="section-subtitle">
-                LifeGuard AI SmartHealth Watch, iteratif prototipleme yaklaşımı ile
-                tasarlanır. Her PCB revizyonu; sahadan gelen geri bildirimler,
-                su geçirmezlik testleri ve pil dayanımı ölçümleriyle birlikte
-                geliştirilecektir.
+                Saat şu anda Ar-Ge ve prototip aşamasındadır. Pilot uygulama, teknik
+                iş birliği veya mentorluk için ekibimizle iletişime geçebilirsiniz.
             </p>
 
-            <div class="roadmap-wrapper">
-                <div class="roadmap-timeline">
-                    <div class="roadmap-connector"></div>
+            <div class="contact-layout">
+                <div class="contact-card">
+                    <h3>İş birliği / pilot uygulama formu</h3>
+                    <p>
+                        Formu doldurduğunuzda, varsayılan e-posta istemciniz üzerinden
+                        LifeGuard ekibine iletilecek bir taslak oluşturulur. Gerçek
+                        lansman aşamasında, bu bölüm backend/API ile uçtan uca bağlanacaktır.
+                    </p>
 
-                    <div class="roadmap-step">
-                        <div class="roadmap-badge">v1</div>
-                        <h3 class="roadmap-title">PCB v1 · Çekirdek sensör kartı</h3>
-                        <p class="roadmap-desc">
-                            ESP32-S3, MAX30102, MLX90614 ve MPU6050’nin tek kart
-                            üzerinde çalıştığı ilk prototip. BLE bağlantısı ve temel
-                            veri akışı test edilir.
-                        </p>
-                        <span class="roadmap-tag">Odak: Sensör entegrasyonu</span>
-                    </div>
+                    <form
+                        class="contact-form"
+                        action="mailto:lifeguardyigitcanacar018@gmail.com"
+                        method="post"
+                        enctype="text/plain"
+                    >
+                        <div class="form-group">
+                            <label for="name">Ad / Nickname</label>
+                            <input id="name" name="Ad veya Nickname" type="text" placeholder="Örn: Enes, EA, Proje Koordinatörü" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input id="email" name="E-posta" type="email" placeholder="ornek@kurum.com" />
+                        </div>
+                        <div class="form-group">
+                            <label for="org">Kurum / Tesis</label>
+                            <input id="org" name="Kurum veya Tesis" type="text" placeholder="Örn: X Resort Hotel" />
+                        </div>
+                        <div class="form-group">
+                            <label for="topic">Konu</label>
+                            <input id="topic" name="Konu" type="text" placeholder="Pilot uygulama, Ar-Ge, yatırım vb." />
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label for="message">Mesajınız</label>
+                            <textarea id="message" name="Mesaj" placeholder="Kısaca ne yapmak istediğinizi, beklentinizi veya proje fikrinizi yazabilirsiniz."></textarea>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1; margin-top: 4px;">
+                            <button class="btn btn-primary" type="submit">Formu gönder</button>
+                        </div>
+                    </form>
 
-                    <div class="roadmap-step">
-                        <div class="roadmap-badge">v2</div>
-                        <h3 class="roadmap-title">PCB v2 · GNSS ekli 2 PCB tasarımı</h3>
-                        <p class="roadmap-desc">
-                            GNSS modülü ve bezel FPC anten üst PCB’ye alınır; alt
-                            PCB’de güç yönetimi ve batarya optimizasyonu revize edilir.
-                            FFC 10-pin bağlantı oturtulur.
-                        </p>
-                        <span class="roadmap-tag">Odak: GNSS + IP67 tasarımı</span>
-                    </div>
-
-                    <div class="roadmap-step">
-                        <div class="roadmap-badge">FP</div>
-                        <h3 class="roadmap-title">Final Prototype · Entegre Lifeguard AI</h3>
-                        <p class="roadmap-desc">
-                            IP67 hedefini karşılayan 40 mm kasa, optimize batarya
-                            süresi, OTA destekli firmware ve Lifeguard AI paneli ile
-                            tam entegre SmartHealth Watch versiyonu.
-                        </p>
-                        <span class="roadmap-tag">Odak: Alan testleri &amp; kalibrasyon</span>
-                    </div>
+                    <p class="contact-note">
+                        Not: Bu form mailto tabanlıdır, sunucu tarafı yoktur. Üretim
+                        ortamında veriler güvenli bir API üzerinden yönetilecektir.
+                    </p>
                 </div>
 
-                <p class="roadmap-footer">
-                    PCB, şematik ve firmware modülleri; GitHub üzerinde modüler
-                    repolar olarak versiyonlanacak ve Lifeguard AI’nin diğer
-                    projeleriyle birlikte yönetilecektir.
-                </p>
+                <aside class="contact-info-card">
+                    <h4>Doğrudan iletişim adresleri</h4>
+                    <p>
+                        Proje ekibine aşağıdaki e-posta adreslerinden doğrudan da
+                        ulaşabilirsiniz:
+                    </p>
+                    <ul>
+                        <li>
+                            Yetkili çalışan: <br />
+                            <a href="mailto:lifeguardyigitcanacar018@gmail.com">lifeguardyigitcanacar018@gmail.com</a>
+                        </li>
+                        <li>
+                            Yetkili çalışan: <br />
+                            <a href="mailto:lifeguardefeguney018@gmail.com">lifeguardefeguney018@gmail.com</a>
+                        </li>
+                        <li>
+                            Proje sorumlusu: <br />
+                            <a href="mailto:enesasker018@gmail.com">enesasker018@gmail.com</a>
+                        </li>
+                    </ul>
+                    <p style="margin-top:10px; font-size:12px;">
+                        LifeGuard AI SmartHealth Watch; Lifeguard proje ailesinin bir
+                        alt modülü olarak geliştirilmekte olup, tüm tasarım ve içerik
+                        fikrî mülkiyet hakları ekipte saklıdır.
+                    </p>
+                </aside>
             </div>
         </div>
     </section>
@@ -1258,21 +1274,16 @@
 <footer>
     <div class="footer-inner">
         <div>© 2025 LifeGuard AI · SmartHealth Watch · Tüm hakları saklıdır.</div>
-        <div>
-            İletişim:
-            <a href="mailto:lifeguardyigitcanacar018@gmail.com">lifeguardyigitcanacar018@gmail.com</a>
-            ·
-            <a href="mailto:lifeguardefeguney018@gmail.com">lifeguardefeguney018@gmail.com</a>
-        </div>
+        <div>Site tasarımı: LifeGuard AI ekibi · Gri / Beyaz / Turuncu tema</div>
     </div>
 </footer>
 
 <script>
-    // Smooth scroll for buttons & nav links
-    function smoothScrollTo(targetId) {
-        const target = document.querySelector(targetId);
-        if (!target) return;
-        const y = target.getBoundingClientRect().top + window.pageYOffset - 72;
+    // Smooth scroll
+    function smoothScrollTo(id) {
+        const el = document.querySelector(id);
+        if (!el) return;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
         window.scrollTo({ top: y, behavior: "smooth" });
     }
 
@@ -1283,19 +1294,34 @@
         });
     });
 
-    document.querySelectorAll("header nav a.nav-link, .nav-mobile a").forEach(link => {
-        link.addEventListener("click", evt => {
+    // Nav link behaviour
+    const headerLinks = document.querySelectorAll("header nav .nav-link");
+    const mobileLinks = document.querySelectorAll("#navMobile a");
+
+    function setActiveNav(hash) {
+        headerLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === hash));
+        mobileLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === hash));
+    }
+
+    headerLinks.forEach(link => {
+        link.addEventListener("click", e => {
             const href = link.getAttribute("href");
             if (href.startsWith("#")) {
-                evt.preventDefault();
+                e.preventDefault();
                 smoothScrollTo(href);
+                setActiveNav(href);
+                navMobile.classList.remove("open");
+            }
+        });
+    });
 
-                // Active state
-                document.querySelectorAll("header nav a.nav-link").forEach(l => l.classList.remove("active"));
-                document.querySelectorAll(".nav-mobile a").forEach(l => l.classList.remove("active"));
-                document.querySelectorAll(`header nav a[href='${href}']`).forEach(l => l.classList.add("active"));
-                document.querySelectorAll(`.nav-mobile a[href='${href}']`).forEach(l => l.classList.add("active"));
-
+    mobileLinks.forEach(link => {
+        link.addEventListener("click", e => {
+            const href = link.getAttribute("href");
+            if (href.startsWith("#")) {
+                e.preventDefault();
+                smoothScrollTo(href);
+                setActiveNav(href);
                 navMobile.classList.remove("open");
             }
         });
@@ -1309,7 +1335,7 @@
         navMobile.classList.toggle("open");
     });
 
-    // Intersection Observer for fade-up animations
+    // Fade-up animation on scroll
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1321,28 +1347,43 @@
 
     document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
-    // Use case auto-highlight (simple carousel)
-    const usecaseCards = Array.from(document.querySelectorAll(".usecase-card"));
-    let usecaseIndex = 0;
+    // USE CASE SLIDER
+    const track = document.getElementById("usecaseTrack");
+    const slides = Array.from(track.children);
+    const dotsContainer = document.getElementById("dots");
+    const prevBtn = document.getElementById("prevSlide");
+    const nextBtn = document.getElementById("nextSlide");
+    let currentIndex = 0;
 
-    function rotateUsecases() {
-        usecaseCards.forEach(c => c.classList.remove("active"));
-        if (usecaseCards.length === 0) return;
-        usecaseCards[usecaseIndex].classList.add("active");
-        usecaseIndex = (usecaseIndex + 1) % usecaseCards.length;
+    // create dots
+    slides.forEach((_, i) => {
+        const dot = document.createElement("div");
+        dot.className = "dot" + (i === 0 ? " active" : "");
+        dot.dataset.index = i;
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(document.querySelectorAll(".dot"));
+
+    function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        currentIndex = index;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle("active", i === index));
     }
 
-    rotateUsecases();
-    setInterval(rotateUsecases, 4200);
-
-    // Hover overrides auto state temporarily
-    usecaseCards.forEach((card, idx) => {
-        card.addEventListener("mouseenter", () => {
-            usecaseCards.forEach(c => c.classList.remove("active"));
-            card.classList.add("active");
-            usecaseIndex = (idx + 1) % usecaseCards.length;
+    prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            const idx = parseInt(dot.dataset.index, 10);
+            goToSlide(idx);
         });
     });
+
+    // Auto-rotate
+    setInterval(() => goToSlide(currentIndex + 1), 6500);
 </script>
 </body>
 </html>
