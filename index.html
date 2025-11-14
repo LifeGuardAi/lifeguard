@@ -66,15 +66,17 @@
             justify-content: space-between;
         }
 
+        /* LOGO BLOĞU: EA + LIFEGUARD AI LOGO + YAZI */
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
         }
 
         .logo-badge {
-            width: 54px;
-            height: 54px;
+            width: 58px;
+            height: 58px;
             border-radius: 999px;
             background: radial-gradient(circle at top, #32FF7C, #0C4B1E);
             display: flex;
@@ -86,18 +88,18 @@
             box-shadow: 0 0 0 3px rgba(50,255,124,0.16);
         }
 
-        .logo-right {
+        .brand-logo {
+            width: 56px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .logo-text {
             display: flex;
             flex-direction: column;
             gap: 2px;
-        }
-
-        .brand-logo {
-            width: 64px;
-            height: auto;
-            display: block;
-            margin-bottom: 2px;
-            object-fit: contain;
+            margin-top: 2px;
         }
 
         .logo-text-main {
@@ -199,6 +201,10 @@
             .nav-mobile a.active {
                 background: var(--accent-orange);
                 color: #111827;
+            }
+
+            .brand-logo {
+                width: 48px;
             }
         }
 
@@ -452,10 +458,9 @@
         <div class="logo">
             <div class="logo-badge">EA</div>
 
-            <div class="logo-right">
-                <!-- Arkası transparan, sadece mavi şekil olan logo -->
-                <img src="logo-lifeguard-ai.png" alt="LifeGuard AI Logo" class="brand-logo">
+            <img src="logo-lifeguard-ai.png" alt="LifeGuard AI Logo" class="brand-logo">
 
+            <div class="logo-text">
                 <div class="logo-text-main">
                     <span>LIFEGUARD</span> <span>AI</span>
                 </div>
@@ -581,58 +586,3 @@
                 <article class="summary-card">
                     <h3>Misafir / kullanıcı tarafı</h3>
                     <ul class="summary-list">
-                        <li>Suya giriş, uzun süreli hareketsizlik ve aşırı efor gibi
-                            durumlarda bilekte uyarı alır.</li>
-                        <li>Güneş altında uzun kalma ve ısı yükselişinde,
-                            “gölge/su molası” hatırlatması.</li>
-                        <li>Kaybolma veya kendini iyi hissetmeme durumunda,
-                            tek hareketle SOS isteği gönderebilme (senaryoya göre).</li>
-                    </ul>
-                </article>
-
-                <article class="summary-card">
-                    <h3>Cankurtaran / güvenlik ekibi</h3>
-                    <ul class="summary-list">
-                        <li>Risk skoru yükselen misafirin, havuz/kamera üstünden
-                            konumuyla birlikte işaretlenmesi.</li>
-                        <li>“Önce nereye bakmalıyım?” sorusuna cevap veren
-                            önceliklendirilmiş bildirim akışı.</li>
-                        <li>Geriye dönük olay incelemesi için saat verisi +
-                            kamera kaydının bir arada tutulabilmesi (ileride).</li>
-                    </ul>
-                </article>
-
-                <article class="summary-card">
-                    <h3>İşletme / proje bakışı</h3>
-                    <ul class="summary-list">
-                        <li>Pilot proje ile tek havuz/alan üzerinde kontrollü
-                            deneme imkânı.</li>
-                        <li>Altyapı: ESP32 tabanlı, OTA güncelleme destekli konsept
-                            donanım; yazılım tarafı genişletilebilir.</li>
-                        <li>Gelecekte; AI tarafındaki görüntü işleme ile saatin
-                            verisini birleştirip daha güvenli bir tesis hedefi.</li>
-                    </ul>
-                </article>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer>
-    <div class="footer-inner">
-        <div>© 2025 LifeGuard AI · SmartHealth Watch Konsept</div>
-        <div>EA · Proje ekibi: LifeGuard AI</div>
-    </div>
-</footer>
-
-<script>
-    const navToggle = document.getElementById("navToggle");
-    const navMobile = document.getElementById("navMobile");
-
-    navToggle.addEventListener("click", () => {
-        navMobile.classList.toggle("open");
-    });
-</script>
-
-</body>
-</html>
