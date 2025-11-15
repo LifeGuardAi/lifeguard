@@ -621,12 +621,98 @@
                 </form>
 
                 <!-- 🟢 SATIN ALMA FORMU -->
-                <form
-                    class="contact-form"
-                    data-form-type="sales"
-                    action="https://formspree.io/f/movylqqd"
-                    method="POST"
-                >
+                <!-- 🟢 SATIN ALMA FORMU -->
+<form
+    class="contact-form"
+    data-form-type="sales"
+    action="https://formspree.io/f/movylqqd"
+    method="POST"
+>
+    <input type="hidden" name="kategori" value="Ürün Satın Alma / Saat Siparişi" />
+
+    <div class="form-row-2">
+        <div>
+            <label for="sale-name">Ad Soyad</label>
+            <input id="sale-name" name="adSoyad" type="text" required />
+        </div>
+        <div>
+            <label for="sale-email">E-posta</label>
+            <input id="sale-email" name="email" type="email" required />
+        </div>
+    </div>
+
+    <div class="form-row-2">
+        <div>
+            <label for="sale-phone">Telefon</label>
+            <input id="sale-phone" name="telefon" type="tel" />
+        </div>
+        <div>
+            <label for="sale-quantity">Ürün adedi</label>
+            <input
+                id="sale-quantity"
+                name="urunAdedi"
+                type="number"
+                min="1"
+                step="1"
+                value="1"
+            />
+        </div>
+    </div>
+
+    <!-- 📍 Adres bilgileri (İl / İlçe / Mahalle / Sokak / No) -->
+    <div class="form-row-2">
+        <div>
+            <label for="sale-city">İl</label>
+            <input id="sale-city" name="teslimatIl" type="text" required />
+        </div>
+        <div>
+            <label for="sale-district">İlçe</label>
+            <input id="sale-district" name="teslimatIlce" type="text" required />
+        </div>
+    </div>
+
+    <div>
+        <label for="sale-neighborhood">Mahalle / Cadde / Sokak</label>
+        <input
+            id="sale-neighborhood"
+            name="mahalleSokak"
+            type="text"
+            placeholder="Örn: Cumhuriyet Mah. Atatürk Caddesi"
+            required
+        />
+    </div>
+
+    <div class="form-row-2">
+        <div>
+            <label for="sale-building">Bina No / Daire</label>
+            <input
+                id="sale-building"
+                name="binaDaire"
+                type="text"
+                placeholder="Örn: No:12 Daire:4"
+                required
+            />
+        </div>
+        <div>
+            <label for="sale-postal">Posta kodu (isteğe bağlı)</label>
+            <input id="sale-postal" name="postaKodu" type="text" />
+        </div>
+    </div>
+
+    <div>
+        <label for="sale-message">Mesaj (isteğe bağlı)</label>
+        <textarea
+            id="sale-message"
+            name="mesaj"
+            placeholder="Kurumsal alım, toplu sipariş, bayilik vb. notlarınızı yazabilirsiniz."
+        ></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary">
+        <span class="dot"></span> Satın Alma Talebini Gönder
+    </button>
+</form>
+
                     <input type="hidden" name="kategori" value="Ürün Satın Alma / Saat Siparişi" />
 
                     <div class="form-row-2">
