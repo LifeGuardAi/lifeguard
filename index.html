@@ -120,12 +120,14 @@
       margin-top: 4px;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
+   nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;     /* Menü elemanlarını dikey hizalar */
+    gap: 32px;               /* Aralıkları biraz daha düzenli yapar */
+    margin-left: auto;       /* Menü sağa yaslanır */
+    padding: 0;              /* Gereksiz boşlukları temizler */
+}
 
     .nav-link {
     font-size: 16px;
@@ -621,14 +623,14 @@
     </div>
 
     <nav>
-      <ul>
-        <li><a class="nav-link active" href="index.html">Saat</a></li>
+    <ul>
+        <li><a class="nav-link" href="index.html">Saat</a></li>
         <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
         <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
         <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
-        <li><a class="nav-cta" href="index.html#project">LIFEGUARD AI PROJESİ</a></li>
-      </ul>
-    </nav>
+        <li><span class="nav-cta">LIFEGUARD AI PROJESİ</span></li>
+    </ul>
+</nav>
   </div>
 </header>
 
