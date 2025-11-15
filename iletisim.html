@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LifeGuard AI – Ulaş / İletişim</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
     <style>
         :root {
             --bg-main: #050506;
@@ -21,7 +26,11 @@
             --border-subtle: rgba(255, 255, 255, 0.06);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,7 +39,10 @@
             line-height: 1.6;
         }
 
-        a { color: inherit; text-decoration: none; }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
         .container {
             max-width: 1180px;
@@ -38,9 +50,11 @@
             padding: 0 20px;
         }
 
+        /* ---------- HEADER / NAV ---------- */
+
         header {
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            background: linear-gradient(to bottom, #050506, rgba(5,5,6,0.9));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(to bottom, #050506, rgba(5, 5, 6, 0.9));
             position: sticky;
             top: 0;
             z-index: 40;
@@ -72,7 +86,7 @@
             color: #f5f5f5;
             font-weight: 700;
             font-size: 22px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.55);
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.55);
         }
 
         .logo-right {
@@ -99,8 +113,13 @@
             letter-spacing: 0.16em;
         }
 
-        .logo-text-main span:first-child { color: var(--accent-orange); }
-        .logo-text-main span:last-child { color: #ffffff; }
+        .logo-text-main span:first-child {
+            color: var(--accent-orange);
+        }
+
+        .logo-text-main span:last-child {
+            color: #ffffff;
+        }
 
         .logo-text-sub {
             font-size: 12px;
@@ -126,25 +145,27 @@
 
         .nav-link:hover {
             color: #ffffff;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .nav-link.active {
             background: var(--accent-orange);
             color: #050506;
             font-weight: 600;
-            box-shadow: 0 0 18px rgba(255,155,59,0.35);
+            box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
         }
 
         .nav-cta {
             padding: 8px 16px;
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.16);
+            border: 1px solid rgba(255, 255, 255, 0.16);
             font-size: 13px;
             color: var(--accent-soft);
             text-transform: uppercase;
             letter-spacing: 0.14em;
         }
+
+        /* ---------- MAIN LAYOUT ---------- */
 
         main {
             max-width: 1200px;
@@ -166,7 +187,9 @@
             margin-bottom: 12px;
         }
 
-        .page-title span.highlight { color: var(--accent-orange); }
+        .page-title span.highlight {
+            color: var(--accent-orange);
+        }
 
         .page-intro {
             max-width: 640px;
@@ -186,7 +209,7 @@
             border-radius: 22px;
             border: 1px solid var(--border-subtle);
             padding: 22px 22px 20px;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
         }
 
         .card-title {
@@ -208,10 +231,12 @@
             margin-bottom: 4px;
         }
 
-        input, textarea, select {
+        input,
+        textarea,
+        select {
             width: 100%;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             background: #0b0b10;
             color: var(--text-main);
             font-family: inherit;
@@ -221,9 +246,11 @@
             outline: none;
         }
 
-        input:focus, textarea:focus, select:focus {
+        input:focus,
+        textarea:focus,
+        select:focus {
             border-color: var(--accent-orange);
-            box-shadow: 0 0 0 1px rgba(255,155,59,0.4);
+            box-shadow: 0 0 0 1px rgba(255, 155, 59, 0.4);
         }
 
         textarea {
@@ -248,29 +275,78 @@
             transform: translateY(-1px);
         }
 
+        .contact-meta {
+            font-size: 13px;
+            color: var(--text-soft);
+        }
+
+        .contact-meta strong {
+            color: var(--accent-soft);
+        }
+
+        .email-list {
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .email-list a {
+            color: var(--accent-soft);
+        }
+
         footer {
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             padding: 18px 0 26px;
             color: var(--text-muted);
             font-size: 12px;
         }
+
+        @media (max-width: 900px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-logo {
+                width: 64px;
+                height: 64px;
+            }
+
+            .logo-text-main {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
-
 <body>
-
 <header>
     <div class="container nav-inner">
         <div class="logo">
             <div class="logo-badge">EA</div>
             <div class="logo-right">
-                <img src="logo-lifeguard-ai.png" alt="LifeGuard AI Logo" class="brand-logo">
+                <img src="logo-lifeguard-ai.png" alt="LifeGuard AI Logo" class="brand-logo" />
                 <div class="logo-text">
                     <div class="logo-text-main">
                         <span>LIFEGUARD</span>
                         <span>AI</span>
                     </div>
-                    <div class="logo-text-sub">SMARTHEALTH WATCH · SAĞLIK &amp; GÜVENLİK</div>
+                    <div class="logo-text-sub">
+                        SMARTHEALTH WATCH · SAĞLIK &amp; GÜVENLİK
+                    </div>
                 </div>
             </div>
         </div>
@@ -289,31 +365,54 @@
 
 <main>
     <section class="container">
-        <div class="page-eyebrow">İletişim · İş Birliği</div>
+        <div class="page-eyebrow">İLETİŞİM · İŞ BİRLİĞİ</div>
         <h1 class="page-title">
             LifeGuard AI ekibine <span class="highlight">nasıl ulaşabilirsiniz?</span>
         </h1>
         <p class="page-intro">
-            Bu form, proje hakkında bilgi almak, iş birliği önermek veya pilot çalışma fikri paylaşmak isteyen kurumlar içindir.
-            Formu doldurduğunuzda, içeriği e-posta taslağı olarak açılır; iletmek istediğiniz bilgiyi kontrol edip gönderebilirsiniz.
+            Bu form, proje hakkında bilgi almak, iş birliği önermek veya pilot çalışma fikri
+            paylaşmak isteyen kurumlar içindir. Formu doldurduğunuzda bilgiler
+            doğrudan ekip e-posta kutusuna iletilir.
         </p>
 
         <div class="contact-layout">
+            <!-- SOL TARAF – FORM (Formspree ENTEGRE) -->
             <div class="card">
                 <h2 class="card-title">Kısa form doldurun, mail taslağına düşsün</h2>
                 <p class="card-text">
                     Lütfen tesis / kurum bilgilerinizi mümkün olduğunca net yazın.
+                    Özellikle <strong>tesis tipi, şehir</strong> ve
+                    <strong> LifeGuard AI’yi hangi amaçla kullanmak istediğiniz</strong>
+                    bizim için önemli.
                 </p>
 
-                <form id="contact-form">
+                <!-- Formspree formu -->
+                <form
+                    action="https://formspree.io/f/movylqqd"
+                    method="POST"
+                >
                     <div>
                         <label for="name">Ad / Kullanıcı adı</label>
-                        <input id="name" name="name" type="text" required />
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            placeholder="Örn: Enes, LifeGuard ekibi, vb."
+                            required
+                        />
                     </div>
+
                     <div>
                         <label for="email">E-posta adresiniz</label>
-                        <input id="email" name="email" type="email" required />
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="ornek@kurum.com"
+                            required
+                        />
                     </div>
+
                     <div>
                         <label for="facility">Kurum / Tesis tipi</label>
                         <select id="facility" name="facility">
@@ -324,23 +423,51 @@
                             <option>Diğer</option>
                         </select>
                     </div>
+
                     <div>
                         <label for="message">Kısaca talebiniz</label>
-                        <textarea id="message" name="message"></textarea>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Pilot proje, iş birliği, fikir paylaşımı vb."
+                        ></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary">E-posta taslağı oluştur</button>
+                    <!-- İstersen FormsPree’de filtre açısından form ismi -->
+                    <input type="hidden" name="formName" value="LifeGuard AI Ulaş Formu" />
+
+                    <button type="submit" class="btn-primary">
+                        E-posta gönder
+                    </button>
                 </form>
             </div>
 
+            <!-- SAĞ TARAF – YETKİLİ E-POSTA ADRESLERİ -->
             <aside class="card">
                 <h2 class="card-title">Doğrudan e-posta ile ulaşmak isterseniz</h2>
-                <p class="card-text">
-                    Proje iletişim adresi:
+                <p class="card-text contact-meta">
+                    Proje ile ilgili yetkili iletişim adresleri:
                 </p>
 
-                <p><a href="mailto:lifeguardai8@gmail.com">lifeguardai8@gmail.com</a></p>
+                <div class="email-list">
+                    <p><strong>Yetkili proje e-postaları</strong></p>
+                    <p>
+                        <a href="mailto:lifeguardyigitcanacar018@gmail.com">
+                            lifeguardyigitcanacar018@gmail.com
+                        </a>
+                    </p>
+                    <p>
+                        <a href="mailto:lifeguardefeguney018@gmail.com">
+                            lifeguardefeguney018@gmail.com
+                        </a>
+                    </p>
+                </div>
 
+                <p class="card-text" style="margin-top:16px;">
+                    Bu adresler, sadece LifeGuard AI konsept projesi kapsamında
+                    kullanılmaktadır. Ticari ürünleşme aşamasında kurumsal iletişim
+                    kanalları ayrıca tanımlanacaktır.
+                </p>
             </aside>
         </div>
     </section>
@@ -348,39 +475,9 @@
 
 <footer>
     <div class="container">
-        © 2025 LifeGuard AI Konsept Projesi
+        © 2025 LifeGuard AI konsept projesi. Bu site, proje fikrini ve tasarımını tanıtmak için
+        hazırlanmış demo arayüzdür.
     </div>
 </footer>
-
-<script>
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const facility = document.getElementById("facility").value;
-    const message = document.getElementById("message").value.trim();
-
-    const subject = encodeURIComponent("LifeGuard AI – İletişim Talebi");
-    const bodyLines = [
-        "Ad / Kullanıcı adı: " + name,
-        "E-posta: " + email,
-        "Kurum / Tesis tipi: " + facility,
-        "",
-        "Talep / Mesaj:",
-        message || "-",
-        "",
-        "Bu e-posta LifeGuard AI web formu üzerinden oluşturulmuştur."
-    ];
-
-    const body = encodeURIComponent(bodyLines.join("\n"));
-
-    /* ✔️ SADECE BU SATIR GÜNCELLENDİ */
-    const mailto = "mailto:lifeguardai8@gmail.com"
-        + "?subject=" + subject + "&body=" + body;
-
-    window.location.href = mailto;
-});
-</script>
-
 </body>
 </html>
