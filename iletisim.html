@@ -2,389 +2,283 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
-    <title>LifeGuard AI Watch · Ulaş / İletişim</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeGuard AI – Ulaş / İletişim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
         :root {
-            --primary-gray: #2F2F2F;
-            --light-gray: #D9D9D9;
-            --white: #FFFFFF;
-            --accent-orange: #FF6B1A;
-            --bg-deep: #050505;
+            --bg-main: #050506;
+            --bg-elevated: #111118;
+            --bg-soft: #17161d;
+            --accent-orange: #ff9b3b;
+            --accent-orange-dark: #e27b23;
+            --accent-soft: #ffcf8a;
+            --text-main: #f5f5f7;
+            --text-soft: #c6c6cf;
+            --text-muted: #8b8b95;
+            --border-subtle: rgba(255, 255, 255, 0.06);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background:
-                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 60%),
-                radial-gradient(circle at bottom right, rgba(255,107,26,0.12), transparent 55%),
-                #050505;
-            color: var(--white);
-            line-height: 1.5;
-            overflow-x: hidden;
+            font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top, #151821 0, #050506 45%, #040404 100%);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
         a { color: inherit; text-decoration: none; }
 
         .container {
-            width: 100%;
             max-width: 1180px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* HEADER / NAVBAR */
-
         header {
-            position: fixed;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(to bottom, #050506, rgba(5,5,6,0.9));
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 70px;
-            background: rgba(8,8,8,0.96);
-            border-bottom: 1px solid rgba(217,217,217,0.18);
+            z-index: 40;
             backdrop-filter: blur(18px);
-            z-index: 1000;
         }
 
         .nav-inner {
-            height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 14px 0;
+            gap: 28px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         .logo-badge {
-            width: 52px;
-            height: 52px;
+            width: 64px;
+            height: 64px;
             border-radius: 999px;
-            background: radial-gradient(circle at top, #42FF8F, #0F7A37);
+            background: radial-gradient(circle at top, #3b3f4b, #15151a);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-size: 24px;
-            color: #022c22;
-            box-shadow: 0 0 0 4px rgba(66,255,143,0.16);
+            color: #f5f5f5;
+            font-weight: 700;
+            font-size: 22px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.55);
+        }
+
+        .logo-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .logo-text-main {
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
         }
 
-        .logo-text-main span:first-child { color: #FFA76B; }
-        .logo-text-main span:last-child { color: var(--white); }
+        .logo-text-main span:first-child { color: var(--accent-orange); }
+        .logo-text-main span:last-child { color: #ffffff; }
 
         .logo-text-sub {
-            font-size: 10px;
+            font-size: 12px;
             text-transform: uppercase;
-            color: #a3a3a3;
+            letter-spacing: 0.18em;
+            color: var(--text-muted);
         }
 
         nav ul {
-            list-style: none;
             display: flex;
             align-items: center;
-            gap: 18px;
-            font-size: 13px;
+            list-style: none;
+            gap: 14px;
         }
 
         .nav-link {
-            padding: 7px 12px;
+            font-size: 14px;
+            color: var(--text-soft);
+            padding: 8px 14px;
             border-radius: 999px;
-            color: #e5e5e5;
-            cursor: pointer;
-            transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+            transition: all 0.18s ease;
         }
 
         .nav-link:hover {
-            background: rgba(255,107,26,0.15);
-            transform: translateY(-1px);
+            color: #ffffff;
+            background: rgba(255,255,255,0.04);
         }
 
         .nav-link.active {
             background: var(--accent-orange);
-            color: #111827;
+            color: #050506;
             font-weight: 600;
+            box-shadow: 0 0 18px rgba(255,155,59,0.35);
         }
 
         .nav-cta {
+            padding: 8px 16px;
             border-radius: 999px;
-            padding: 7px 16px;
-            border: 1px solid rgba(255,255,255,0.35);
-            background: #181818;
-            font-size: 12px;
-        }
-
-        .nav-cta:hover { border-color: var(--accent-orange); }
-
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            width: 22px;
-            height: 2px;
-            border-radius: 999px;
-            background: #f5f5f5;
-        }
-
-        .nav-mobile { display: none; }
-
-        @media (max-width: 880px) {
-            nav ul { display: none; }
-            .nav-toggle { display: flex; }
-            .nav-mobile {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: #101010;
-                border-bottom: 1px solid #2b2b2b;
-                display: none;
-                flex-direction: column;
-                padding: 10px 20px 14px;
-                gap: 6px;
-                z-index: 999;
-            }
-            .nav-mobile.open { display: flex; }
-            .nav-mobile a {
-                padding: 8px;
-                border-radius: 10px;
-                font-size: 14px;
-                color: #e5e5e5;
-            }
-            .nav-mobile a.active {
-                background: var(--accent-orange);
-                color: #111827;
-            }
-        }
-
-        main { padding-top: 70px; }
-
-        section { padding: 80px 0; }
-
-        @media (max-width: 768px) {
-            section { padding: 60px 0; }
-        }
-
-        .section-eyebrow {
-            font-size: 12px;
-            letter-spacing: 0.25em;
+            border: 1px solid rgba(255,255,255,0.16);
+            font-size: 13px;
+            color: var(--accent-soft);
             text-transform: uppercase;
-            color: var(--light-gray);
-            margin-bottom: 10px;
-            font-weight: 600;
+            letter-spacing: 0.14em;
         }
 
-        .section-title {
-            font-size: clamp(26px, 4vw, 34px);
-            font-weight: 800;
+        main { padding: 42px 0 80px; }
+
+        .page-eyebrow {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--text-muted);
             margin-bottom: 10px;
         }
 
-        .section-title span { color: var(--accent-orange); }
+        .page-title {
+            font-size: 34px;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
 
-        .section-subtitle {
-            font-size: 15px;
-            color: #d3d3d3;
+        .page-title span.highlight { color: var(--accent-orange); }
+
+        .page-intro {
             max-width: 640px;
+            color: var(--text-soft);
+            margin-bottom: 24px;
         }
 
-        /* CONTACT LAYOUT */
-
-        #contact {
-            background: linear-gradient(135deg, #181818, #050505);
-            border-bottom: 1px solid #202020;
-        }
-
-        .contact-grid {
+        .contact-layout {
             display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-            gap: 36px;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 28px;
             align-items: flex-start;
         }
 
-        @media (max-width: 900px) {
-            .contact-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        .contact-card {
-            margin-top: 24px;
-            background: #101010;
+        .card {
+            background: radial-gradient(circle at top left, #23202a, #111118);
             border-radius: 22px;
-            padding: 20px 20px 18px;
-            border: 1px solid #262626;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-subtle);
+            padding: 22px 22px 20px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.6);
         }
 
-        form {
-            display: grid;
-            gap: 14px;
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: var(--text-soft);
+            margin-bottom: 18px;
         }
 
         label {
-            font-size: 13px;
-            margin-bottom: 4px;
             display: block;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
             font-size: 13px;
+            color: var(--text-soft);
+            margin-bottom: 4px;
         }
 
         input, textarea, select {
+            width: 100%;
             border-radius: 12px;
-            border: 1px solid #3b3b3b;
-            background: #050505;
-            color: var(--white);
-            padding: 10px 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: #0b0b10;
+            color: var(--text-main);
             font-family: inherit;
-            font-size: 13px;
+            font-size: 14px;
+            padding: 9px 11px;
+            margin-bottom: 12px;
             outline: none;
-            transition: border-color 0.16s ease, background 0.16s ease;
         }
 
         input:focus, textarea:focus, select:focus {
             border-color: var(--accent-orange);
-            background: #0c0c0c;
+            box-shadow: 0 0 0 1px rgba(255,155,59,0.4);
         }
 
         textarea {
-            min-height: 110px;
+            min-height: 120px;
             resize: vertical;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-        }
-
-        @media (max-width: 640px) {
-            .form-row {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
         .btn-primary {
+            border: none;
             border-radius: 999px;
-            padding: 10px 18px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid transparent;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            padding: 10px 20px;
             background: var(--accent-orange);
-            color: #111827;
-            box-shadow: 0 16px 30px rgba(0,0,0,0.45);
-            transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.18s ease;
+            color: #050506;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.16s ease, transform 0.08s ease;
         }
 
         .btn-primary:hover {
-            background: #ff7e37;
+            background: var(--accent-orange-dark);
             transform: translateY(-1px);
-            box-shadow: 0 20px 36px rgba(0,0,0,0.6);
         }
 
-        .form-hint {
-            font-size: 11px;
-            color: #c3c3c3;
-            margin-top: 6px;
-        }
-
-        /* CONTACT INFO CARD */
-
-        .info-card {
-            margin-top: 24px;
-            background: #101010;
-            border-radius: 22px;
-            padding: 16px 18px 16px;
-            border: 1px solid #262626;
+        .contact-meta {
             font-size: 13px;
+            color: var(--text-soft);
         }
 
-        .info-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 6px;
+        .contact-meta strong {
+            color: var(--accent-soft);
         }
 
-        .info-mail {
-            margin-top: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .info-mail a {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            color: #f9fafb;
-        }
-
-        .pill {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 999px;
-            font-size: 10px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            background: #181818;
-            border: 1px solid #333;
-            color: #e5e5e5;
-        }
-
-        .info-note {
-            font-size: 11px;
-            color: #bdbdbd;
+        .email-list {
             margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .email-list a {
+            color: var(--accent-soft);
         }
 
         footer {
-            padding: 14px 20px 18px;
-            background: #080808;
-            border-top: 1px solid #1f1f1f;
-            font-size: 11px;
-            color: #a6a6a6;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 18px 0 26px;
+            color: var(--text-muted);
+            font-size: 12px;
         }
 
-        .footer-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+        @media (max-width: 900px) {
+            .contact-layout { grid-template-columns: 1fr; }
+            .brand-logo { width: 64px; height: 64px; }
+            .logo-text-main { font-size: 18px; }
+        }
+
+        @media (max-width: 720px) {
+            .nav-inner { flex-direction: column; align-items: flex-start; }
+            nav ul { flex-wrap: wrap; justify-content: flex-start; }
+            .page-title { font-size: 28px; }
         }
     </style>
 </head>
@@ -393,11 +287,15 @@
     <div class="container nav-inner">
         <div class="logo">
             <div class="logo-badge">EA</div>
-            <div>
-                <div class="logo-text-main">
-                    <span>LIFEGUARD</span> <span>AI</span>
+            <div class="logo-right">
+                <img src="logo-lifeguard-ai.png" alt="LifeGuard AI Logo" class="brand-logo">
+                <div class="logo-text">
+                    <div class="logo-text-main">
+                        <span>LIFEGUARD</span>
+                        <span>AI</span>
+                    </div>
+                    <div class="logo-text-sub">SMARTHEALTH WATCH · SAĞLIK &amp; GÜVENLİK</div>
                 </div>
-                <div class="logo-text-sub">SmartHealth Watch · Sağlık &amp; Güvenlik</div>
             </div>
         </div>
 
@@ -410,169 +308,108 @@
                 <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
             </ul>
         </nav>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-
-    <div class="nav-mobile" id="navMobile">
-        <a href="index.html">Saat</a>
-        <a href="ne-yapiyor.html">Ne Yapıyor?</a>
-        <a href="senaryolar.html">Senaryolar</a>
-        <a class="active" href="iletisim.html">Ulaş</a>
     </div>
 </header>
 
 <main>
-    <section id="contact">
-        <div class="container contact-grid">
-            <div>
-                <p class="section-eyebrow">Ulaş / İletişim</p>
-                <h1 class="section-title">
-                    LifeGuard AI SmartHealth Watch ile <span>iş birliği</span> yapmak ister misiniz?
-                </h1>
-                <p class="section-subtitle">
-                    Aşağıdaki form; otel, tesis, akademik kurum veya yatırımcı
-                    görüşmeleri için hazırlanmıştır. Formu doldurduğunuzda, veriler
-                    doğrudan proje ekibinin LifeGuard e-posta adreslerine iletilir.
-                    Kişisel <strong>enesasker018</strong> adresi bu sayfada <strong>kullanılmamaktadır</strong>.
+    <section class="container">
+        <div class="page-eyebrow">İletişim · İş Birliği</div>
+        <h1 class="page-title">
+            LifeGuard AI ekibine <span class="highlight">nasıl ulaşabilirsiniz?</span>
+        </h1>
+        <p class="page-intro">
+            Bu form, proje hakkında bilgi almak, iş birliği önermek veya pilot çalışma fikri paylaşmak isteyen kurumlar içindir.
+            Formu doldurduğunuzda, içeriği e-posta taslağı olarak açılır; iletmek istediğiniz bilgiyi kontrol edip gönderebilirsiniz.
+        </p>
+
+        <div class="contact-layout">
+            <div class="card">
+                <h2 class="card-title">Kısa form doldurun, mail taslağına düşsün</h2>
+                <p class="card-text">
+                    Lütfen tesis / kurum bilgilerinizi mümkün olduğunca net yazın. Özellikle <strong>tesis tipi, şehir</strong> ve
+                    <strong> LifeGuard AI’yi hangi amaçla kullanmak istediğiniz</strong> bizim için önemli.
                 </p>
 
-                <div class="contact-card">
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="input-group">
-                                <label for="name">Ad / Nickname</label>
-                                <input id="name" name="name" type="text" placeholder="Örn: Enes, EA, Proje Sorumlusu" required />
-                            </div>
-                            <div class="input-group">
-                                <label for="email">E-posta adresiniz</label>
-                                <input id="email" name="email" type="email" placeholder="size ulaşabileceğimiz adres" required />
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="input-group">
-                                <label for="role">Profil</label>
-                                <select id="role" name="role">
-                                    <option value="Otel / Tesis Yöneticisi">Otel / Tesis Yöneticisi</option>
-                                    <option value="Cankurtaran / Güvenlik Ekibi">Cankurtaran / Güvenlik Ekibi</option>
-                                    <option value="Akademik Ortak / Danışman">Akademik Ortak / Danışman</option>
-                                    <option value="Yatırımcı / Destek">Yatırımcı / Destek</option>
-                                    <option value="Diğer">Diğer</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="facility">Kurum / Tesis Adı (opsiyonel)</label>
-                                <input id="facility" name="facility" type="text" placeholder="Örn: X Resort Hotel / Aksaray Üni." />
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="message">Kısaca talebiniz</label>
-                            <textarea id="message" name="message" placeholder="Pilot proje, demo talebi, ortak çalışma fikri vb."></textarea>
-                        </div>
-
-                        <button class="btn-primary" type="submit">
-                            Formu e-posta taslağı olarak hazırla
-                        </button>
-
-                        <p class="form-hint">
-                            Not: Bu form, tarayıcınızda lokal olarak çalışır. Gönder tuşuna
-                            bastığınızda bilgisayarınızda varsayılan e-posta uygulaması
-                            üzerinden <strong>lifeguardyigitcanacar018@gmail.com</strong> ve
-                            <strong> lifeguardefeguney018@gmail.com</strong> adreslerine
-                            taslak e-posta hazırlanır. Sunucuya veri kaydı yapılmaz.
-                        </p>
-                    </form>
-                </div>
-            </div>
-
-            <aside>
-                <div class="info-card">
-                    <span class="pill">Proje Ekip Mail</span>
-                    <h2 class="info-title">Doğrudan e-posta ile ulaşmak isterseniz:</h2>
-
-                    <div class="info-mail">
-                        <a href="mailto:lifeguardyigitcanacar018@gmail.com">
-                            📧 lifeguardyigitcanacar018@gmail.com
-                        </a>
-                        <a href="mailto:lifeguardefeguney018@gmail.com">
-                            📧 lifeguardefeguney018@gmail.com
-                        </a>
+                <form id="contact-form">
+                    <div>
+                        <label for="name">Ad / Kullanıcı adı</label>
+                        <input id="name" name="name" type="text" placeholder="Örn: Enes, LifeGuard ekibi, vb." required />
+                    </div>
+                    <div>
+                        <label for="email">E-posta adresiniz</label>
+                        <input id="email" name="email" type="email" placeholder="ornek@kurum.com" required />
+                    </div>
+                    <div>
+                        <label for="facility">Kurum / Tesis tipi</label>
+                        <select id="facility" name="facility">
+                            <option>Otel / Resort</option>
+                            <option>Aquapark / Eğlence tesisi</option>
+                            <option>Site / Rezidans havuzu</option>
+                            <option>Spor kompleksi / okul / kampüs</option>
+                            <option>Diğer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Kısaca talebiniz</label>
+                        <textarea id="message" name="message" placeholder="Pilot proje, iş birliği, fikir paylaşımı vb."></textarea>
                     </div>
 
-                    <p class="info-note">
-                        Bu adresler, sadece LifeGuard AI proje ekibi tarafından
-                        yönetilmektedir. <strong>enesasker018@gmail.com</strong> gibi
-                        kişisel adresler, dış iletişimde kullanılmaz ve bu formun
-                        hiçbir yerinde görünmez.
-                    </p>
+                    <button type="submit" class="btn-primary">E-posta taslağı oluştur</button>
+                </form>
+            </div>
+
+            <aside class="card">
+                <h2 class="card-title">Doğrudan e-posta ile ulaşmak isterseniz</h2>
+                <p class="card-text contact-meta">
+                    Proje ile ilgili iletişim adresleri:
+                </p>
+                <div class="email-list">
+                    <p><strong>Yetkili proje e-postaları</strong></p>
+                    <p><a href="mailto:lifeguardyigitcanacar018@gmail.com">lifeguardyigitcanacar018@gmail.com</a></p>
+                    <p><a href="mailto:lifeguardefeguney018@gmail.com">lifeguardefeguney018@gmail.com</a></p>
                 </div>
 
-                <div class="info-card" style="margin-top:16px;">
-                    <span class="pill">Toplantı Türü</span>
-                    <h2 class="info-title">Önerilen görüşme formatları</h2>
-                    <ul style="margin-top:6px; padding-left:18px; font-size:12px; color:#d4d4d4;">
-                        <li>15–20 dk ön tanışma (çevrim içi)</li>
-                        <li>Teknik detay / altyapı toplantısı</li>
-                        <li>Havuz / tesis üzerinde pilot proje planlama</li>
-                    </ul>
-                </div>
+                <p class="card-text" style="margin-top:16px;">
+                    Bu adresler, sadece LifeGuard AI konsept projesi kapsamında kullanılmaktadır.
+                    Ticari ürünleşme aşamasında kurumsal iletişim kanalları ayrıca tanımlanacaktır.
+                </p>
             </aside>
         </div>
     </section>
 </main>
 
 <footer>
-    <div class="footer-inner">
-        <div>© 2025 LifeGuard AI · SmartHealth Watch</div>
-        <div>İletişim · LifeGuard proje ekibiyle doğrudan bağlantı</div>
+    <div class="container">
+        © 2025 LifeGuard AI konsept projesi. Bu site, proje fikrini ve tasarımını tanıtmak için hazırlanmış demo arayüzdür.
     </div>
 </footer>
 
 <script>
-    const navToggle = document.getElementById("navToggle");
-    const navMobile = document.getElementById("navMobile");
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const facility = document.getElementById("facility").value;
+    const message = document.getElementById("message").value.trim();
 
-    navToggle.addEventListener("click", () => {
-        navMobile.classList.toggle("open");
-    });
+    const subject = encodeURIComponent("LifeGuard AI – İletişim Talebi");
+    const bodyLines = [
+        "Ad / Kullanıcı adı: " + name,
+        "E-posta: " + email,
+        "Kurum / Tesis tipi: " + facility,
+        "",
+        "Talep / Mesaj:",
+        message || "-",
+        "",
+        "Bu e-posta LifeGuard AI web formu üzerinden oluşturulmuştur."
+    ];
 
-    // İletişim formu -> mailto taslağı
-    const contactForm = document.getElementById("contactForm");
+    const body = encodeURIComponent(bodyLines.join("\\n"));
+    const mailto = "mailto:lifeguardyigitcanacar018@gmail.com,lifeguardefeguney018@gmail.com"
+        + "?subject=" + subject + "&body=" + body;
 
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const role = document.getElementById("role").value;
-        const facility = document.getElementById("facility").value.trim();
-        const message = document.getElementById("message").value.trim();
-
-        const to = "lifeguardyigitcanacar018@gmail.com";
-        const cc = "lifeguardefeguney018@gmail.com";
-
-        const subject = encodeURIComponent("LifeGuard AI SmartHealth Watch · İletişim Talebi");
-        const bodyLines = [
-            `Ad / Nickname: ${name}`,
-            `E-posta: ${email}`,
-            `Profil: ${role}`,
-            `Kurum / Tesis: ${facility || "- belirtilmedi -"}`,
-            "",
-            "Mesaj:",
-            message || "- boş bırakıldı -",
-            "",
-            "Bu e-posta, LifeGuard AI GitHub Pages iletişim formu üzerinden oluşturulmuştur."
-        ];
-
-        const body = encodeURIComponent(bodyLines.join("\n"));
-
-        const mailtoUrl = `mailto:${to}?cc=${encodeURIComponent(cc)}&subject=${subject}&body=${body}`;
-        window.location.href = mailtoUrl;
-    });
+    window.location.href = mailto;
+});
 </script>
 </body>
 </html>
