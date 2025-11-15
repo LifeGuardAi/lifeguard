@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -121,22 +120,22 @@
       margin-top: 4px;
     }
 
-   nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;     /* Menü elemanlarını dikey hizalar */
-    gap: 32px;               /* Aralıkları biraz daha düzenli yapar */
-    margin-left: auto;       /* Menü sağa yaslanır */
-    padding: 0;              /* Gereksiz boşlukları temizler */
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-left: auto;
+      padding: 0;
+    }
 
     .nav-link {
-    font-size: 16px;
-    text-decoration: none;
-    color: var(--text-muted);
-    transition: color 0.2s ease;
-    white-space: nowrap;      /* Ne Yapıyor? tek satır kalsın */
-}
+      font-size: 16px;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
 
     .nav-link:hover {
       color: #ffffff;
@@ -173,12 +172,11 @@
 
     /* ---------- MAIN LAYOUT ---------- */
 
-   main {
-    max-width: 1200px;
-    margin: 0 auto;
-    /* TÜM SAYFALAR İÇİN AYNI OLSUN */
-    padding: 120px 24px 120px;
-}
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 24px 120px;
+    }
 
     .hero {
       max-width: 1200px;
@@ -230,7 +228,16 @@
       color: var(--text-muted);
       max-width: 580px;
       line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .hero-tech-list {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
       margin-bottom: 24px;
+      padding-left: 20px;
+      list-style: disc;
     }
 
     .hero-tags {
@@ -604,31 +611,32 @@
 
       .hero-title {
         font-size: 32px;
-        }
+      }
     }
 
-/* === LifeGuard AI saat görseli === */
-.watch-hero-image {
-  width: 100%;
-  max-width: 380px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 24px;
-  filter:
-    drop-shadow(0 18px 35px rgba(0, 0, 0, 0.9))
-    drop-shadow(0 0 24px rgba(255, 122, 26, 0.5));
-}
-/* device watch inner padding fix */
+    /* === LifeGuard AI saat görseli === */
+    .watch-hero-image {
+      width: 100%;
+      max-width: 380px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 24px;
+      filter:
+        drop-shadow(0 18px 35px rgba(0, 0, 0, 0.9))
+        drop-shadow(0 0 24px rgba(255, 122, 26, 0.5));
+    }
+
+    /* device watch inner padding fix */
     .device-watch-inner {
       padding: 12px !important;
-    
-@media (max-width: 768px) {
-  .watch-hero-image {
-    max-width: 260px;
-  }
-}
+    }
 
-</style>
+    @media (max-width: 768px) {
+      .watch-hero-image {
+        max-width: 260px;
+      }
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -649,14 +657,14 @@
     </div>
 
     <nav>
-    <ul>
+      <ul>
         <li><a class="nav-link" href="index.html">Saat</a></li>
         <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
         <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
         <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
         <li><span class="nav-cta">LIFEGUARD AI PROJESİ</span></li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -668,17 +676,37 @@
       <h1 class="hero-title">
         LifeGuard AI <span class="accent">SmartHealth</span> Watch
       </h1>
+
       <p class="hero-lead">
-        Havuz, aquapark ve konaklama tesisleri için tasarlanan, sağlık + güvenlik
-        odaklı bileklik konsepti. Amaç sensör anlatmak değil; <strong>risk anında kimi, nasıl
-        koruduğunu</strong> netleştirmek.
+        <strong>Gerçek zamanlı sağlık takibi ve acil durum uyarı sistemi.</strong>
+      </p>
+      <p class="hero-lead">
+        LifeGuard AI, GNSS destekli, gerçek zamanlı sağlık verisi izleyen ve acil durumları
+        otomatik algılayan akıllı sağlık saati konseptidir. Kalp atış hızı, ateş, hareket
+        anormallikleri ve düşme gibi kritik riskleri analiz ederek, acil durumda kime,
+        nerede ve ne olduğunu anında bildirmeyi hedefler.
+      </p>
+      <p class="hero-lead">
+        Herhangi bir hastane, fabrika, saha ekibi, spor tesisi veya aile takip sistemi için
+        kullanılabilecek, AI destekli kişisel güvenlik çözümüdür.
       </p>
 
+      <ul class="hero-tech-list">
+        <li>GNSS + gerçek zamanlı konum takibi</li>
+        <li>Kalp atış hızı / SpO₂ / ateş ölçümü</li>
+        <li>Düşme ve bayılma algılama</li>
+        <li>Bluetooth Low Energy üzerinden mobil uygulamaya veri aktarımı</li>
+        <li>Kapalı alan / açık alan acil durum bildirimi (SOS)</li>
+        <li>Günlük kullanım için optimize edilmiş 40 mm gövde</li>
+      </ul>
+
       <div class="hero-tags">
-        <span class="tag-pill">Düşme &amp; bayılma şüphesi</span>
-        <span class="tag-pill">Ateş / güneş çarpması</span>
-        <span class="tag-pill">GPS alan dışı + SOS</span>
-        <span class="tag-pill">Nabız / durum takibi</span>
+        <span class="tag-pill">Nabız / Durum Takibi</span>
+        <span class="tag-pill">Ateş / Isı Değişimi Algılama</span>
+        <span class="tag-pill">Düşme / Bayılma Tespiti</span>
+        <span class="tag-pill">GNSS Konum Takibi</span>
+        <span class="tag-pill">Acil Durum + SOS</span>
+        <span class="tag-pill">BLE Senkronizasyon</span>
       </div>
 
       <div class="hero-actions">
@@ -708,38 +736,43 @@
           <div class="device-watch-shell">
             <div class="device-watch-inner">
               <img src="watch.png" alt="LifeGuard AI SmartHealth Watch" class="watch-hero-image" />
-
             </div>
           </div>
-          
         </div>
 
         <div class="device-cols">
           <div>
             <div class="device-row-label">Ekran</div>
             <div class="device-row">
-              <span>Renkli, yüksek çözünürlüklü arayüz</span>
+              <span>Yüksek parlaklıklı, düşük güç tüketimli renkli arayüz.</span>
             </div>
           </div>
 
           <div>
             <div class="device-row-label">Gövde</div>
             <div class="device-row">
-              <span>40 mm, günlük kullanıma uygun kasa</span>
+              <span>40 mm, günlük kullanıma uygun kompakt kasa.</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="device-row-label">Sensörler</div>
+            <div class="device-row">
+              <span>PPG + HR, accelerometer + gyro, sıcaklık sensörü ve GNSS modülü.</span>
             </div>
           </div>
 
           <div>
             <div class="device-row-label">Pil</div>
             <div class="device-row">
-              <span>Gün boyu kullanım için optimize edilmiş süre</span>
+              <span>Tek şarjla gün boyu kullanım için optimize edilmiş sistem.</span>
             </div>
           </div>
 
           <div>
             <div class="device-row-label">Şarj</div>
             <div class="device-row">
-              <span>Manyetik, kolay tak-çıkar yapı</span>
+              <span>Manyetik, tak-çıkar kolay şarj yapısı.</span>
             </div>
           </div>
         </div>
@@ -752,45 +785,45 @@
     <div class="section-kicker">Özet</div>
     <h2 class="section-title">Saat ne yapıyor, kime fayda sağlıyor?</h2>
     <p class="section-lead">
-      Alttaki kartlar teknik sensör detayına girmeden; misafir, cankurtaran ve
-      işletme açısından <strong>beklenen faydayı</strong> anlatır.
+      Alttaki kartlar teknik sensör detayına girmeden; sağlık kuruluşları, iş
+      güvenliği ekipleri, saha çalışanları ve aileler açısından
+      <strong>beklenen faydayı</strong> özetler.
     </p>
 
     <div class="summary-grid">
       <article class="summary-card">
-        <h3 class="summary-title">Misafir için</h3>
+        <h3 class="summary-title">Sağlık kuruluşları için</h3>
         <p class="summary-body">
-          Misafir saati taktığı anda; cankurtaran ve işletme için görünür olur.
-          Düşme, bayılma, uzun süre hareketsizlik veya yüksek ateş şüphesinde sistem
-          otomatik uyarı üretir. Böylece “kim, nerede, ne durumda” sorusu saniyeler
-          içinde yanıtlanabilir.
+          Nabız, SpO₂, ateş ve hareket verisi; klinik ekiplerin riskli hastaları daha yakından
+          izlemesine yardımcı olur. Düşme, bayılma veya ani değişimlerde; hasta kim, nerede ve
+          ne durumda soruları saniyeler içinde yanıtlanabilir.
         </p>
       </article>
 
       <article class="summary-card">
-        <h3 class="summary-title">Cankurtaran için</h3>
+        <h3 class="summary-title">İş sağlığı ve güvenliği için</h3>
         <p class="summary-body">
-          Hangi havuzda, hangi misafirde anomali olduğunu tek ekrandan takip eder.
-          Hatalı / gereksiz alarımı en aza indiren, sensör füzyonu kullanan bir
-          uyarı sistemi amaçlanır. Böylece ekip, <strong>gerçek riske</strong> odaklanır.
+          Fabrika, şantiye veya saha ekiplerinde; çalışanların konum ve durum bilgisi tek
+          merkezden takip edilebilir. Olası kaza, bayılma veya ısı stresi durumlarında; olay
+          kaydı ve müdahale süresi daha net raporlanabilir.
         </p>
       </article>
 
       <article class="summary-card">
-        <h3 class="summary-title">İşletme için</h3>
+        <h3 class="summary-title">Saha ekipleri için</h3>
         <p class="summary-body">
-          Olay esnasında ve sonrasında net kayıt; “hangi bölgede, ne zaman, hangi
-          misafir, kaç saniyede müdahale edildi?” sorularını cevaplayabilen bir
-          altyapı hedeflenir. Bu da hem operasyon hem hukuki süreçlerde avantaj sağlar.
+          Bakım, güvenlik veya acil müdahale ekiplerinin sahadaki konumu ve durumu izlenebilir.
+          GNSS verisi ve olay kayıtları; hem operasyonel verimlilik hem de risk yönetimi için
+          kullanılabilir.
         </p>
       </article>
 
       <article class="summary-card">
-        <h3 class="summary-title">Aile / refakatçi için</h3>
+        <h3 class="summary-title">Aile / bireysel kullanım için</h3>
         <p class="summary-body">
-          Çocuk alanlarında, ebeveynin telefonuna kısıtlı bildirim senaryoları
-          tanımlanabilir. Örneğin, çocuk belirlenen güvenli alanın dışına çıkarsa
-          veya alan dışı SOS tetiklenirse haber verilir.
+          Kullanıcının nabız, SpO₂, sıcaklık ve hareket verileri takip edilerek; beklenmeyen
+          durumlarda yakınlara haber verilmesi hedeflenir. Özellikle yaşlı veya kronik
+          rahatsızlığı olan bireyler için, ekstra bir güvenlik katmanı sağlar.
         </p>
       </article>
     </div>
@@ -801,8 +834,8 @@
     <div class="section-kicker">AI + Sensor Fusion</div>
     <h2 class="section-title">Öne çıkan kullanım senaryoları</h2>
     <p class="section-lead">
-      Aşağıdaki başlıklar, sensör detayına girmeden <strong>yaşanabilecek
-      olayları</strong> ve sistemin nasıl tepki verdiğini anlatır.
+      Aşağıdaki başlıklar, sensör detayına girmeden <strong>yaşanabilecek olayları</strong>
+      ve sistemin nasıl tepki verdiğini anlatır.
     </p>
 
     <div class="usecases-grid">
@@ -810,19 +843,19 @@
         <div class="usecase-label">Senaryo 01</div>
         <h3 class="usecase-title">Düşme / bayılma algılama</h3>
         <p>
-          Saat, ani ivme + sonrasında hareketsizlik kombinasyonunu tespit ettiğinde
-          “düşme şüphesi” üretir. Konum bilgisiyle beraber ilgili cankurtaran
-          noktasına ve merkez ekrana alarm düşer.
+          Saat, ani ivme + sonrasında hareketsizlik kombinasyonunu tespit ettiğinde “düşme
+          şüphesi” olayı üretir. Konum bilgisi ve nabız / SpO₂ verisiyle birlikte ilgili
+          sorumlu ekip veya yakına alarm gönderilmesi hedeflenir.
         </p>
       </article>
 
       <article class="usecase-card">
         <div class="usecase-label">Senaryo 02</div>
-        <h3 class="usecase-title">Ateş / güneş çarpması</h3>
+        <h3 class="usecase-title">Ateş / ısı değişimi</h3>
         <p>
-          Vücut sıcaklığı, yaş ve ortam koşullarıyla beraber değerlendirilir.
-          Eşik değerler aşıldığında misafire nazik bir uyarı, cankurtaran ekibine
-          ise risk bildirimi gönderilebilir.
+          Sıcaklık sensörü, kullanıcının referans değerleri ve ortam koşullarıyla birlikte
+          değerlendirilir. Değerler sınırların üzerine çıktığında; saat üzerinde uyarı
+          gösterilir ve tercihen mobil uygulamaya bildirim gönderilir.
         </p>
       </article>
 
@@ -830,9 +863,9 @@
         <div class="usecase-label">Senaryo 03</div>
         <h3 class="usecase-title">GPS SOS &amp; alan dışı</h3>
         <p>
-          Misafir, belirlenen güvenli alanın dışına çıktığında veya saatin üzerindeki
-          SOS tetiklendiğinde; konum bazlı uyarı üretilir. Böylece “çocuk kayboldu”
-          gibi durumlara erken müdahale mümkün olur.
+          Kullanıcı, saatin üzerindeki SOS davranışını tetiklediğinde veya tanımlı güvenli
+          alanın dışına çıktığında; GNSS verisi ile birlikte acil durum olayı oluşturulur
+          ve ilgili kişilere iletilmek üzere sisteme aktarılır.
         </p>
       </article>
 
@@ -840,9 +873,9 @@
         <div class="usecase-label">Senaryo 04</div>
         <h3 class="usecase-title">Nabız / durum takibi</h3>
         <p>
-          Havuzda yoğun efor veya panik anında artan nabız, düşme / boğulma
-          şüphesi gibi parametrelerle birleştirilir. Böylece tek bir değere değil,
-          <strong>davranış paternine</strong> bakılarak alarm üretilir.
+          Nabız, SpO₂ ve hareket verisi birlikte izlenerek; yoğun efor, panik veya olağan dışı
+          davranış paternleri tespit edilmeye çalışılır. Sistem, tek bir eşik değeri yerine
+          zaman içindeki değişimi dikkate alarak alarm üretir.
         </p>
       </article>
     </div>
@@ -862,9 +895,8 @@
         <div class="roadmap-label">Adım 01</div>
         <h3 class="roadmap-title">PCB v1 – Temel sensörlü prototip</h3>
         <p class="roadmap-body">
-          İlk kartta; temel hareket, nabız ve sıcaklık ölçümleriyle “olay
-          tespiti”nin iskeleti kurulur. Amaç, sahada denenebilir bir gövdeye ve
-          yazılıma en hızlı şekilde ulaşmak.
+          İlk kartta; temel hareket, nabız ve sıcaklık ölçümleriyle “olay tespiti”nin iskeleti
+          kurulur. Amaç, sahada denenebilir bir gövdeye ve yazılıma en hızlı şekilde ulaşmaktır.
         </p>
       </article>
 
@@ -872,9 +904,8 @@
         <div class="roadmap-label">Adım 02</div>
         <h3 class="roadmap-title">PCB v2 – GNSS ekli versiyon</h3>
         <p class="roadmap-body">
-          GPS / GNSS modülü devreye alınarak alan dışı, rota takibi ve SOS
-          senaryoları eklenir. Aynı anda enerji tüketimi ve kutulama koşulları
-          optimize edilir.
+          GPS / GNSS modülü devreye alınarak alan dışı, rota takibi ve SOS senaryoları eklenir.
+          Aynı anda enerji tüketimi ve kutulama koşulları optimize edilir.
         </p>
       </article>
 
@@ -882,9 +913,8 @@
         <div class="roadmap-label">Adım 03</div>
         <h3 class="roadmap-title">Final prototip – Pilot kurulum</h3>
         <p class="roadmap-body">
-          IP67 seviyesinde kutulama, manyetik şarj yuvası ve yönetim yazılımıyla
-          birlikte komple sistemin pilot sahaya kurulması hedeflenir. Geri
-          bildirimlere göre v3 tasarımına geçilir.
+          IP67 seviyesinde kutulama, manyetik şarj yuvası ve yönetim yazılımıyla birlikte komple
+          sistemin pilot sahaya kurulması hedeflenir. Geri bildirimlere göre v3 tasarımına geçilir.
         </p>
       </article>
     </div>
