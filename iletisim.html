@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LifeGuard AI – Ulaş / İletişim</title>
 
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
         :root {
             --bg-main: #050506;
             --bg-elevated: #111118;
             --bg-soft: #17161d;
-            --accent-blue: #0c4b8e;
-            --accent-blue-dark: #093968;
-            --accent-orange: #ff6a00;
+            --accent-orange: #ff9b3b;
+            --accent-orange-dark: #e27b23;
             --accent-soft: #ffcf8a;
+            --accent-blue: #00c4ff;
             --text-main: #f5f5f7;
             --text-soft: #c6c6cf;
             --text-muted: #8b8b95;
@@ -179,13 +177,13 @@
             text-transform: uppercase;
             letter-spacing: 0.18em;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .page-title {
             font-size: 34px;
             line-height: 1.3;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .page-title span.highlight {
@@ -198,66 +196,92 @@
             margin-bottom: 26px;
         }
 
-        /* ---------- USER TYPE CARDS ---------- */
+        /* ------- TYPE CARDS (Öğrenci / Kurumsal / Satın Alma) ------- */
 
         .contact-type-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
-        .contact-type-card {
-            border-radius: 18px;
-            padding: 18px 18px 16px;
-            background: radial-gradient(circle at top, #1b222f, #101018);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
+        .type-card {
+            background: radial-gradient(circle at top left, #23202a, #111118);
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+            padding: 18px 20px 18px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
-            transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, background 0.12s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            transition: transform 0.16s ease, box-shadow 0.16s ease,
+                        border-color 0.16s ease, background 0.16s ease;
         }
 
-        .contact-type-card h3 {
+        .type-card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at top, rgba(0, 196, 255, 0.12), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.18s ease;
+            pointer-events: none;
+        }
+
+        .type-card:hover::before {
+            opacity: 1;
+        }
+
+        .type-card.active {
+            border-color: rgba(0, 196, 255, 0.6);
+            box-shadow: 0 0 24px rgba(0, 196, 255, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .type-title {
             font-size: 16px;
             font-weight: 600;
+            margin-bottom: 6px;
         }
 
-        .contact-type-card p {
+        .type-desc {
             font-size: 13px;
             color: var(--text-soft);
+            margin-bottom: 12px;
         }
 
-        .contact-type-card .chip {
-            margin-top: 4px;
-            align-self: flex-start;
-            font-size: 11px;
-            padding: 5px 10px;
+        .type-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.14);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+            padding: 8px 16px;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.04);
             color: var(--accent-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background 0.16s ease, transform 0.08s ease;
         }
 
-        .contact-type-card.active {
-            border-color: var(--accent-blue);
-            box-shadow: 0 18px 40px rgba(12, 75, 142, 0.65);
-            background: radial-gradient(circle at top, #0c4b8e, #101018);
+        .type-card.active .type-btn {
+            background: var(--accent-orange);
+            color: #050506;
         }
 
-        .contact-type-card.active p {
-            color: #dde8ff;
+        .type-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
         }
 
-        /* ---------- FORM & ASIDE LAYOUT ---------- */
+        /* ------- FORM + RIGHT CARD LAYOUT ------- */
 
-        .contact-main-layout {
+        .contact-layout {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 26px;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 24px;
             align-items: flex-start;
         }
 
@@ -272,11 +296,11 @@
         .card-title {
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
 
-        .card-subtitle {
-            font-size: 13px;
+        .card-text {
+            font-size: 14px;
             color: var(--text-soft);
             margin-bottom: 18px;
         }
@@ -299,53 +323,56 @@
             font-family: inherit;
             font-size: 14px;
             padding: 9px 11px;
-            margin-bottom: 12px;
             outline: none;
+            margin-bottom: 12px;
         }
 
         input:focus,
         textarea:focus,
         select:focus {
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 1px rgba(12, 75, 142, 0.5);
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 1px rgba(255, 155, 59, 0.4);
         }
 
         textarea {
-            min-height: 110px;
+            min-height: 120px;
             resize: vertical;
-        }
-
-        input[type="file"] {
-            padding: 6px 8px;
-            font-size: 13px;
         }
 
         .btn-primary {
             border: none;
             border-radius: 999px;
             padding: 10px 22px;
-            background: var(--accent-blue);
-            color: #ffffff;
+            background: var(--accent-orange);
+            color: #050506;
             font-weight: 600;
             font-size: 14px;
             cursor: pointer;
-            transition: background 0.16s ease, transform 0.08s ease, box-shadow 0.12s ease;
+            transition: background 0.16s ease, transform 0.08s ease,
+                        box-shadow 0.16s ease;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
         .btn-primary:hover {
-            background: var(--accent-blue-dark);
+            background: var(--accent-orange-dark);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(9, 57, 104, 0.7);
+            box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
         }
 
-        .btn-primary span.dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: var(--accent-orange);
+        .contact-form {
+            display: none;
+        }
+
+        .contact-form.active {
+            display: block;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
         }
 
         .contact-meta {
@@ -358,16 +385,12 @@
         }
 
         .email-list {
-            margin-top: 12px;
+            margin-top: 10px;
             font-size: 13px;
         }
 
         .email-list a {
             color: var(--accent-soft);
-        }
-
-        .email-list a:hover {
-            color: #ffffff;
         }
 
         footer {
@@ -377,24 +400,8 @@
             font-size: 12px;
         }
 
-        /* FORMLARIN GÖRÜNÜRLÜĞÜ */
-
-        .contact-form {
-            display: none;
-        }
-
-        .contact-form.active {
-            display: block;
-        }
-
-        .form-row-2 {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-        }
-
-        @media (max-width: 980px) {
-            .contact-main-layout {
+        @media (max-width: 1024px) {
+            .contact-layout {
                 grid-template-columns: 1fr;
             }
         }
@@ -432,6 +439,7 @@
     </style>
 </head>
 <body>
+
 <header>
     <div class="container nav-inner">
         <div class="logo">
@@ -443,9 +451,7 @@
                         <span>LIFEGUARD</span>
                         <span>AI</span>
                     </div>
-                    <div class="logo-text-sub">
-                        SMARTHEALTH WATCH · SAĞLIK &amp; GÜVENLİK
-                    </div>
+                    <div class="logo-text-sub">SMARTHEALTH WATCH · SAĞLIK &amp; GÜVENLİK</div>
                 </div>
             </div>
         </div>
@@ -464,145 +470,161 @@
 
 <main>
     <section class="container">
-        <div class="page-eyebrow">İLETİŞİM · İŞ BİRLİĞİ</div>
+        <div class="page-eyebrow">İletişim · İş Birliği</div>
         <h1 class="page-title">
-            Bizimle <span class="highlight">İletişime Geçin</span>
+            LifeGuard AI ekibine <span class="highlight">nasıl ulaşabilirsiniz?</span>
         </h1>
         <p class="page-intro">
-            LifeGuard AI araştırma ekibi olarak, bireysel kullanıcılar ve kurumlar için akıllı sağlık çözümleri geliştiriyoruz.
-            Aşağıdan başvuru türünü seçerek bize ulaşabilirsiniz.
+            LifeGuard AI araştırma ekibi olarak, bireysel kullanıcılar ve kurumlar için akıllı sağlık ve güvenlik çözümleri üzerinde çalışıyoruz.
+            Aşağıdan başvuru türünü seçerek bize en doğru kanaldan ulaşabilirsiniz.
         </p>
 
-        <!-- 3 KART: ÖĞRENCİ / KURUMSAL / SATIN ALMA -->
+        <!-- ------- Başvuru Tipi Kartları ------- -->
         <div class="contact-type-grid">
-            <div class="contact-type-card active"
-                 data-contact-type="student">
-                <h3>Öğrenci / Akademik Başvuru</h3>
-                <p>
-                    Projeniz, ödeviniz veya akademik çalışmanız için teknik bilgi, iş birlikleri ve proje desteği.
+            <!-- Öğrenci -->
+            <article class="type-card" data-type="student">
+                <h2 class="type-title">Öğrenci / Akademik Başvuru</h2>
+                <p class="type-desc">
+                    Projeniz, ödeviniz veya akademik çalışmanız için teknik bilgi,
+                    iş birlikleri ve proje desteği almak isterseniz bu kanalı kullanabilirsiniz.
                 </p>
-                <div class="chip">Başvuru Yap</div>
-            </div>
+                <button class="type-btn" type="button">Başvuru Yap</button>
+            </article>
 
-            <div class="contact-type-card"
-                 data-contact-type="corporate">
-                <h3>Kurumsal / Büyük Şirket İş Birliği</h3>
-                <p>
-                    Kurumsal sağlık çözümleri, acil durum sistemleri, saha testleri ve özel entegrasyon talepleri.
+            <!-- Kurumsal -->
+            <article class="type-card" data-type="corporate">
+                <h2 class="type-title">Kurumsal / Büyük Şirket İş Birliği</h2>
+                <p class="type-desc">
+                    Kurumsal sağlık çözümleri, acil durum sistemleri, saha testleri ve özel entegrasyon talepleriniz için.
                 </p>
-                <div class="chip">Kurumsal Teklif Al</div>
-            </div>
+                <button class="type-btn" type="button">Kurumsal Teklif Al</button>
+            </article>
 
-            <div class="contact-type-card"
-                 data-contact-type="sales">
-                <h3>Ürün Satın Almak / Saat Siparişi</h3>
-                <p>
-                    LifeGuard AI – Sağlık &amp; Acil Durum Saatini satın almak, stok ve sipariş bilgisi için bize ulaşın.
+            <!-- Satın Alma -->
+            <article class="type-card active" data-type="product">
+                <h2 class="type-title">Ürün Satın Almak / Saat Siparişi</h2>
+                <p class="type-desc">
+                    LifeGuard AI – Sağlık &amp; Acil Durum Saatini satın almak,
+                    stok ve sipariş bilgisi için bu kanalı kullanabilirsiniz.
                 </p>
-                <div class="chip">Satın Alma Talebi</div>
-            </div>
+                <button class="type-btn" type="button">Satın Alma Talebi</button>
+            </article>
         </div>
 
-        <div class="contact-main-layout">
-            <!-- SOL: FORM BÖLÜMÜ -->
+        <!-- ------- Form + Sağ Bilgi Kartı ------- -->
+        <div class="contact-layout">
             <div class="card">
-                <div class="card-title" id="formTitle">
-                    Öğrenci / Akademik Başvuru Formu
-                </div>
-                <div class="card-subtitle" id="formSubtitle">
-                    Akademik çalışmalar, ödevler ve projeleriniz için aşağıdaki formu doldurabilirsiniz.
-                </div>
-
-                <!-- 🔵 ÖĞRENCİ FORMU -->
+                <!-- Öğrenci Formu -->
                 <form
-                    class="contact-form active"
-                    data-form-type="student"
+                    id="form-student"
+                    class="contact-form"
                     action="https://formspree.io/f/movylqqd"
                     method="POST"
-                    enctype="multipart/form-data"
+                    accept-charset="UTF-8"
                 >
-                    <input type="hidden" name="kategori" value="Öğrenci / Akademik Başvuru" />
+                    <input type="hidden" name="form-type" value="Öğrenci / Akademik Başvuru" />
 
-                    <div class="form-row-2">
+                    <h2 class="card-title">Öğrenci / Akademik Başvuru Formu</h2>
+                    <p class="card-text">
+                        Akademik proje, ödev, yarışma veya bitirme çalışması için teknik detay, mimari veya iş birliği talebinizi bu form
+                        üzerinden iletebilirsiniz.
+                    </p>
+
+                    <div class="form-row">
                         <div>
-                            <label for="stu-name">Ad Soyad</label>
-                            <input id="stu-name" name="adSoyad" type="text" required />
+                            <label for="student-name">Ad Soyad</label>
+                            <input id="student-name" name="name" type="text" required />
                         </div>
                         <div>
-                            <label for="stu-email">E-posta</label>
-                            <input id="stu-email" name="email" type="email" required />
+                            <label for="student-email">E-posta</label>
+                            <input id="student-email" name="email" type="email" required />
                         </div>
                     </div>
 
-                    <div class="form-row-2">
+                    <div class="form-row">
                         <div>
-                            <label for="stu-uni">Üniversite / Bölüm</label>
-                            <input id="stu-uni" name="universiteBolum" type="text" />
+                            <label for="student-uni">Üniversite / Kurum</label>
+                            <input id="student-uni" name="university" type="text" placeholder="Örn: Aksaray Üniversitesi" />
                         </div>
                         <div>
-                            <label for="stu-topic">Proje konusu</label>
-                            <input id="stu-topic" name="projeKonusu" type="text" />
+                            <label for="student-dept">Bölüm / Program</label>
+                            <input id="student-dept" name="department" type="text" placeholder="Örn: Mekatronik" />
                         </div>
                     </div>
 
                     <div>
-                        <label for="stu-message">Mesaj</label>
+                        <label for="student-topic">Proje konusu</label>
+                        <input id="student-topic" name="project-topic" type="text" placeholder="Kısa açıklama" />
+                    </div>
+
+                    <div>
+                        <label for="student-message">Mesaj</label>
                         <textarea
-                            id="stu-message"
-                            name="mesaj"
-                            placeholder="Çalışmanız, ihtiyaç duyduğunuz destek, teslim tarihleri vb."
+                            id="student-message"
+                            name="message"
+                            placeholder="Çalışmanız hakkında kısaca bilgi verin, hangi konuda destek istediğinizi yazın."
                         ></textarea>
                     </div>
 
                     <div>
-                        <label for="stu-file">Ek dosya (isteğe bağlı)</label>
-                        <input id="stu-file" name="ekDosya" type="file" />
+                        <label for="student-link">Ek dosya / bağlantı (isteğe bağlı)</label>
+                        <input
+                            id="student-link"
+                            name="attachment-link"
+                            type="url"
+                            placeholder="Drive / GitHub / paylaşım linki varsa ekleyebilirsiniz."
+                        />
                     </div>
 
-                    <button type="submit" class="btn-primary">
-                        <span class="dot"></span> Başvuruyu Gönder
-                    </button>
+                    <button type="submit" class="btn-primary">Akademik Başvuruyu Gönder</button>
                 </form>
 
-                <!-- 🟠 KURUMSAL FORM -->
+                <!-- Kurumsal Form -->
                 <form
+                    id="form-corporate"
                     class="contact-form"
-                    data-form-type="corporate"
                     action="https://formspree.io/f/movylqqd"
                     method="POST"
+                    accept-charset="UTF-8"
                 >
-                    <input type="hidden" name="kategori" value="Kurumsal / Büyük Şirket İş Birliği" />
+                    <input type="hidden" name="form-type" value="Kurumsal / Büyük Şirket İş Birliği" />
 
-                    <div class="form-row-2">
+                    <h2 class="card-title">Kurumsal İş Birliği Formu</h2>
+                    <p class="card-text">
+                        Kurumsal sağlık çözümleri, pilot projeler, demo talepleri veya teknik entegrasyon süreçleri için
+                        bu form üzerinden ekibimize ulaşabilirsiniz.
+                    </p>
+
+                    <div class="form-row">
                         <div>
-                            <label for="corp-company">Şirket adı</label>
-                            <input id="corp-company" name="sirketAdi" type="text" required />
+                            <label for="corp-company">Şirket / Kurum adı</label>
+                            <input id="corp-company" name="company" type="text" required />
                         </div>
                         <div>
-                            <label for="corp-person">Yetkili kişi</label>
-                            <input id="corp-person" name="yetkiliKisi" type="text" required />
+                            <label for="corp-contact">Yetkili kişi</label>
+                            <input id="corp-contact" name="contact-person" type="text" required />
                         </div>
                     </div>
 
-                    <div class="form-row-2">
+                    <div class="form-row">
                         <div>
                             <label for="corp-email">E-posta</label>
                             <input id="corp-email" name="email" type="email" required />
                         </div>
                         <div>
                             <label for="corp-phone">Telefon</label>
-                            <input id="corp-phone" name="telefon" type="tel" />
+                            <input id="corp-phone" name="phone" type="tel" placeholder="+90 ..." />
                         </div>
                     </div>
 
                     <div>
                         <label for="corp-type">Talep türü</label>
-                        <select id="corp-type" name="talepTuru">
-                            <option>İş birliği</option>
-                            <option>Demo / pilot çalışma talebi</option>
-                            <option>Teknik entegrasyon</option>
-                            <option>Eğitim / sunum talebi</option>
-                            <option>Diğer</option>
+                        <select id="corp-type" name="request-type">
+                            <option value="İş birliği">İş birliği</option>
+                            <option value="Demo talebi">Demo / POC talebi</option>
+                            <option value="Teknik entegrasyon">Teknik entegrasyon</option>
+                            <option value="Danışmanlık">Danışmanlık</option>
+                            <option value="Diğer">Diğer</option>
                         </select>
                     </div>
 
@@ -610,170 +632,109 @@
                         <label for="corp-message">Mesaj</label>
                         <textarea
                             id="corp-message"
-                            name="mesaj"
-                            placeholder="Tesis detayları, kullanıcı sayısı, hedeflenen takvim vb."
+                            name="message"
+                            placeholder="Talebinizi mümkün olduğunca net ve detaylı anlatın."
                         ></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary">
-                        <span class="dot"></span> Kurumsal Talebi Gönder
-                    </button>
+                    <button type="submit" class="btn-primary">Kurumsal Talebi Gönder</button>
                 </form>
 
-                <!-- 🟢 SATIN ALMA FORMU -->
-                <!-- 🟢 SATIN ALMA FORMU -->
-<form
-    class="contact-form"
-    data-form-type="sales"
-    action="https://formspree.io/f/movylqqd"
-    method="POST"
->
-    <input type="hidden" name="kategori" value="Ürün Satın Alma / Saat Siparişi" />
+                <!-- Ürün Satın Alma / Tek FORM (sadece bu var!) -->
+                <form
+                    id="form-product"
+                    class="contact-form active"
+                    action="https://formspree.io/f/movylqqd"
+                    method="POST"
+                    accept-charset="UTF-8"
+                >
+                    <input type="hidden" name="form-type" value="Ürün Satın Alma / Saat Siparişi" />
 
-    <div class="form-row-2">
-        <div>
-            <label for="sale-name">Ad Soyad</label>
-            <input id="sale-name" name="adSoyad" type="text" required />
-        </div>
-        <div>
-            <label for="sale-email">E-posta</label>
-            <input id="sale-email" name="email" type="email" required />
-        </div>
-    </div>
+                    <h2 class="card-title">Ürün Satın Alma / Saat Siparişi Formu</h2>
+                    <p class="card-text">
+                        LifeGuard AI saatini satın almak veya stok / fiyat bilgisi almak için bu formu kullanabilirsiniz.
+                        Adres alanlarını mümkün olduğunca net doldurmanız, teklif ve teslimat sürecini hızlandırır.
+                    </p>
 
-    <div class="form-row-2">
-        <div>
-            <label for="sale-phone">Telefon</label>
-            <input id="sale-phone" name="telefon" type="tel" />
-        </div>
-        <div>
-            <label for="sale-quantity">Ürün adedi</label>
-            <input
-                id="sale-quantity"
-                name="urunAdedi"
-                type="number"
-                min="1"
-                step="1"
-                value="1"
-            />
-        </div>
-    </div>
-
-    <!-- 📍 Adres bilgileri (İl / İlçe / Mahalle / Sokak / No) -->
-    <div class="form-row-2">
-        <div>
-            <label for="sale-city">İl</label>
-            <input id="sale-city" name="teslimatIl" type="text" required />
-        </div>
-        <div>
-            <label for="sale-district">İlçe</label>
-            <input id="sale-district" name="teslimatIlce" type="text" required />
-        </div>
-    </div>
-
-    <div>
-        <label for="sale-neighborhood">Mahalle / Cadde / Sokak</label>
-        <input
-            id="sale-neighborhood"
-            name="mahalleSokak"
-            type="text"
-            placeholder="Örn: Cumhuriyet Mah. Atatürk Caddesi"
-            required
-        />
-    </div>
-
-    <div class="form-row-2">
-        <div>
-            <label for="sale-building">Bina No / Daire</label>
-            <input
-                id="sale-building"
-                name="binaDaire"
-                type="text"
-                placeholder="Örn: No:12 Daire:4"
-                required
-            />
-        </div>
-        <div>
-            <label for="sale-postal">Posta kodu (isteğe bağlı)</label>
-            <input id="sale-postal" name="postaKodu" type="text" />
-        </div>
-    </div>
-
-    <div>
-        <label for="sale-message">Mesaj (isteğe bağlı)</label>
-        <textarea
-            id="sale-message"
-            name="mesaj"
-            placeholder="Kurumsal alım, toplu sipariş, bayilik vb. notlarınızı yazabilirsiniz."
-        ></textarea>
-    </div>
-
-    <button type="submit" class="btn-primary">
-        <span class="dot"></span> Satın Alma Talebini Gönder
-    </button>
-</form>
-
-                    <input type="hidden" name="kategori" value="Ürün Satın Alma / Saat Siparişi" />
-
-                    <div class="form-row-2">
+                    <div class="form-row">
                         <div>
-                            <label for="sale-name">Ad Soyad</label>
-                            <input id="sale-name" name="adSoyad" type="text" required />
+                            <label for="prod-name">Ad Soyad</label>
+                            <input id="prod-name" name="name" type="text" required />
                         </div>
                         <div>
-                            <label for="sale-email">E-posta</label>
-                            <input id="sale-email" name="email" type="email" required />
+                            <label for="prod-email">E-posta</label>
+                            <input id="prod-email" name="email" type="email" required />
                         </div>
                     </div>
 
-                    <div class="form-row-2">
+                    <div class="form-row">
                         <div>
-                            <label for="sale-phone">Telefon</label>
-                            <input id="sale-phone" name="telefon" type="tel" />
+                            <label for="prod-phone">Telefon</label>
+                            <input id="prod-phone" name="phone" type="tel" placeholder="+90 ..." />
                         </div>
                         <div>
-                            <label for="sale-quantity">Ürün adedi</label>
+                            <label for="prod-qty">Ürün adedi</label>
+                            <input id="prod-qty" name="quantity" type="number" min="1" value="1" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="prod-city">İl</label>
+                            <input id="prod-city" name="city" type="text" />
+                        </div>
+                        <div>
+                            <label for="prod-district">İlçe</label>
+                            <input id="prod-district" name="district" type="text" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="prod-street">Mahalle / Cadde / Sokak</label>
+                        <input
+                            id="prod-street"
+                            name="street"
+                            type="text"
+                            placeholder="Örn: Cumhuriyet Mah. Atatürk Caddesi"
+                        />
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="prod-building">Bina No / Daire</label>
                             <input
-                                id="sale-quantity"
-                                name="urunAdedi"
-                                type="number"
-                                min="1"
-                                step="1"
-                                value="1"
+                                id="prod-building"
+                                name="building"
+                                type="text"
+                                placeholder="Örn: No:12 Daire:4"
                             />
                         </div>
+                        <div>
+                            <label for="prod-postcode">Posta kodu (isteğe bağlı)</label>
+                            <input id="prod-postcode" name="postcode" type="text" />
+                        </div>
                     </div>
 
                     <div>
-                        <label for="sale-city">Teslimat şehir</label>
-                        <input id="sale-city" name="teslimatSehir" type="text" />
-                    </div>
-
-                    <div>
-                        <label for="sale-message">Mesaj (isteğe bağlı)</label>
+                        <label for="prod-message">Mesaj (isteğe bağlı)</label>
                         <textarea
-                            id="sale-message"
-                            name="mesaj"
+                            id="prod-message"
+                            name="message"
                             placeholder="Kurumsal alım, toplu sipariş, bayilik vb. notlarınızı yazabilirsiniz."
                         ></textarea>
                     </div>
 
                     <button type="submit" class="btn-primary">
-                        <span class="dot"></span> Satın Alma Talebini Gönder
+                        ● Satın Alma Talebini Gönder
                     </button>
                 </form>
             </div>
 
-            <!-- SAĞ: YETKİLİ E-POSTA ADRESLERİ -->
+            <!-- Sağ taraftaki bilgi kartı -->
             <aside class="card">
-                <div class="card-title">Doğrudan e-posta ile ulaşmak isterseniz</div>
-                <div class="card-subtitle">
-                    Formu doldurmak yerine, proje ekibine doğrudan e-posta da yazabilirsiniz.
-                </div>
-
-                <p class="contact-meta">
-                    Bu adresler, sadece LifeGuard AI konsept projesi kapsamında kullanılmaktadır.
-                    Ticari ürünleşme aşamasında kurumsal iletişim kanalları ayrıca tanımlanacaktır.
+                <h2 class="card-title">Doğrudan e-posta ile ulaşmak isterseniz</h2>
+                <p class="card-text contact-meta">
+                    Form doldurmak yerine, proje ekibine doğrudan e-posta da yazabilirsiniz.
                 </p>
 
                 <div class="email-list">
@@ -789,6 +750,12 @@
                         </a>
                     </p>
                 </div>
+
+                <p class="card-text" style="margin-top:16px;">
+                    Bu adresler, sadece LifeGuard AI
+                    konsept projesi kapsamında kullanılmaktadır. Ticari ürünleşme aşamasında kurumsal iletişim kanalları ayrıca
+                    tanımlanacaktır.
+                </p>
             </aside>
         </div>
     </section>
@@ -796,55 +763,56 @@
 
 <footer>
     <div class="container">
-        © 2025 LifeGuard AI konsept projesi. Bu site, proje fikrini ve tasarımını tanıtmak için
-        hazırlanmış demo arayüzdür.
+        © 2025 LifeGuard AI konsept projesi. Bu site, proje fikrini ve tasarımını tanıtmak için hazırlanmış demo arayüzdür.
     </div>
 </footer>
 
 <script>
-    // Kartlara tıklayınca ilgili formu göster
-    const typeCards = document.querySelectorAll("[data-contact-type]");
-    const forms = document.querySelectorAll(".contact-form");
-    const formTitle = document.getElementById("formTitle");
-    const formSubtitle = document.getElementById("formSubtitle");
-
-    const titles = {
-        student: "Öğrenci / Akademik Başvuru Formu",
-        corporate: "Kurumsal / Büyük Şirket İş Birliği Formu",
-        sales: "Ürün Satın Alma / Saat Siparişi Formu",
+    // Başvuru tipi kartları ve formlar arasında geçiş
+    const typeCards = document.querySelectorAll(".type-card");
+    const forms = {
+        student: document.getElementById("form-student"),
+        corporate: document.getElementById("form-corporate"),
+        product: document.getElementById("form-product"),
     };
 
-    const subtitles = {
-        student:
-            "Akademik çalışmalar, üniversite projeleri ve ödevleriniz için aşağıdaki formu doldurabilirsiniz.",
-        corporate:
-            "Kurumsal iş birlikleri, demo talepleri ve teknik entegrasyon istekleriniz için bu formu kullanın.",
-        sales:
-            "LifeGuard AI saatini satın almak veya stok / fiyat bilgisi almak için bu formu doldurabilirsiniz.",
-    };
+    function setActiveType(type) {
+        // Kartları güncelle
+        typeCards.forEach((card) => {
+            if (card.dataset.type === type) {
+                card.classList.add("active");
+            } else {
+                card.classList.remove("active");
+            }
+        });
+
+        // Formları göster / gizle
+        Object.keys(forms).forEach((key) => {
+            if (key === type) {
+                forms[key].classList.add("active");
+            } else {
+                forms[key].classList.remove("active");
+            }
+        });
+    }
 
     typeCards.forEach((card) => {
         card.addEventListener("click", () => {
-            const type = card.getAttribute("data-contact-type");
-
-            // kart aktifliği
-            typeCards.forEach((c) => c.classList.remove("active"));
-            card.classList.add("active");
-
-            // form görünürlüğü
-            forms.forEach((form) => {
-                if (form.getAttribute("data-form-type") === type) {
-                    form.classList.add("active");
-                } else {
-                    form.classList.remove("active");
-                }
-            });
-
-            // başlık & alt açıklama
-            if (titles[type]) formTitle.textContent = titles[type];
-            if (subtitles[type]) formSubtitle.textContent = subtitles[type];
+            setActiveType(card.dataset.type);
         });
+
+        const btn = card.querySelector(".type-btn");
+        if (btn) {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                setActiveType(card.dataset.type);
+            });
+        }
     });
+
+    // Varsayılan: ürün satın alma formu açık kalsın
+    setActiveType("product");
 </script>
+
 </body>
 </html>
