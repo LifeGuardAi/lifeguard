@@ -147,10 +147,10 @@
         }
 
         main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 120px 24px 120px;
-}
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 120px;
+        }
 
         .page-eyebrow {
             font-size: 12px;
@@ -248,45 +248,17 @@
             transform: translateY(-1px);
         }
 
-        .contact-meta {
-            font-size: 13px;
-            color: var(--text-soft);
-        }
-
-        .contact-meta strong {
-            color: var(--accent-soft);
-        }
-
-        .email-list {
-            margin-top: 10px;
-            font-size: 13px;
-        }
-
-        .email-list a {
-            color: var(--accent-soft);
-        }
-
         footer {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 18px 0 26px;
             color: var(--text-muted);
             font-size: 12px;
         }
-
-        @media (max-width: 900px) {
-            .contact-layout { grid-template-columns: 1fr; }
-            .brand-logo { width: 64px; height: 64px; }
-            .logo-text-main { font-size: 18px; }
-        }
-
-        @media (max-width: 720px) {
-            .nav-inner { flex-direction: column; align-items: flex-start; }
-            nav ul { flex-wrap: wrap; justify-content: flex-start; }
-            .page-title { font-size: 28px; }
-        }
     </style>
 </head>
+
 <body>
+
 <header>
     <div class="container nav-inner">
         <div class="logo">
@@ -330,18 +302,17 @@
             <div class="card">
                 <h2 class="card-title">Kısa form doldurun, mail taslağına düşsün</h2>
                 <p class="card-text">
-                    Lütfen tesis / kurum bilgilerinizi mümkün olduğunca net yazın. Özellikle <strong>tesis tipi, şehir</strong> ve
-                    <strong> LifeGuard AI’yi hangi amaçla kullanmak istediğiniz</strong> bizim için önemli.
+                    Lütfen tesis / kurum bilgilerinizi mümkün olduğunca net yazın.
                 </p>
 
                 <form id="contact-form">
                     <div>
                         <label for="name">Ad / Kullanıcı adı</label>
-                        <input id="name" name="name" type="text" placeholder="Örn: Enes, LifeGuard ekibi, vb." required />
+                        <input id="name" name="name" type="text" required />
                     </div>
                     <div>
                         <label for="email">E-posta adresiniz</label>
-                        <input id="email" name="email" type="email" placeholder="ornek@kurum.com" required />
+                        <input id="email" name="email" type="email" required />
                     </div>
                     <div>
                         <label for="facility">Kurum / Tesis tipi</label>
@@ -355,7 +326,7 @@
                     </div>
                     <div>
                         <label for="message">Kısaca talebiniz</label>
-                        <textarea id="message" name="message" placeholder="Pilot proje, iş birliği, fikir paylaşımı vb."></textarea>
+                        <textarea id="message" name="message"></textarea>
                     </div>
 
                     <button type="submit" class="btn-primary">E-posta taslağı oluştur</button>
@@ -364,19 +335,12 @@
 
             <aside class="card">
                 <h2 class="card-title">Doğrudan e-posta ile ulaşmak isterseniz</h2>
-                <p class="card-text contact-meta">
-                    Proje ile ilgili iletişim adresleri:
+                <p class="card-text">
+                    Proje iletişim adresi:
                 </p>
-                <div class="email-list">
-                    <p><strong>Yetkili proje e-postaları</strong></p>
-                    <p><a href="mailto:lifeguardyigitcanacar018@gmail.com">lifeguardyigitcanacar018@gmail.com</a></p>
-                    <p><a href="mailto:lifeguardefeguney018@gmail.com">lifeguardefeguney018@gmail.com</a></p>
-                </div>
 
-                <p class="card-text" style="margin-top:16px;">
-                    Bu adresler, sadece LifeGuard AI konsept projesi kapsamında kullanılmaktadır.
-                    Ticari ürünleşme aşamasında kurumsal iletişim kanalları ayrıca tanımlanacaktır.
-                </p>
+                <p><a href="mailto:lifeguardai8@gmail.com">lifeguardai8@gmail.com</a></p>
+
             </aside>
         </div>
     </section>
@@ -384,7 +348,7 @@
 
 <footer>
     <div class="container">
-        © 2025 LifeGuard AI konsept projesi. Bu site, proje fikrini ve tasarımını tanıtmak için hazırlanmış demo arayüzdür.
+        © 2025 LifeGuard AI Konsept Projesi
     </div>
 </footer>
 
@@ -408,12 +372,15 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         "Bu e-posta LifeGuard AI web formu üzerinden oluşturulmuştur."
     ];
 
-    const body = encodeURIComponent(bodyLines.join("\\n"));
-    const mailto = "mailto:lifeguardyigitcanacar018@gmail.com,lifeguardefeguney018@gmail.com"
+    const body = encodeURIComponent(bodyLines.join("\n"));
+
+    /* ✔️ SADECE BU SATIR GÜNCELLENDİ */
+    const mailto = "mailto:lifeguardai8@gmail.com"
         + "?subject=" + subject + "&body=" + body;
 
     window.location.href = mailto;
 });
 </script>
+
 </body>
 </html>
