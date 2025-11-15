@@ -603,9 +603,28 @@
 
       .hero-title {
         font-size: 32px;
-      }
+        }
     }
-  </style>
+
+/* === LifeGuard AI saat görseli === */
+.watch-hero-image {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 24px;
+  filter:
+    drop-shadow(0 18px 35px rgba(0, 0, 0, 0.9))
+    drop-shadow(0 0 24px rgba(255, 122, 26, 0.5));
+}
+
+@media (max-width: 768px) {
+  .watch-hero-image {
+    max-width: 260px;
+  }
+}
+
+</style>
 </head>
 <body>
 <header>
