@@ -20,7 +20,22 @@
             --text-muted: #8b8b95;
             --border-subtle: rgba(255, 255, 255, 0.06);
         }
-
+.lang-select {
+    background: transparent;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--text-soft);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.lang-select::-ms-expand {
+    display: none;
+}
         * {
             box-sizing: border-box;
             margin: 0;
@@ -357,15 +372,24 @@
             </div>
         </div>
 
-        <nav>
-            <ul>
-                <li><a class="nav-link" href="index.html">Saat</a></li>
-                <li><a class="nav-link active" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
-                <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
-                <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
-                <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
-            </ul>
-        </nav>
+       <nav>
+    <ul>
+        <li><a class="nav-link" href="index.html">Saat</a></li>
+        <li><a class="nav-link active" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
+        <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
+        <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
+
+        <!-- DİL SEÇİCİ -->
+        <li>
+            <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+                <option value="ne-yapiyor.html" selected>TR</option>
+                <option value="ne-yapiyor-en.html">EN</option>
+            </select>
+        </li>
+
+        <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
+    </ul>
+</nav>
     </div>
 </header>
 
