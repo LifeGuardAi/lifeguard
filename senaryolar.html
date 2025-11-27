@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LifeGuard AI – Senaryolar</title>
+    <title>LifeGuard AI – Scenarios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -117,62 +117,58 @@
         }
 
         .nav-link {
-    font-size: 14px;
-    color: var(--text-soft);
-    padding: 10px 18px;          /* Sabit yükseklik / genişlik */
-    border-radius: 999px;
-    transition: all 0.18s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    white-space: nowrap;
-}
+            font-size: 14px;
+            color: var(--text-soft);
+            padding: 10px 18px;          /* fixed height / width */
+            border-radius: 999px;
+            transition: all 0.18s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            white-space: nowrap;
+        }
 
-/* Hover efekti */
-.nav-link:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.04);
-}
+        .nav-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.04);
+        }
 
-/* Aktif (turuncu) buton */
-.nav-link.active {
-    background: var(--accent-orange);
-    color: #050506;
-    font-weight: 600;
-    box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
-    padding: 10px 18px;   /* Aktifte de padding aynı kalıyor */
-}
+        .nav-link.active {
+            background: var(--accent-orange);
+            color: #050506;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
+            padding: 10px 18px;
+        }
 
-/* LifeGuard AI Projesi butonu */
-.nav-cta {
-    padding: 8px 18px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    font-size: 13px;
-    color: var(--accent-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    white-space: nowrap;
-}
+        .nav-cta {
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            font-size: 13px;
+            color: var(--accent-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            white-space: nowrap;
+        }
 
-/* Dil seçici */
-.lang-select {
-    background: transparent;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    padding: 6px 12px;
-    font-size: 13px;
-    color: var(--text-soft);
-    cursor: pointer;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-}
+        .lang-select {
+            background: transparent;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            padding: 6px 12px;
+            font-size: 13px;
+            color: var(--text-soft);
+            cursor: pointer;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
 
-.lang-select::-ms-expand {
-    display: none;
-}
+        .lang-select::-ms-expand {
+            display: none;
+        }
 
         main {
             max-width: 1200px;
@@ -281,105 +277,100 @@
                         <span>LIFEGUARD</span>
                         <span>AI</span>
                     </div>
-                    <div class="logo-text-sub">SMARTHEALTH WATCH · SAĞLIK &amp; GÜVENLİK</div>
+                    <div class="logo-text-sub">SMARTHEALTH WATCH · SAFETY &amp; SECURITY</div>
                 </div>
             </div>
         </div>
 
-     <nav>
-    <ul>
-        <li><a class="nav-link" href="index.html">Saat</a></li>
-        <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
-        <li><a class="nav-link active" href="senaryolar.html">Senaryolar</a></li>
-        <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
+        <nav>
+            <ul>
+                <li><a class="nav-link" href="index-en.html">Watch</a></li>
+                <li><a class="nav-link" href="ne-yapiyor-en.html">What It Does?</a></li>
+                <li><a class="nav-link active" href="senaryolar-en.html">Scenarios</a></li>
+                <li><a class="nav-link" href="iletisim-en.html">Contact</a></li>
 
-        <!-- LifeGuard Projesi butonu -->
-        <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
+                <li><span class="nav-cta">LifeGuard AI Project</span></li>
 
-        <!-- Dil seçici -->
-        <li>
-            <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
-                <option value="senaryolar.html" selected>TR</option>
-                <option value="senaryolar-en.html">EN</option>
-            </select>
-        </li>
-    </ul>
-</nav>
+                <li>
+                    <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+                        <option value="senaryolar.html">TR</option>
+                        <option value="senaryolar-en.html" selected>EN</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
     </div>
 </header>
 
 <main>
     <section class="container">
-        <div class="page-eyebrow">Senaryolar · Demo Akışları</div>
+        <div class="page-eyebrow">Scenarios · Demo Flows</div>
         <h1 class="page-title">
-            LifeGuard AI, <span class="highlight">hangi durumlarda devreye giriyor?</span>
+            When does LifeGuard AI <span class="highlight">step in?</span>
         </h1>
         <p class="page-intro">
-            Aşağıdaki akışlar, LifeGuard AI SmartHealth Watch’ın <strong>olası riskli durumlarda</strong> nasıl davranacağını
-            anlatan konsept senaryolardır. Gerçek ürün geliştirildiğinde ayrıntılar değişebilir.
+            The flows below describe how the LifeGuard AI SmartHealth Watch behaves in
+            <strong>potentially risky situations</strong>. Details may change as the real product is developed.
         </p>
 
         <div class="scenario-grid">
-            <!-- Senaryo 1 -->
+            <!-- Scenario 1 -->
             <article class="scenario-card">
-                <div class="scenario-kicker">Senaryo 1</div>
-                <h2 class="scenario-title">Düşme &amp; bayılma şüphesi</h2>
+                <div class="scenario-kicker">Scenario 1</div>
+                <h2 class="scenario-title">Fall &amp; fainting suspicion</h2>
                 <p class="scenario-text">
-                    Kullanıcı evde, sokakta ya da işte yürürken aniden dengesini kaybedip yere düşüyor
-                    ve belirli bir süre hareketsiz kalıyor.
+                    The user suddenly loses balance and falls at home, outside, or at work
+                    and remains motionless for a certain period of time.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Ani ivme + sert darbe + ardından uzun süreli hareketsizlik verisini algılar.</div>
-                    <div><span>LifeGuard AI:</span> “Düşme şüphesi” senaryosunu tetikler, yanlış alarm ihtimalini azaltmak için kısa bir izleme penceresi uygular.</div>
-                    <div><span>Panel:</span> Aile uygulamasında ilgili kişi öncelikli olarak işaretlenir; konum bilgisiyle birlikte
-                        yakınlara bildirim gider.</div>
+                    <div><span>Watch:</span> Detects sudden acceleration + strong impact + subsequent long-term inactivity.</div>
+                    <div><span>LifeGuard AI:</span> Triggers the “fall suspicion” scenario and applies a short observation window to reduce false alarms.</div>
+                    <div><span>Panel:</span> The related person is highlighted with priority in the family app; a notification is sent to relatives together with location data.</div>
                 </div>
             </article>
 
-            <!-- Senaryo 2 -->
+            <!-- Scenario 2 -->
             <article class="scenario-card">
-                <div class="scenario-kicker">Senaryo 2</div>
-                <h2 class="scenario-title">Uzun süreli hareketsizlik &amp; riskli durum</h2>
+                <div class="scenario-kicker">Scenario 2</div>
+                <h2 class="scenario-title">Prolonged inactivity &amp; risky situation</h2>
                 <p class="scenario-text">
-                    Özellikle yaşlılar, yalnız yaşayanlar veya kronik hastalığı olan kişiler için, uzun süre hareketsiz kalmak
-                    potansiyel bir risk oluşturabilir.
+                    For elderly people, people living alone or those with chronic conditions,
+                    staying inactive for a long time can pose a potential risk.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Belirli bir süre boyunca çok düşük hareket ve aynı pozisyonda kalma durumunu takip eder.</div>
-                    <div><span>LifeGuard AI:</span> “Hareketsizlik riski” eşiği aşılırsa uyarı üretir ve durumu olası risk olarak işaretler.</div>
-                    <div><span>Panel:</span> Yakınların paneli / mobil uygulamasında kullanıcı için “hareketsizlik uyarısı” görünür; isterlerse arama yapabilir veya yanına gidebilirler.</div>
+                    <div><span>Watch:</span> Monitors very low movement and staying in the same position for a defined period.</div>
+                    <div><span>LifeGuard AI:</span> When the “inactivity risk” threshold is exceeded, it produces an alert and flags the situation as a possible risk.</div>
+                    <div><span>Panel:</span> An “inactivity alert” is shown in the relatives’ panel / mobile app; they can call the user or go to check on them if needed.</div>
                 </div>
             </article>
 
-            <!-- Senaryo 3 -->
+            <!-- Scenario 3 -->
             <article class="scenario-card">
-                <div class="scenario-kicker">Senaryo 3</div>
-                <h2 class="scenario-title">Ateş / genel durum bozulması</h2>
+                <div class="scenario-kicker">Scenario 3</div>
+                <h2 class="scenario-title">Fever / overall condition deterioration</h2>
                 <p class="scenario-text">
-                    Kullanıcının vücut sıcaklığı normal aralığın üzerine çıkar ya da kısa sürede hızlı bir artış gösterirse,
-                    sistem bunu ateş şüphesi olarak yorumlar.
+                    If the user’s body temperature rises above the normal range or shows
+                    a rapid increase in a short time, the system interprets this as a possible fever.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Cilt sıcaklığı, nabız ve genel aktivite verisini düzenli aralıklarla takip eder.</div>
-                    <div><span>LifeGuard AI:</span> Eşik değerleri aşıldığında “ateş erken uyarısı” oluşturur ve durumu kaydeder.</div>
-                    <div><span>Panel:</span> Kullanıcının bilgisi ile birlikte yakınlara veya yetkili sağlık takipçisine uyarı gönderilir;
-                        gerekirse doktora başvuru için not alınabilir.</div>
+                    <div><span>Watch:</span> Regularly tracks skin temperature, heart rate and overall activity data.</div>
+                    <div><span>LifeGuard AI:</span> When thresholds are exceeded, it creates a “fever early warning” and logs the situation.</div>
+                    <div><span>Panel:</span> An alert is sent to relatives or an authorized health follower together with the user’s information; a note can be kept for visiting a doctor if necessary.</div>
                 </div>
             </article>
 
-            <!-- Senaryo 4 -->
+            <!-- Scenario 4 -->
             <article class="scenario-card">
-                <div class="scenario-kicker">Senaryo 4</div>
-                <h2 class="scenario-title">GPS alan dışı &amp; kaybolma riski</h2>
+                <div class="scenario-kicker">Scenario 4</div>
+                <h2 class="scenario-title">Out of GPS zone &amp; risk of getting lost</h2>
                 <p class="scenario-text">
-                    Çocuk, yaşlı veya özel takip altında olan bir kullanıcı, tanımlı güvenli alanın dışına çıktığında
-                    sistem bu durumu algılar.
+                    When a child, elderly person or a user under special follow-up leaves the predefined
+                    safe area, the system detects this situation.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Tanımlanan güvenli bölge sınırlarının dışına çıkıldığında konum bilgisini günceller.</div>
-                    <div><span>LifeGuard AI:</span> “Alan dışı” olasılığını hesaplar, yanlış alarm ihtimalini azaltmak için kısa süreli kontrol yapar.</div>
-                    <div><span>Panel:</span> Aile uygulamasında “alan dışı uyarısı” belirir; harita üzerinden son konum gösterilir ve
-                        gerekli aksiyon (arama, mesaj, yanına gitme vb.) planlanabilir.</div>
+                    <div><span>Watch:</span> Updates the location information when the user goes outside the boundaries of the defined safe zone.</div>
+                    <div><span>LifeGuard AI:</span> Calculates the “out-of-zone” probability and performs a short check period to reduce false alarms.</div>
+                    <div><span>Panel:</span> An “out-of-zone alert” appears in the family app; the last position is shown on the map and the necessary action (calling, messaging, going to the location, etc.) can be planned.</div>
                 </div>
             </article>
         </div>
@@ -388,7 +379,7 @@
 
 <footer>
     <div class="container">
-          © 2025 LifeGuard AI. Bu sayfa ürün tanıtım arayüzüdür; teknik bilgiler geliştirme sürecinde güncellenebilir.
+        © 2025 LifeGuard AI. This page is a product demo interface; technical details may be updated during development.
     </div>
 </footer>
 </body>
