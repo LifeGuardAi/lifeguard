@@ -130,41 +130,47 @@
         }
 
         nav ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 14px;
-        }
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 22px; /* biraz daha hava verdik */
+}
 
-        .nav-link {
-            font-size: 14px;
-            color: var(--text-soft);
-            padding: 8px 14px;
-            border-radius: 999px;
-            transition: all 0.18s ease;
-        }
+       .nav-link {
+    font-size: 14px;
+    color: var(--text-soft);
+    padding: 10px 18px;  /* Sabit yükseklik/padding */
+    border-radius: 999px;
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;        /* Yüksekliği sabitleyen kısım */
+    white-space: nowrap;   /* Kesilmesin */
+}
 
         .nav-link:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.04);
-        }
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.04);
+}
 
-        .nav-link.active {
-            background: var(--accent-orange);
-            color: #050506;
-            font-weight: 600;
-            box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
-        }
+      .nav-link.active {
+    background: var(--accent-orange);
+    color: #050506;
+    font-weight: 600;
+    box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
+    padding: 10px 18px;    /* EN KRİTİK KISIM — DEĞİŞMEDİ */
+}
 
-       .nav-cta {
-    padding: 8px 16px;
+    .nav-cta {
+    padding: 8px 18px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.16);
     font-size: 13px;
     color: var(--accent-soft);
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    white-space: nowrap;   /* 🔹 BUNU EKLE */
+    white-space: nowrap;
 }
         main {
             max-width: 1200px;
