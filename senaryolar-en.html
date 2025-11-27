@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeGuard AI – Scenarios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ------------- ROOT COLORS ------------- */
+        :root {
+            --bg-main: #050506;
+            --bg-elevated: #111118;
+            --bg-soft: #17161d;
+
+            --accent-orange: #ff9b3b;
+            --accent-orange-dark: #e27b23;
+            --accent-soft: #ffcf8a;
+
+            --text-main: #f5f5f7;
+            --text-soft: #c6c6cf;
+            --text-muted: #8b8b95;
+
+            --border-subtle: rgba(255, 255, 255, 0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Montserrat", system-ui, sans-serif;
+            background: radial-gradient(circle at top, #151821 0%, #050506 45%, #040404 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* ---------- NAV ---------- */
+        header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(to bottom, #050506, rgba(5,5,6,0.9));
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 22px;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            color: var(--text-soft);
+            padding: 10px 18px;
+            border-radius: 999px;
+            transition: all 0.18s ease;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .nav-link.active {
+            background: var(--accent-orange);
+            color: #050506;
+            font-weight: 600;
+            box-shadow: 0 0 18px rgba(255,155,59,0.35);
+        }
+
+        .nav-cta {
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.16);
+            font-size: 13px;
+            color: var(--accent-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            white-space: nowrap;
+        }
+
+        /* ---------- LANGUAGE SELECT ---------- */
+        .lang-select {
+            background: transparent;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 6px 12px;
+            font-size: 13px;
+            color: var(--text-soft);
+            cursor: pointer;
+        }
+
+        .lang-select option {
+            background: #050506;
+        }
+
+        /* ---------- MAIN ---------- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 120px;
+        }
+
+        .page-eyebrow {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .page-title {
+            font-size: 38px;
+            margin-bottom: 16px;
+        }
+
+        .page-title span {
+            color: var(--accent-orange);
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .scenario-card {
+            background: radial-gradient(circle at top left, #23202a, #111118);
+            border-radius: 22px;
+            border: 1px solid var(--border-subtle);
+            padding: 18px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+        }
+
+        .scenario-kicker {
+            font-size: 11px;
+            color: var(--accent-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 4px;
+        }
+
+        .scenario-title {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .scenario-text {
+            font-size: 13px;
+            color: var(--text-soft);
+            margin-bottom: 10px;
+        }
+
+        .scenario-flow {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .scenario-flow span {
+            color: var(--accent-soft);
+        }
+
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 18px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-inner">
+        <nav>
+            <ul>
+                <li><a class="nav-link" href="index-en.html">Watch</a></li>
+                <li><a class="nav-link" href="ne-yapiyor-en.html">What It Does?</a></li>
+                <li><a class="nav-link active" href="senaryolar-en.html">Scenarios</a></li>
+                <li><a class="nav-link" href="iletisim-en.html">Contact</a></li>
+
+                <li><span class="nav-cta">LifeGuard AI Project</span></li>
+
+                <li>
+                    <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+                        <option value="senaryolar-en.html" selected>EN</option>
+                        <option value="senaryolar.html">TR</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="page-eyebrow">Scenarios · Demo Flows</div>
+    <h1 class="page-title">When does <span>LifeGuard AI</span> take action?</h1>
+    <p class="page-intro">Below are conceptual scenarios showing how LifeGuard AI SmartHealth Watch behaves in possible risky situations.</p>
+
+    <div class="scenario-grid">
+
+        <!-- Scenario 1 -->
+        <article class="scenario-card">
+            <div class="scenario-kicker">Scenario 1</div>
+            <h2 class="scenario-title">Fall & Unconsciousness Detection</h2>
+            <p class="scenario-text">The user loses balance and falls, becoming motionless for a period of time.</p>
+            <div class="scenario-flow">
+                <div><span>Watch:</span> Detects sudden acceleration + impact + long inactivity.</div>
+                <div><span>LifeGuard AI:</span> Triggers “fall suspicion”.</div>
+                <div><span>Panel:</span> User is marked and displayed on staff dashboard with location.</div>
+            </div>
+        </article>
+
+        <!-- Scenario 2 -->
+        <article class="scenario-card">
+            <div class="scenario-kicker">Scenario 2</div>
+            <h2 class="scenario-title">Extended Inactivity & Risk in Water</h2>
+            <p class="scenario-text">Long inactivity in water may indicate danger, especially for children or non-swimmers.</p>
+            <div class="scenario-flow">
+                <div><span>Watch:</span> Measures low movement + abnormal water-floating posture.</div>
+                <div><span>LifeGuard AI:</span> Issues alert if "inactivity risk" threshold is exceeded.</div>
+                <div><span>Panel:</span> Device becomes red on lifeguard screen.</div>
+            </div>
+        </article>
+
+        <!-- Scenario 3 -->
+        <article class="scenario-card">
+            <div class="scenario-kicker">Scenario 3</div>
+            <h2 class="scenario-title">Fever / Health Deterioration</h2>
+            <p class="scenario-text">A sudden rise in skin temperature or abnormal health metrics may indicate early fever.</p>
+            <div class="scenario-flow">
+                <div><span>Watch:</span> Continuously monitors temperature and vitals.</div>
+                <div><span>LifeGuard AI:</span> Creates a pre-fever alert if threshold is exceeded.</div>
+                <div><span>Panel:</span> Alerts medical staff or reception with location info.</div>
+            </div>
+        </article>
+
+        <!-- Scenario 4 -->
+        <article class="scenario-card">
+            <div class="scenario-kicker">Scenario 4</div>
+            <h2 class="scenario-title">GPS Out-of-Zone & Leaving Area</h2>
+            <p class="scenario-text">If a monitored guest leaves the defined safe area, the system detects it instantly.</p>
+            <div class="scenario-flow">
+                <div><span>Watch:</span> Updates GPS data when leaving the defined zone.</div>
+                <div><span>LifeGuard AI:</span> Calculates “out-of-zone” probability with false-alarm filtering.</div>
+                <div><span>Panel:</span> Shows “Out-of-zone Warning” with necessary action notes.</div>
+            </div>
+        </article>
+
+    </div>
+</main>
+
+<footer>
+    © 2025 LifeGuard AI — Demo interface. Technical details may change during development.
+</footer>
+
+</body>
+</html>
