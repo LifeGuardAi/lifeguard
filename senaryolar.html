@@ -147,10 +147,11 @@
         }
 
         main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 120px 24px 120px;
-}
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 120px;
+        }
+
         .page-eyebrow {
             font-size: 12px;
             text-transform: uppercase;
@@ -281,57 +282,66 @@
         </p>
 
         <div class="scenario-grid">
+            <!-- Senaryo 1 -->
             <article class="scenario-card">
                 <div class="scenario-kicker">Senaryo 1</div>
                 <h2 class="scenario-title">Düşme &amp; bayılma şüphesi</h2>
                 <p class="scenario-text">
-                    Kullanıcı havuz kenarında aniden dengesini kaybedip yere düşüyor ve belirli bir süre hareketsiz kalıyor.
+                    Kullanıcı evde, sokakta ya da işte yürürken aniden dengesini kaybedip yere düşüyor
+                    ve belirli bir süre hareketsiz kalıyor.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Ani ivme + sert darbe + ardından uzun hareketsizlik verisini algılar.</div>
-                    <div><span>LifeGuard AI:</span> “Düşme şüphesi” senaryosunu tetikler.</div>
-                    <div><span>Panel:</span> Ekranda ilgili misafir öncelikli olarak işaretlenir, konum bilgisiyle birlikte
-                        cankurtaran veya görevliye bildirim düşer.</div>
+                    <div><span>Saat:</span> Ani ivme + sert darbe + ardından uzun süreli hareketsizlik verisini algılar.</div>
+                    <div><span>LifeGuard AI:</span> “Düşme şüphesi” senaryosunu tetikler, yanlış alarm ihtimalini azaltmak için kısa bir izleme penceresi uygular.</div>
+                    <div><span>Panel:</span> Aile uygulamasında ilgili kişi öncelikli olarak işaretlenir; konum bilgisiyle birlikte
+                        yakınlara bildirim gider.</div>
                 </div>
             </article>
 
+            <!-- Senaryo 2 -->
             <article class="scenario-card">
                 <div class="scenario-kicker">Senaryo 2</div>
-                <h2 class="scenario-title">Uzun süreli hareket etmeme &amp; suda risk</h2>
+                <h2 class="scenario-title">Uzun süreli hareketsizlik &amp; riskli durum</h2>
                 <p class="scenario-text">
-                    Özellikle çocuklar ve iyi yüzme bilmeyenler için, su içinde uzun süre aynı pozisyonda kalmak riskli olabilir.
+                    Özellikle yaşlılar, yalnız yaşayanlar veya kronik hastalığı olan kişiler için, uzun süre hareketsiz kalmak
+                    potansiyel bir risk oluşturabilir.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Suya girildikten sonra belirli bir süre boyunca düşük hareket + alışılmadık pozisyon verisi toplar.</div>
-                    <div><span>LifeGuard AI:</span> “Hareketsizlik riski” eşiği aşılırsa uyarı üretir.</div>
-                    <div><span>Panel:</span> İlgili saat kırmızı duruma düşer, cankurtaran ekranında öne çıkar.</div>
+                    <div><span>Saat:</span> Belirli bir süre boyunca çok düşük hareket ve aynı pozisyonda kalma durumunu takip eder.</div>
+                    <div><span>LifeGuard AI:</span> “Hareketsizlik riski” eşiği aşılırsa uyarı üretir ve durumu olası risk olarak işaretler.</div>
+                    <div><span>Panel:</span> Yakınların paneli / mobil uygulamasında kullanıcı için “hareketsizlik uyarısı” görünür; isterlerse arama yapabilir veya yanına gidebilirler.</div>
                 </div>
             </article>
 
+            <!-- Senaryo 3 -->
             <article class="scenario-card">
                 <div class="scenario-kicker">Senaryo 3</div>
                 <h2 class="scenario-title">Ateş / genel durum bozulması</h2>
                 <p class="scenario-text">
-                    Kullanıcının vücut sıcaklığı normal dışı değerlere yaklaşır veya kısa sürede hızlı yükselirse,
-                    sistem ateş şüphesi olarak yorumlar.
+                    Kullanıcının vücut sıcaklığı normal aralığın üzerine çıkar ya da kısa sürede hızlı bir artış gösterirse,
+                    sistem bunu ateş şüphesi olarak yorumlar.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Cilt sıcaklığı ve genel durum verisini düzenli aralıklarla takip eder.</div>
-                    <div><span>LifeGuard AI:</span> Eşik değeri aşıldığında “ateş erken uyarı” bildirimi oluşturur.</div>
-                    <div><span>Panel:</span> Misafirin bilgisi ve konumu ile birlikte sağlık ekibine / resepsiyona uyarı düşer.</div>
+                    <div><span>Saat:</span> Cilt sıcaklığı, nabız ve genel aktivite verisini düzenli aralıklarla takip eder.</div>
+                    <div><span>LifeGuard AI:</span> Eşik değerleri aşıldığında “ateş erken uyarısı” oluşturur ve durumu kaydeder.</div>
+                    <div><span>Panel:</span> Kullanıcının bilgisi ile birlikte yakınlara veya yetkili sağlık takipçisine uyarı gönderilir;
+                        gerekirse doktora başvuru için not alınabilir.</div>
                 </div>
             </article>
 
+            <!-- Senaryo 4 -->
             <article class="scenario-card">
                 <div class="scenario-kicker">Senaryo 4</div>
-                <h2 class="scenario-title">GPS alan dışı &amp; ayrılma</h2>
+                <h2 class="scenario-title">GPS alan dışı &amp; kaybolma riski</h2>
                 <p class="scenario-text">
-                    Çocuk veya özel takip altında olan bir misafir, tanımlı güvenli alanın dışına çıktığında sistem bunu algılar.
+                    Çocuk, yaşlı veya özel takip altında olan bir kullanıcı, tanımlı güvenli alanın dışına çıktığında
+                    sistem bu durumu algılar.
                 </p>
                 <div class="scenario-flow">
-                    <div><span>Saat:</span> Tanımlı tesis sınırlarının dışına çıkıldığında GPS verisini günceller.</div>
-                    <div><span>LifeGuard AI:</span> “Alan dışı” olasılığını hesaplar, yanlış alarm filtrelerini uygular.</div>
-                    <div><span>Panel:</span> Personel ekranında “Alan dışı uyarısı” belirir, gerekli aksiyon notu eklenebilir.</div>
+                    <div><span>Saat:</span> Tanımlanan güvenli bölge sınırlarının dışına çıkıldığında konum bilgisini günceller.</div>
+                    <div><span>LifeGuard AI:</span> “Alan dışı” olasılığını hesaplar, yanlış alarm ihtimalini azaltmak için kısa süreli kontrol yapar.</div>
+                    <div><span>Panel:</span> Aile uygulamasında “alan dışı uyarısı” belirir; harita üzerinden son konum gösterilir ve
+                        gerekli aksiyon (arama, mesaj, yanına gitme vb.) planlanabilir.</div>
                 </div>
             </article>
         </div>
