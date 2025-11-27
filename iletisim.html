@@ -172,21 +172,21 @@
 
         /* Dil seçici */
         .lang-select {
-            background: transparent;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            padding: 6px 12px;
-            font-size: 13px;
-            color: var(--text-soft);
-            cursor: pointer;
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-        }
+    background: transparent;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 6px 12px;
+    font-size: 13px;
+    color: var(--text-soft);
+    cursor: pointer;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
 
-        .lang-select::-ms-expand {
-            display: none;
-        }
+.lang-select::-ms-expand {
+    display: none;
+}
 
         /* ---------- MAIN LAYOUT ---------- */
 
@@ -481,20 +481,24 @@
         </div>
 
         <nav>
-            <ul>
-                <li><a class="nav-link" href="index.html">Saat</a></li>
-                <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
-                <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
-                <li><a class="nav-link active" href="iletisim.html">Ulaş</a></li>
-                <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
-                <li>
-                    <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
-                        <option value="iletisim.html" selected>TR</option>
-                        <option value="iletisim-en.html">EN</option>
-                    </select>
-                </li>
-            </ul>
-        </nav>
+    <ul>
+        <li><a class="nav-link" href="index.html">Saat</a></li>
+        <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
+        <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
+        <li><a class="nav-link active" href="iletisim.html">Ulaş</a></li>
+
+        <!-- LifeGuard Projesi butonu -->
+        <li><span class="nav-cta">LifeGuard AI Projesi</span></li>
+
+        <!-- Dil seçici -->
+        <li>
+            <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+                <option value="iletisim.html" selected>TR</option>
+                <option value="iletisim-en.html">EN</option>
+            </select>
+        </li>
+    </ul>
+</nav>
     </div>
 </header>
 
