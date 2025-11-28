@@ -121,16 +121,12 @@
     }
 
     nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 40px; /* Menü aralıkları */
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li:last-child {
-    margin-left: auto;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 32px;           /* Menü elemanları arası boşluk */
+  margin-left: auto;   /* Menü grubunu logo'dan sağa iter */
+  padding: 0;
 }
 
     .nav-link {
@@ -155,26 +151,24 @@ nav ul li:last-child {
     }
 
     .nav-cta {
-    margin-left: 10px;
-    margin-right: 0;   /* ⭐ EKLENECEK SATIR */
-    padding: 9px 28px;
-    border-radius: 999px;
-    border: 1px solid var(--accent-orange-dark);
-    font-size: 13px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--accent-orange-dark);
-    background: transparent;
-    font-weight: 500;
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  margin-left: 10px;
+  padding: 9px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-orange-dark);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-orange-dark);
+  background: transparent;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
-
     
 .lang-select {
   background: transparent;
   border-radius: 999px !important;
   border: 1px solid rgba(255, 255, 255, 0.16) !important;
-  padding: 8px 18px !important; /* nav-cta ile aynı yükseklik */
+  padding: 8px 18px !important;   /* nav-cta ile aynı yükseklik */
   font-size: 13px !important;
   color: var(--text-muted);
   cursor: pointer;
@@ -688,8 +682,6 @@ nav ul li:last-child {
     <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
     <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
     <li><span class="nav-cta">LIFEGUARD AI PROJESİ</span></li>
-
-    <!-- Dil menüsü -->
     <li>
       <select class="lang-select"
               onchange="if(this.value) window.location.href=this.value">
