@@ -177,24 +177,24 @@
 
         /* Dil seçici */
        .lang-select {
-    background: transparent;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    padding: 8px 18px;          /* nav-cta ile aynı yükseklik */
-    font-size: 13px;
-    color: var(--accent-soft);  /* Daha belirgin sarı */
+    background: transparent !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    padding: 8px 18px !important;     /* nav-cta ile aynı yükseklik */
+    font-size: 13px !important;
+    color: var(--accent-soft) !important;
     cursor: pointer;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
     line-height: 1;
-    white-space: nowrap;        /* TR / EN kesilmesin */
+    white-space: nowrap;
+    width: auto !important;
 }
 
 .lang-select::-ms-expand {
     display: none;
 }
-
 
         /* ---------- MAIN LAYOUT ---------- */
 
@@ -500,11 +500,11 @@
 
                 <!-- Dil seçici -->
                 <li>
-                    <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
-                        <option value="iletisim.html" selected>TR</option>
-                        <option value="iletisim-en.html">EN</option>
-                    </select>
-                </li>
+    <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+        <option value="iletisim.html" selected>TR</option>
+        <option value="iletisim-en.html">EN</option>
+    </select>
+</li>
             </ul>
         </nav>
     </div>
