@@ -673,18 +673,24 @@
       </div>
     </div>
 
-    <nav>
+   <nav>
   <ul>
-    <li><a class="nav-link active" href="index.html">Saat</a></li>
+    <li><a class="nav-link" href="index.html">Saat</a></li>
     <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
     <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
     <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
     <li><span class="nav-cta">LIFEGUARD AI PROJESİ</span></li>
 
-    <!-- Dil seçici -->
-    <li><a href="index-en.html" class="lang-select">EN</a></li>
+    <!-- Dil seçici tam buraya -->
+    <li>
+      <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+          <option value="index.html" selected>TR</option>
+          <option value="index-en.html">EN</option>
+      </select>
+    </li>
   </ul>
 </nav>
+
   </div>
 </header>
 
