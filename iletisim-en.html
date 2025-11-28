@@ -177,20 +177,20 @@
 
 /* Dil butonu (EN) */
 .lang-select {
-    background: transparent;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    padding: 8px 18px;
-    font-size: 13px;
-      color: var(--text-soft);
-    cursor: default;           /* İngilizce sayfada aktif dil */
-    line-height: 1;
-    white-space: nowrap;
+    background: transparent !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    padding: 8px 18px !important;
+    font-size: 13px !important;
+    color: var(--text-soft) !important;
+    cursor: pointer;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+    line-height: 1;
+    white-space: nowrap;
+    width: auto !important;
 }
-
 .lang-select::-ms-expand {
     display: none;
 }
@@ -495,7 +495,12 @@
     <li><a class="nav-link active" href="iletisim-en.html">Contact</a></li>
 
     <li><span class="nav-cta">LIFEGUARD AI PROJECT</span></li>
-    <li><span class="lang-select">EN</span></li>
+   <li>
+    <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+        <option value="iletisim.html">TR</option>
+        <option value="iletisim-en.html" selected>EN</option>
+    </select>
+</li>
   </ul>
 </nav>
     </div>
