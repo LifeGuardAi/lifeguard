@@ -163,7 +163,24 @@
       font-weight: 500;
       transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     }
+.lang-select {
+  background: transparent;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 8px 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  line-height: 1;
+  white-space: nowrap;
+}
 
+.lang-select::-ms-expand {
+  display: none;
+}
     .nav-cta:hover {
       background: rgba(255, 155, 64, 0.08);
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.8);
@@ -657,14 +674,22 @@
     </div>
 
     <nav>
-      <ul>
-        <li><a class="nav-link" href="index.html">Saat</a></li>
-        <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
-        <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
-        <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
-        <li><span class="nav-cta">LIFEGUARD AI PROJESİ</span></li>
-      </ul>
-    </nav>
+  <ul>
+    <li><a class="nav-link active" href="index.html">Saat</a></li>
+    <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
+    <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
+    <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
+    <li><span class="nav-cta">LIFEGUARD AI PROJESİ</span></li>
+
+    <!-- Dil seçici -->
+    <li>
+  <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+    <option value="index.html">TR</option>
+    <option value="index-en.html" selected>EN</option>
+  </select>
+</li>
+  </ul>
+</nav>
   </div>
 </header>
 
