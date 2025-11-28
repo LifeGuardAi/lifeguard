@@ -681,8 +681,13 @@
     <li><a class="nav-link" href="iletisim-en.html">Contact</a></li>
     <li><span class="nav-cta">LIFEGUARD AI PROJECT</span></li>
 
-    <!-- DİL BUTONU -->
-    <li><a href="index.html" class="lang-select">TR</a></li>
+    <!-- Dil seçici -->
+    <li>
+      <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+          <option value="index-en.html" selected>EN</option>
+          <option value="index.html">TR</option>
+      </select>
+    </li>
   </ul>
 </nav>
   </div>
