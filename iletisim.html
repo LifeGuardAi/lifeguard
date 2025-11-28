@@ -176,22 +176,25 @@
 }
 
         /* Dil seçici */
-        .lang-select {
-            background: transparent;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            padding: 6px 12px;
-            font-size: 13px;
-            color: var(--text-soft);
-            cursor: pointer;
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-        }
+       .lang-select {
+    background: transparent;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 8px 18px;          /* nav-cta ile aynı yükseklik */
+    font-size: 13px;
+    color: var(--accent-soft);  /* Daha belirgin sarı */
+    cursor: pointer;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    line-height: 1;
+    white-space: nowrap;        /* TR / EN kesilmesin */
+}
 
-        .lang-select::-ms-expand {
-            display: none;
-        }
+.lang-select::-ms-expand {
+    display: none;
+}
+
 
         /* ---------- MAIN LAYOUT ---------- */
 
