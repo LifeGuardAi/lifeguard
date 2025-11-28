@@ -163,12 +163,13 @@
       font-weight: 500;
       transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     }
+    
 .lang-select {
   background: transparent;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 8px 18px;
-  font-size: 13px;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  padding: 8px 18px !important; /* nav-cta ile aynı yükseklik */
+  font-size: 13px !important;
   color: var(--text-muted);
   cursor: pointer;
   appearance: none;
@@ -176,6 +177,7 @@
   -webkit-appearance: none;
   line-height: 1;
   white-space: nowrap;
+  width: auto !important;
 }
 
 .lang-select::-ms-expand {
@@ -675,15 +677,16 @@
 
    <nav>
   <ul>
-    <li><a class="nav-link" href="index.html">Saat</a></li>
+    <li><a class="nav-link active" href="index.html">Saat</a></li>
     <li><a class="nav-link" href="ne-yapiyor.html">Ne Yapıyor?</a></li>
     <li><a class="nav-link" href="senaryolar.html">Senaryolar</a></li>
     <li><a class="nav-link" href="iletisim.html">Ulaş</a></li>
     <li><span class="nav-cta">LIFEGUARD AI PROJESİ</span></li>
 
-    <!-- Dil seçici -->
+    <!-- Dil menüsü -->
     <li>
-      <select class="lang-select" onchange="if(this.value) window.location.href=this.value">
+      <select class="lang-select"
+              onchange="if(this.value) window.location.href=this.value">
         <option value="index.html" selected>TR</option>
         <option value="index-en.html">EN</option>
       </select>
