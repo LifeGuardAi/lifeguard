@@ -127,17 +127,18 @@
             color: var(--text-muted);
         }
 
-        nav ul {
+       nav ul {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 22px; /* Türkçe sayfadaki ile aynı boşluk */
+    gap: 22px;                 /* Türkçe sayfadaki ile aynı */
 }
 
-        .nav-link {
+/* Tüm linkler aynı yükseklik/görünüm */
+.nav-link {
     font-size: 14px;
     color: var(--text-soft);
-    padding: 10px 18px;          /* Sabit yükseklik / genişlik */
+    padding: 10px 18px;        /* Sabit yükseklik/padding */
     border-radius: 999px;
     transition: all 0.18s ease;
     display: inline-flex;
@@ -147,48 +148,52 @@
     white-space: nowrap;
 }
 
-        .nav-link:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.04);
-        }
+/* Hover */
+.nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.04);
+}
 
-        .nav-link.active {
-            background: var(--accent-orange);
-            color: #050506;
-            font-weight: 600;
-            box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
-        }
+/* Aktif (turuncu) buton */
+.nav-link.active {
+    background: var(--accent-orange);
+    color: #050506;
+    font-weight: 600;
+    box-shadow: 0 0 18px rgba(255, 155, 59, 0.35);
+    padding: 10px 18px;        /* Aynı kalsın */
+}
 
-        .nav-cta {
-            padding: 8px 16px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            font-size: 13px;
-            color: var(--accent-soft);
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-        }
+/* LifeGuard AI Project butonu */
+.nav-cta {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 13px;
+    color: var(--accent-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+}
 
-        /* Language selector – same style as TR */
-        .lang-select {
-            background: transparent !important;
-            border-radius: 999px !important;
-            border: 1px solid rgba(255, 255, 255, 0.16) !important;
-            padding: 8px 18px !important; /* same height as nav-cta */
-            font-size: 13px !important;
-            color: var(--text-soft);
-            cursor: pointer;
-            appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            line-height: 1;
-            white-space: nowrap;
-            width: auto !important;
-        }
+/* Dil butonu (EN) */
+.lang-select {
+    background: transparent;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 8px 18px;
+    font-size: 13px;
+    color: var(--text-soft);
+    cursor: default;           /* İngilizce sayfada aktif dil */
+    line-height: 1;
+    white-space: nowrap;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
 
-        .lang-select::-ms-expand {
-            display: none;
-        }
+.lang-select::-ms-expand {
+    display: none;
+}
 
         /* ---------- MAIN LAYOUT ---------- */
 
